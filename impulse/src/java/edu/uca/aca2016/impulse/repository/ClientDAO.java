@@ -15,6 +15,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import edu.uca.aca2016.impulse.Client;
+import java.sql.PreparedStatement;
 
 /**
  *
@@ -29,7 +30,36 @@ public class ClientDAO {
     }
 
     public int save(Client client) {
-        String sql = "TBD";
+
+        String sql = "INSERT INTO impulse.client (`FirstName`, `LastName`, `Address1`, `Address2`, `City`, `State`, `Zip`, `Email`, `Phone`, `Status`)"
+                + "	VALUES (?, ?, ?, ?, ?, ?, ?, ?,? , ?)";
+        Object[] values = {client.getFirstName(), client.getLastName(), client.getAddress1(), client.getAddress2(), client.getCity(), client.getState(), client.getZip(), client.getEmail(), client.getPhone(), client.getStatus()};
+        return template.update(sql, values);
+    }
+
+    public int update(Client client) {
+        String sql = "UPDATE impluse.client SET (`FirstName`, `LastName`, `Address1`, `Address2`, `City`, `State`, `Zip`, `Email`, `Phone`, `Status`)"
+                + "	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" + "' WHERE ClientId = " + client.getClientid();
+        Object[] values = {client.getFirstName(), client.getLastName(), client.getAddress1(), client.getAddress2(), client.getCity(), client.getState(), client.getZip(), client.getEmail(), client.getPhone(), client.getStatus()};
+        return template.update(sql, values);
+    }
+
+    public int delete(int id) {
+        String sql = "DELETE FROM impluse.client WHERE ClientId=" + id + "";
         return template.update(sql);
+    }
+
+    public List<Client> getClientsList() {
+        return template.query("SELECT * FROM impluse.client", (ResultSet rs, int row) -> {
+            Client c = new Client();
+            c.setClientid(rs.getInt("ClientId"));
+            c.setFirstName(rs.getString("FirstName"));
+            return c;
+        });
+    }
+
+    public Client getClientById(int id) {
+        String sql = "SELECT ClientId AS id, Name FROM Client WHERE ClientId = ?";
+        return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<Client>(Client.class));
     }
 }
