@@ -6,7 +6,6 @@
 package edu.uca.aca2016.impulse.repository;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -15,7 +14,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import edu.uca.aca2016.impulse.Client;
-import java.sql.PreparedStatement;
 
 /**
  *
@@ -39,7 +37,7 @@ public class ClientDAO {
 
     public int update(Client client) {
         String sql = "UPDATE impluse.client SET (`FirstName`, `LastName`, `Address1`, `Address2`, `City`, `State`, `Zip`, `Email`, `Phone`, `Status`)"
-                + "	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" + "' WHERE ClientId = " + client.getClientid();
+                + "	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,)" + "' WHERE ClientId = " + client.getClientid();
         Object[] values = {client.getFirstName(), client.getLastName(), client.getAddress1(), client.getAddress2(), client.getCity(), client.getState(), client.getZip(), client.getEmail(), client.getPhone(), client.getStatus()};
         return template.update(sql, values);
     }
