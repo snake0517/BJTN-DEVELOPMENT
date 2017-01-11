@@ -11,7 +11,7 @@
   
   <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
     <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>  
-    <property name="url" value="Database URL	jdbc:mysql://localhost:3306/mysql?zeroDateTimeBehavior=convertToNull"></property>  
+    <property name="url" value="jdbc:mysql://localhost:3306/impulse?zeroDateTimeBehavior=convertToNull"></property>  
     <property name="username" value="root"></property>  
     <property name="password" value="jordan21"></property>  
   </bean>  
