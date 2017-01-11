@@ -11,7 +11,7 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
   
-  <context:component-scan base-package="edu.uca.aca2016.web"></context:component-scan>  
+  <context:component-scan base-package="edu.uca.aca2016.impulse.web"></context:component-scan>  
   
   <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
     <property name="prefix" value="/WEB-INF/jsp/"></property>  
