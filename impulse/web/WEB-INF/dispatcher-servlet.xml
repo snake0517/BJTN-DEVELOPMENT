@@ -22,7 +22,7 @@
     <property name="dataSource" ref="ds"></property>  
   </bean>  
   
-  <bean id="dao" class="edu.uca.aca2016.impluse.repository.ClientDAO">  
+  <bean id="dao" class="edu.uca.aca2016.impulse.repository.ClientDAO">  
     <property name="template" ref="jt"></property>  
   </bean>  
 </beans>

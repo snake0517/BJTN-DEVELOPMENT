@@ -41,7 +41,7 @@ public class ClientDAO {
         Object[] values = {client.getFirstName(), client.getLastName(), client.getAddress1(), client.getAddress2(), client.getCity(), client.getState(), client.getZip(), client.getEmail(), client.getPhone(), client.getStatus()};
         return template.update(sql, values);
     }
-
+ 
     public int delete(int id) {
         String sql = "DELETE FROM impluse.client WHERE ClientId=" + id + "";
         return template.update(sql);

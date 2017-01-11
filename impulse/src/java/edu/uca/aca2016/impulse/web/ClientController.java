@@ -25,16 +25,16 @@ public class ClientController{
     @RequestMapping(value = "/client/save",method = RequestMethod.POST)
     public ModelAndView save(@ModelAttribute("client") Client client){
         dao.save(client);
-        return new ModelAndView("redirect:/artist/viewartist");
+        return new ModelAndView("redirect:/client/viewclient");
     }
 
-    @RequestMapping("/artist/viewartist")
+    @RequestMapping("/client/viewclient")
     public ModelAndView viewartist(){
         List<Client> list = dao.getClientsList();
         return new ModelAndView("viewclient","list",list);
     }
 
-    @RequestMapping(value = "/artist/editartist/{id}")
+    @RequestMapping(value = "/client/editclient/{id}")
     public ModelAndView edit(@PathVariable int id){
         Client client = dao.getClientById(id);
         return new ModelAndView("clienteditform","command",client);
