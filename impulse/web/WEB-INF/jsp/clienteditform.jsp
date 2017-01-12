@@ -9,7 +9,7 @@
   <body>
     <h1>Edit Artist</h1>  
     
-    <form:form method="POST" action="/Impluse/client/editsave">    
+    <form:form method="POST" action="/impulse/client/editsave">    
       <table >    
         <tr>  
           <td></td>    

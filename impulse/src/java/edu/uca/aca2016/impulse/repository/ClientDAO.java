@@ -37,8 +37,8 @@ public class ClientDAO {
     }
 
     public int update(Client client) {
-        String sql = "UPDATE client SET (`FirstName`, `LastName`, `Address1`, `Address2`, `City`, `State`, `Zip`, `Email`, `Phone`, `Status`)"
-                + "	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,)  WHERE ClientId = (?)";
+        String sql = "UPDATE client SET `FirstName`= ?, `LastName` = ?, `Address1` = ?, `Address2` = ?, `City` = ?, `State` = ? , `Zip` = ?, `Email` = ?, `Phone` = ?, `Status` = ?"
+                + "	   WHERE ClientId = ?";
         Object[] values = {client.getFirstname(), client.getLastName(), client.getAddress1(), client.getAddress2(), client.getCity(), client.getState(), client.getZip(), client.getEmail(), client.getPhone(), client.getStatus(),client.getClientid()};
         return template.update(sql, values);
     }
