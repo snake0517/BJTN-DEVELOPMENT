@@ -29,7 +29,7 @@ public class ClientController{
     }
 
     @RequestMapping("/client/viewclient")
-    public ModelAndView viewartist(){
+    public ModelAndView viewclient(){
         List<Client> list = dao.getClientsList();
         return new ModelAndView("viewclient","list",list);
     }

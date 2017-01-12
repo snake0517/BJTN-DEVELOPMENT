@@ -13,11 +13,11 @@
       <table >    
         <tr>  
           <td></td>    
-          <td><form:hidden  path="id" /></td>  
+          <td><form:hidden  path="clientid" /></td>  
         </tr>   
         <tr>    
           <td>Name : </td>   
-          <td><form:input path="name"  /></td>  
+          <td><form:input path="firstname"  /></td>  
         </tr>
 
         <tr>    

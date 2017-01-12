@@ -9,7 +9,7 @@
   <body>
 
     <h1>Manage Clients</h1>  
-    <a href="artistform">Add New Client</a><br/><br/>
+    <a href="clientform">Add New Client</a><br/><br/>
     <table border="1" width="70%" cellpadding="2">  
       <tr>
         <th>Id</th>
@@ -19,9 +19,9 @@
 
       <c:forEach var="client" items="${list}">   
         <tr>  
-          <td>${client.Clientid}</td>  
-          <td>${client.Firstname}</td>  
-          <td><a href="editartist/${client.Clientid}">Edit</a> <a href="deleteartist/${client.Clientid}">Delete</a></td>  
+          <td>${client.clientid}</td>  
+          <td>${client.firstname}</td>  
+          <td><a href="editclient/${client.clientid}">Edit</a> <a href="deleteclient/${client.clientid}">Delete</a></td>  
         </tr>  
       </c:forEach>  
     </table>  

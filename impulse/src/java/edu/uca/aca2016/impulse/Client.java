@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 public class Client implements Serializable {
 
-    private int Clientid;
+    private int clientid;
     private String FirstName;
     private String LastName;
     private String Address1;
@@ -26,18 +26,18 @@ public class Client implements Serializable {
     private String Status;
 
     public int getClientid() {
-        return Clientid;
+        return clientid;
     }
 
-    public void setClientid(int Clientid) {
-        this.Clientid = Clientid;
+    public void setClientid(int clientid) {
+        this.clientid = clientid;
     }
 
-    public String getFirstName() {
+    public String getFirstname() {
         return FirstName;
     }
 
-    public void setFirstName(String FirstName) {
+    public void setFirstname(String FirstName) {
         this.FirstName = FirstName;
     }
 

@@ -12,7 +12,7 @@
       <table >    
         <tr>    
           <td>Name : </td>   
-          <td><form:input path="name"  /></td>  
+          <td><form:input path="FirstName"  /></td>  
         </tr> 
         <tr>    
           <td> </td>    
