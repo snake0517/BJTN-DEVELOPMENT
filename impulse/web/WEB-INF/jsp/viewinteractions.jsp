@@ -9,7 +9,7 @@
   <body>
 
     <h1>Manage Interactions</h1>  
-    <a href="clientform">Add New Interactions</a><br/><br/>
+    <a href="interactionsform">Add New Interactions</a><br/><br/>
     <table border="1" width="70%" cellpadding="2">  
       <tr>
         <th>Id</th>
@@ -21,9 +21,9 @@
       <c:forEach var="interactions" items="${list}">   
         <tr>  
           <td>${interactions.clientid}</td>  
-          <td>${interactions.contactedBy}</td> 
+          <td>${interactions.contactPerson}</td> 
           
-          <td><a href="editclient/${interactions.clientid}">Edit</a> <a href="deleteclient/${interactions.clientid}">Delete</a></td>  
+          <td><a href="editinteractions/${interactions.clientid}">Edit</a> <a href="deleteinteractions/${interactions.clientid}">Delete</a></td>  
         </tr>  
       </c:forEach>  
     </table>  

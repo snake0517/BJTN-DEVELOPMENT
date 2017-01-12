@@ -43,7 +43,7 @@ public class InteractionsController {
     }
 
     @RequestMapping(value = "/interactions/editsave", method = RequestMethod.POST)
-    public ModelAndView editsave(@ModelAttribute("client") Interactions interactions) {
+    public ModelAndView editsave(@ModelAttribute("interactions") Interactions interactions) {
         dao.update(interactions);
         return new ModelAndView("redirect:/interactions/viewinteractions");
     }

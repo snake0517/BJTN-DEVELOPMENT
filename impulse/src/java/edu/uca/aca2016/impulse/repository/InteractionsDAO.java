@@ -39,7 +39,7 @@ public class InteractionsDAO {
     public int update(Interactions interactions) {
         String sql = "UPDATE interactions SET  `OccuredOn` = ?, `ContactPerson` = ?, `ContactType` = ?, `Notes` = ?"
                 + "	   WHERE ClientId = ?";
-        Object[] values = {interactions.getOccuredOn(), interactions.getContactPerson(), interactions.getContactType(), interactions.getNotes()};
+        Object[] values = {interactions.getOccuredOn(), interactions.getContactPerson(), interactions.getContactType(), interactions.getNotes(), interactions.getClientId()};
         return template.update(sql, values);
     }
  
@@ -61,7 +61,7 @@ public class InteractionsDAO {
     }
 
     public Interactions getInteractionsById(int id) {
-        String sql = "SELECT InteractionsId AS id, ContactPerson FROM Interactions WHERE InteractionsId = ?";
+        String sql = "SELECT ClientId AS id, ContactPerson FROM Interactions WHERE ClientId = ?";
         return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<Interactions>(Interactions.class));
     }
 }
