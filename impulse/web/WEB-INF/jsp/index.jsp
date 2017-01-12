@@ -23,6 +23,7 @@
       
       <h2>Tools:</h2>
       <ul><li><a href="/impulse/client/viewclient">Manage Clients</a> </li></ul>
+       <ul><li><a href="/impulse/interactions/viewinteracions">Manage Interactions</a> </li></ul>
     </sec:authorize>
     
     <sec:authorize access="isAnonymous()">

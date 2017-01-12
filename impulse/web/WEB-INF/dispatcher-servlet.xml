@@ -25,5 +25,9 @@
   <bean id="dao" class="edu.uca.aca2016.impulse.repository.ClientDAO">  
     <property name="template" ref="jt"></property>  
   </bean>  
+  
+  <bean id="dao2" class="edu.uca.aca2016.impulse.repository.InteractionsDAO">  
+    <property name="template" ref="jt"></property>  
+  </bean>  
 </beans>
 
