@@ -32,14 +32,14 @@ public class ClientDAO {
 
         String sql = "INSERT INTO client (`FirstName`, `LastName`, `Address1`, `Address2`, `City`, `State`, `Zip`, `Email`, `Phone`, `Status`)"
                 + "	VALUES (?, ?, ?, ?, ?, ?, ?, ?,? , ?)";
-        Object[] values = {client.getFirstname(), client.getLastName(), client.getAddress1(), client.getAddress2(), client.getCity(), client.getState(), client.getZip(), client.getEmail(), client.getPhone(), client.getStatus()};
+        Object[] values = {client.getFirstName(), client.getLastName(), client.getAddress1(), client.getAddress2(), client.getCity(), client.getState(), client.getZip(), client.getEmail(), client.getPhone(), client.getStatus()};
         return template.update(sql, values);
     }
 
     public int update(Client client) {
         String sql = "UPDATE client SET `FirstName`= ?, `LastName` = ?, `Address1` = ?, `Address2` = ?, `City` = ?, `State` = ? , `Zip` = ?, `Email` = ?, `Phone` = ?, `Status` = ?"
                 + "	   WHERE ClientId = ?";
-        Object[] values = {client.getFirstname(), client.getLastName(), client.getAddress1(), client.getAddress2(), client.getCity(), client.getState(), client.getZip(), client.getEmail(), client.getPhone(), client.getStatus(),client.getClientid()};
+        Object[] values = {client.getFirstName(), client.getLastName(), client.getAddress1(), client.getAddress2(), client.getCity(), client.getState(), client.getZip(), client.getEmail(), client.getPhone(), client.getStatus(),client.getClientid()};
         return template.update(sql, values);
     }
  
@@ -54,7 +54,7 @@ public class ClientDAO {
             public Client mapRow(ResultSet rs,int row) throws SQLException{
                 Client c = new Client();
                 c.setClientid(rs.getInt("ClientId"));
-                c.setFirstname(rs.getString("FirstName"));
+                c.setFirstName(rs.getString("FirstName"));
                 return c;
             }
         });

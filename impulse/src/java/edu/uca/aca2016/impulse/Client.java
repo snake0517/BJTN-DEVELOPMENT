@@ -33,11 +33,11 @@ public class Client implements Serializable {
         this.clientid = clientid;
     }
 
-    public String getFirstname() {
+    public String getFirstName() {
         return FirstName;
     }
 
-    public void setFirstname(String FirstName) {
+    public void setFirstName(String FirstName) {
         this.FirstName = FirstName;
     }
 
