@@ -49,6 +49,6 @@ public class ClientController{
     @RequestMapping(value = "/client/deleteclient/{id}",method = RequestMethod.GET)
     public ModelAndView delete(@PathVariable int id){
         dao.delete(id);
-        return new ModelAndView("redirect:/clinet/viewclient");
+        return new ModelAndView("redirect:/client/viewclient");
     }
 }

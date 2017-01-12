@@ -11,8 +11,8 @@
     <form:form method="post" action="save">    
       <table >    
         <tr>    
-          <td>Name : </td>   
-          <td><form:input path="FirstName"  /></td>  
+          <td>First Name : </td>   
+          <td><form:input path="firstname"  /></td>  
         </tr> 
         <tr>    
           <td> </td>    
