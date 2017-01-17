@@ -47,7 +47,7 @@ public class UsersController {
         return new ModelAndView("redirect:/users/viewusers");
     }
 
-    @RequestMapping(value = "/user_role/deleteuser_role/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/users/deleteuser_role/{id}", method = RequestMethod.GET)
     public ModelAndView delete(@PathVariable String username) {
         dao.delete(username);
         return new ModelAndView("redirect:/users/viewusers");
