@@ -3,33 +3,30 @@
 
 <html>
   <head>
-    <title>Manage User Roles</title>
+    <title>Manage Users</title>
     <style>body { font-family: Verdana, Geneva, sans-serif; }</style>
   </head>
   <body>
-    <h1>Edit User Role</h1>  
-    
-    <form:form method="POST" action="/impulse/user_role/editsave">    
+    <h1>Add Users</h1>  
+    <form:form method="post" action="save">    
       <table >    
-        <tr>  
-          <td></td>    
-          <td><form:hidden  path="user_role_id" /></td>  
-        </tr>   
         <tr>    
           <td>Username : </td>   
           <td><form:input path="username"  /></td>  
         </tr> 
         <tr>    
-          <td>Role : </td>   
-          <td><form:input path="role"  /></td>  
+          <td>Password : </td>   
+          <td><form:input path="password"  /></td>  
         </tr> 
-
         <tr>    
+          <td>Enabled : </td>   
+          <td><form:input path="enabled"  /></td>  
+        </tr> 
+        
           <td> </td>    
-          <td><input type="submit" value="Edit Save" /></td>    
+          <td><input type="submit" value="Save" /></td>    
         </tr>    
       </table>    
-    </form:form>    
-
+    </form:form>
   </body>
 </html>
