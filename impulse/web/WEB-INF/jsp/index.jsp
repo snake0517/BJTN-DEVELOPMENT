@@ -24,6 +24,7 @@
             <h2>Tools:</h2>
             <ul><li><a href="/impulse/client/viewclient">Manage Clients</a> </li></ul>
             <ul><li><a href="/impulse/interactions/viewinteractions">Manage Interactions</a> </li></ul>
+            <ul><li><a href="/impulse/user_role/viewuserrole">Manage User Roles</a> </li></ul>
                 </sec:authorize>
 
         <sec:authorize access="isAnonymous()">
