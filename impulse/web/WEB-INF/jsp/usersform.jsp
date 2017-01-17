@@ -15,8 +15,9 @@
           <td><form:input path="username"  /></td>  
         </tr> 
         <tr>    
-          <td>Password : </td>   
-          <td><form:input path="password"  /></td>  
+          <td>Password : </td>           
+          <td><form:input path="password"  /></td> 
+          
         </tr> 
         <tr>    
           <td>Enabled : </td>   
