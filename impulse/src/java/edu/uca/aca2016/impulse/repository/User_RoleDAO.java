@@ -31,7 +31,7 @@ public class User_RoleDAO {
     public int save(User_Role user_role) {
 
         String sql = "INSERT INTO user_roles (`username`, `role`)"
-                + "	VALUES (?, ?, ?, ?, ?, ?, ?, ?,? , ?)";
+                + "	VALUES (?, ?)";
         Object[] values = {user_role.getUsername(), user_role.getRole()};
         return template.update(sql, values);
     }
@@ -39,7 +39,7 @@ public class User_RoleDAO {
     public int update(User_Role user_role) {
         String sql = "UPDATE user_roles SET `username` = ?, `role` = ?"
                 + "	   WHERE user_role_id = ?";
-        Object[] values = {user_role.getUsername(), user_role.getRole()};
+        Object[] values = {user_role.getUsername(), user_role.getRole(), user_role.getUser_role_id()};
         return template.update(sql, values);
     }
  
