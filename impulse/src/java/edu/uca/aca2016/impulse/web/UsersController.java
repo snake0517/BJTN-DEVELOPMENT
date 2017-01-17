@@ -24,7 +24,7 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/users/save", method = RequestMethod.POST)
-    public ModelAndView save(@ModelAttribute("user_role") Users users) {
+    public ModelAndView save(@ModelAttribute("users") Users users) {
         dao.save(users);
         return new ModelAndView("redirect:/users/viewusers");
     }
