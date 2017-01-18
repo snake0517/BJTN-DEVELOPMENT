@@ -70,8 +70,9 @@ public class InteractionsDAO {
         return template.query(sql,new RowMapper<Interactions>(){
             public Interactions mapRow(ResultSet rs,int row) throws SQLException{
                 Interactions i = new Interactions();
-                i.setClientid(rs.getInt(1));
-                i.setContactPerson(rs.getString(2));
+                i.setClientid(rs.getInt(2));
+                i.setContactPerson(rs.getString(4));
+                i.setContactType(rs.getString(5));
                 return i;
             }
         });

@@ -45,10 +45,10 @@ public class UsersController {
     @RequestMapping("/users/viewusers")
     public ModelAndView viewuser_role(HttpServletRequest request) {
         
-        return this.viewartist(1, request);
+        return this.viewusers(1, request);
     }
 @RequestMapping("/user/viewuser/{pageid}")
-    public ModelAndView viewartist(@PathVariable int pageid, HttpServletRequest request){
+    public ModelAndView viewusers(@PathVariable int pageid, HttpServletRequest request){
         int total = 25;
         int start = 1;
         
@@ -73,7 +73,7 @@ public class UsersController {
             request.getSession().removeAttribute("message");
         }
        
-        return new ModelAndView("viewuser", context);
+        return new ModelAndView("viewusers", context);
     }
     @RequestMapping(value = "/users/editusers/{username}")
     public ModelAndView edit(@PathVariable String username) {

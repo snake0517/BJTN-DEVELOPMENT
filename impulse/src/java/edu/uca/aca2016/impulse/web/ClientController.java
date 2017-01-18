@@ -45,10 +45,10 @@ public class ClientController {
     @RequestMapping("/client/viewclient")
     public ModelAndView viewclient(HttpServletRequest request) {
         
-        return this.viewartist(1, request);
+        return this.viewclient(1, request);
     }
     @RequestMapping("/client/viewclient/{pageid}")
-    public ModelAndView viewartist(@PathVariable int pageid, HttpServletRequest request){
+    public ModelAndView viewclient(@PathVariable int pageid, HttpServletRequest request){
         int total = 25;
         int start = 1;
         

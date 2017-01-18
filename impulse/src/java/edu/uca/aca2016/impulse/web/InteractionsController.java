@@ -45,10 +45,10 @@ public class InteractionsController {
     @RequestMapping("/interactions/viewinteractions")
     public ModelAndView viewinteractions(HttpServletRequest request) {
         
-        return this.viewartist(1, request);
+        return this.viewinteractions(1, request);
     }
 @RequestMapping("/interactions/viewinteraction/{pageid}")
-    public ModelAndView viewartist(@PathVariable int pageid, HttpServletRequest request){
+    public ModelAndView viewinteractions(@PathVariable int pageid, HttpServletRequest request){
         int total = 25;
         int start = 1;
         
@@ -73,7 +73,7 @@ public class InteractionsController {
             request.getSession().removeAttribute("message");
         }
        
-        return new ModelAndView("viewinteraction", context);
+        return new ModelAndView("viewinteractions", context);
     }
     
     @RequestMapping(value = "/interactions/editinteractions/{id}")

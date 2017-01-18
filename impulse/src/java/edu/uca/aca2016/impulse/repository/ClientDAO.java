@@ -75,6 +75,7 @@ public class ClientDAO {
                 Client c = new Client();
                 c.setClientid(rs.getInt(1));
                 c.setFirstName(rs.getString(2));
+                c.setLastName(rs.getString(3));
                 return c;
             }
         });

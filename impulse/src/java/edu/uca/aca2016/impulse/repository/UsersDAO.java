@@ -65,7 +65,7 @@ public class UsersDAO {
         return template.queryForObject(sql, new Object[]{username}, new BeanPropertyRowMapper<Users>(Users.class));
     }
     public List<Users> getUsersByPage(int start, int total){
-        String sql = "SELECT * FROM interactions LIMIT " + (start - 1) + "," + total;
+        String sql = "SELECT * FROM users LIMIT " + (start - 1) + "," + total;
         return template.query(sql,new RowMapper<Users>(){
             public Users mapRow(ResultSet rs,int row) throws SQLException{
                 Users u = new Users();
