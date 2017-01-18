@@ -1,32 +1,51 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 
-<html>
-    <head>
-        <title>Manage Interactions</title>
-        <style>body { font-family: Verdana, Geneva, sans-serif; }</style>
-    </head>
-    <body>
+<%@ include file="theme/header.jsp" %>
 
-        <h1>Manage Interactions</h1>  
-        <a href="interactionsform">Add New Interactions</a><br/><br/>
-        <table border="1" width="70%" cellpadding="2">  
-            <tr>
-                <th>Id</th>
-                <th>Contact Person</th>
-                <th>Contact Type</th>
-                <th>Action</th>
-            </tr>  
+  <header class="w3-container" style="padding-top:22px">
+    <h5><b><i class="fa fa-dashboard"></i> Manage Interactions</b></h5>
+  </header>
 
-            <c:forEach var="interactions" items="${list}">   
-                <tr>  
-                    <td>${interactions.clientid}</td>  
-                    <td>${interactions.contactPerson}</td> 
-                    <td>${interactions.contactType}</td>
-                    <td><a href="editinteractions/${interactions.clientid}">Edit</a> <a href="deleteinteractions/${interactions.clientid}">Delete</a></td>  
-                </tr>  
-            </c:forEach>  
-        </table>  
-        <br/> 
-    </body>
-</html>
+  <div class="w3-row-padding w3-margin-bottom">
+    
+  <c:if test="${not empty message}">
+    <c:choose>
+      <c:when test="${message.type eq 'INFO'}">
+        <div class="w3-panel w3-border w3-pale-yellow w3-border-yellow"><p>${message.message}</p></div>
+      </c:when>
+      <c:when test="${message.type eq 'ERROR'}">
+        <div class="w3-panel w3-border w3-pale-red w3-border-red"><p>${message.message}</p></div>
+      </c:when>
+    </c:choose>
+    
+  </c:if>
+
+  <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">  
+    <tr>
+      <th>Contact Person</th>
+      <th>Action</th>
+    </tr>  
+
+    <c:forEach var="interactions" items="${list}">   
+      <tr>  
+        <td>${interactions.contactPerson}</td>  
+        <td>
+          <a href="<c:url value="/interactions/editinteractions/${interactions.clientid}" />"><button class="w3-btn w3-round w3-blue">Edit</button></a>
+          <a href="<c:url value="/interactions/deleteinteractions/${interactions.clientid}" />"><button class="w3-btn w3-round w3-red">Delete</button></a>
+        </td>  
+      </tr>  
+    </c:forEach>  
+  </table> 
+
+  <div class="w3-padding-8">
+    <ul class="w3-pagination">
+      <c:forEach begin="1" end="${pages}" varStatus="p">  
+        <li><a class="<c:if test="${p.index eq page}">w3-green</c:if>" href="<c:url value="/interactions/viewinteractions/${p.index}" />">${p.index}</a></li>
+      </c:forEach>
+    </ul>
+  </div>
+    
+  </div>
+
+<%@ include file="theme/footer.jsp" %>

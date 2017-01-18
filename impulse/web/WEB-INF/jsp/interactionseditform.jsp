@@ -1,44 +1,33 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 
-<html>
-    <head>
-        <title>Manage Interactions</title>
-        <style>body { font-family: Verdana, Geneva, sans-serif; }</style>
-    </head>
-    <body>
-        <h1>Edit Interactions</h1>  
+<%@ include file="theme/header.jsp" %>
 
-        <form:form method="POST" action="/impulse/interactions/editsave">    
-            <table >    
-                <tr>  
-                    <td></td>    
-                    <td><form:hidden  path="clientid" /></td>  
-                </tr>   
-                <tr>    
-                    <td>Occurred On : </td>   
-                    <td><form:input path="occuredOn"  /></td>  
-                </tr> 
-                <tr>    
-                    <td>Contact Person : </td>   
-                    <td><form:input path="contactPerson"  /></td>  
-                </tr> 
-                <tr>    
-                    <td>Contact Type : </td>   
-                    <td><form:input path="contactType"  /></td>  
-                </tr> 
-                <tr>    
-                    <td>Notes : </td>   
-                    <td><form:input path="notes"  /></td>  
-                </tr> 
+<header class="w3-container" style="padding-top:22px">
+  <h5><b><i class="fa fa-dashboard"></i> Manage Interactions > Edit Interactions</b></h5>
+</header>
 
+<div class="w3-row-padding w3-half w3-margin-bottom">
 
-                <tr>    
-                    <td> </td>    
-                    <td><input type="submit" value="Edit Save" /></td>    
-                </tr>    
-            </table>    
-        </form:form>    
+  <div class="w3-card-4">
+    <div class="w3-container w3-blue">
+      <h2>Header</h2>
+    </div>
 
-    </body>
-</html>
+    <form:form method="POST" action="/Impulse/interactions/editsave" cssClass="w3-container">
+      <form:hidden path="id"  />
+      
+      <div class="w3-padding-8">
+        <label><b>Client Id</b></label>
+        <form:input path="clientid" cssClass="w3-input w3-border"  />
+      </div>
+      
+      <div class="w3-padding-8">
+        <button type="submit" class="w3-btn w3-padding w3-blue" style="width:120px">Save</button>
+      </div>
+    </form:form>
+    
+  </div>
+</div>
+
+<%@ include file="theme/footer.jsp" %>
