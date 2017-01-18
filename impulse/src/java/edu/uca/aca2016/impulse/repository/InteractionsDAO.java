@@ -55,6 +55,7 @@ public class InteractionsDAO {
                 Interactions i = new Interactions();
                 i.setClientid(rs.getInt("ClientId"));
                 i.setContactPerson(rs.getString("ContactPerson"));
+                i.setContactType(rs.getString("ContactType"));
                 return i;
             }
         });

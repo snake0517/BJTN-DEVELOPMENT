@@ -23,7 +23,7 @@
                     <td>${users.username}</td>  
 
 
-                    <td><a href="editusers/${user_role.username}">Edit</a> <a href="deleteusers/${user_role.username}">Delete</a></td>  
+                    <td><a href="editusers/${users.username}">Edit</a> <a href="deleteusers/${users.username}">Delete</a></td>  
                 </tr>  
             </c:forEach>  
         </table>  

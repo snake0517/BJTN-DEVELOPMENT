@@ -30,11 +30,9 @@
         <property name="template" ref="jt"></property>  
     </bean>  
   
-    <bean id="dao3" class="edu.uca.aca2016.impulse.repository.User_RoleDAO">  
-        <property name="template" ref="jt"></property>  
-    </bean>  
+    
   
-    <bean id="dao4" class="edu.uca.aca2016.impulse.repository.UsersDAO">  
+    <bean id="dao3" class="edu.uca.aca2016.impulse.repository.UsersDAO">  
         <property name="template" ref="jt"></property>  
     </bean>  
   

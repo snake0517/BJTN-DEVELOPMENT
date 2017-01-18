@@ -13,8 +13,8 @@
         <table border="1" width="70%" cellpadding="2">  
             <tr>
                 <th>Id</th>
-                <th>First Name</th>
-
+                <th>Contact Person</th>
+                <th>Contact Type</th>
                 <th>Action</th>
             </tr>  
 
@@ -22,7 +22,7 @@
                 <tr>  
                     <td>${interactions.clientid}</td>  
                     <td>${interactions.contactPerson}</td> 
-
+                    <td>${interactions.contactType}</td>
                     <td><a href="editinteractions/${interactions.clientid}">Edit</a> <a href="deleteinteractions/${interactions.clientid}">Delete</a></td>  
                 </tr>  
             </c:forEach>  
