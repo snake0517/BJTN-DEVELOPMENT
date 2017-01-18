@@ -15,7 +15,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import edu.uca.aca2016.impulse.Interactions;
 import java.sql.SQLException;
-
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 /**
  *
  * @author brela
@@ -64,5 +64,27 @@ public class InteractionsDAO {
     public Interactions getInteractionsById(int id) {
         String sql = "SELECT ClientId AS id, ContactPerson FROM Interactions WHERE ClientId = ?";
         return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<Interactions>(Interactions.class));
+    }
+    public List<Interactions> getInteractionssByPage(int start, int total){
+        String sql = "SELECT * FROM interactions LIMIT " + (start - 1) + "," + total;
+        return template.query(sql,new RowMapper<Interactions>(){
+            public Interactions mapRow(ResultSet rs,int row) throws SQLException{
+                Interactions i = new Interactions();
+                i.setClientid(rs.getInt(1));
+                i.setContactPerson(rs.getString(2));
+                return i;
+            }
+        });
+    }
+    
+    public int getInteractionCount() {
+        String sql = "SELECT COUNT(InteractionID) AS rowcount FROM interactions";
+        SqlRowSet rs = template.queryForRowSet(sql);
+        
+        if (rs.next()) {
+            return rs.getInt("rowcount");
+        }
+        
+        return 1;
     }
 }

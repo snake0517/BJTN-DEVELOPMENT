@@ -15,7 +15,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import edu.uca.aca2016.impulse.Users;
 import java.sql.SQLException;
-
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 /**
  *
  * @author brela
@@ -37,14 +37,14 @@ public class UsersDAO {
     }
 
     public int update(Users users) {
-        String sql = "UPDATE users SET `password` = ?, `enabled` = ?"
+        String sql = "UPDATE users SET `username` = ?, `password` = ?, enabled = ?"
                 + "	   WHERE username = ?";
-        Object[] values = {users.getPassword(), users.getEnabled(), users.getUsername()};
+        Object[] values = {users.getUsername(),users.getPassword(), users.getEnabled(), users.getUsername()};
         return template.update(sql, values);
     }
 
     public int delete(String username) {
-        String sql = "DELETE FROM users WHERE username =" + username + "";
+        String sql = "DELETE FROM users WHERE username ="+username+"";
         return template.update(sql);
     }
 
@@ -63,5 +63,27 @@ public class UsersDAO {
     public Users getUsersbyUsername(String username) {
         String sql = "SELECT username AS username, username FROM users WHERE username = ?";
         return template.queryForObject(sql, new Object[]{username}, new BeanPropertyRowMapper<Users>(Users.class));
+    }
+    public List<Users> getUsersByPage(int start, int total){
+        String sql = "SELECT * FROM interactions LIMIT " + (start - 1) + "," + total;
+        return template.query(sql,new RowMapper<Users>(){
+            public Users mapRow(ResultSet rs,int row) throws SQLException{
+                Users u = new Users();
+                u.setUsername(rs.getString(1));
+               
+                return u;
+            }
+        });
+    }
+    
+    public int getUsersCount() {
+        String sql = "SELECT COUNT(username) AS rowcount FROM users";
+        SqlRowSet rs = template.queryForRowSet(sql);
+        
+        if (rs.next()) {
+            return rs.getInt("rowcount");
+        }
+        
+        return 1;
     }
 }

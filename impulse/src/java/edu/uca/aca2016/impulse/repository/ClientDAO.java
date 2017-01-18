@@ -15,6 +15,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import edu.uca.aca2016.impulse.Client;
 import java.sql.SQLException;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 /**
  *
@@ -65,5 +66,28 @@ public class ClientDAO {
     public Client getClientById(int id) {
         String sql = "SELECT ClientId AS id, FirstName FROM Client WHERE ClientId = ?";
         return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<Client>(Client.class));
+    }
+    
+    public List<Client> getClientsByPage(int start, int total){
+        String sql = "SELECT * FROM client LIMIT " + (start - 1) + "," + total;
+        return template.query(sql,new RowMapper<Client>(){
+            public Client mapRow(ResultSet rs,int row) throws SQLException{
+                Client c = new Client();
+                c.setClientid(rs.getInt(1));
+                c.setFirstName(rs.getString(2));
+                return c;
+            }
+        });
+    }
+    
+    public int getClientCount() {
+        String sql = "SELECT COUNT(ClientID) AS rowcount FROM client";
+        SqlRowSet rs = template.queryForRowSet(sql);
+        
+        if (rs.next()) {
+            return rs.getInt("rowcount");
+        }
+        
+        return 1;
     }
 }
