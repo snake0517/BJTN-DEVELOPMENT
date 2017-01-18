@@ -12,6 +12,7 @@ import java.io.Serializable;
  * @author brela
  */
 public class User_Role implements Serializable {
+
     private int user_role_id;
     private String username;
     private String role;
@@ -39,8 +40,5 @@ public class User_Role implements Serializable {
     public void setRole(String role) {
         this.role = role;
     }
-    
-    
-    
-    
+
 }

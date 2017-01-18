@@ -1,6 +1,5 @@
 package edu.uca.aca2016.impulse.web;
 
-
 import org.springframework.web.servlet.ModelAndView;
 import edu.uca.aca2016.impulse.Interactions;
 import edu.uca.aca2016.impulse.repository.InteractionsDAO;

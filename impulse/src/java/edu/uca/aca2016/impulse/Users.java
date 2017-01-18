@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author brela
  */
 public class Users implements Serializable {
-    
+
     private String username;
     private String password;
     private int enabled;
@@ -40,6 +40,5 @@ public class Users implements Serializable {
     public void setEnabled(int enabled) {
         this.enabled = enabled;
     }
-    
-    
+
 }

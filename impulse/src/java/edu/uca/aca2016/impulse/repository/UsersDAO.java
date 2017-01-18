@@ -31,7 +31,7 @@ public class UsersDAO {
     public int save(Users users) {
 
         String sql = "INSERT INTO users (`username`, `password`, `enabled`)"
-                + "	VALUES (?, ?, ?)";
+                + "	VALUES (?, md5(?), ?)";
         Object[] values = {users.getUsername(), users.getPassword(), users.getEnabled()};
         return template.update(sql, values);
     }
@@ -42,19 +42,19 @@ public class UsersDAO {
         Object[] values = {users.getPassword(), users.getEnabled(), users.getUsername()};
         return template.update(sql, values);
     }
- 
+
     public int delete(String username) {
         String sql = "DELETE FROM users WHERE username =" + username + "";
         return template.update(sql);
     }
 
-    public List<Users> getUsersList(){
-        return template.query("SELECT * FROM users",new RowMapper<Users>(){
+    public List<Users> getUsersList() {
+        return template.query("SELECT * FROM users", new RowMapper<Users>() {
             @Override
-            public Users mapRow(ResultSet rs,int row) throws SQLException{
+            public Users mapRow(ResultSet rs, int row) throws SQLException {
                 Users u = new Users();
                 u.setUsername(rs.getString("username"));
-                
+
                 return u;
             }
         });

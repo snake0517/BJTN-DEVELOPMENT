@@ -39,19 +39,19 @@ public class ClientDAO {
     public int update(Client client) {
         String sql = "UPDATE client SET `FirstName`= ?, `LastName` = ?, `Address1` = ?, `Address2` = ?, `City` = ?, `State` = ? , `Zip` = ?, `Email` = ?, `Phone` = ?, `Status` = ?"
                 + "	   WHERE ClientId = ?";
-        Object[] values = {client.getFirstName(), client.getLastName(), client.getAddress1(), client.getAddress2(), client.getCity(), client.getState(), client.getZip(), client.getEmail(), client.getPhone(), client.getStatus(),client.getClientid()};
+        Object[] values = {client.getFirstName(), client.getLastName(), client.getAddress1(), client.getAddress2(), client.getCity(), client.getState(), client.getZip(), client.getEmail(), client.getPhone(), client.getStatus(), client.getClientid()};
         return template.update(sql, values);
     }
- 
+
     public int delete(int id) {
         String sql = "DELETE FROM client WHERE ClientId=" + id + "";
         return template.update(sql);
     }
 
-    public List<Client> getClientsList(){
-        return template.query("SELECT * FROM client",new RowMapper<Client>(){
+    public List<Client> getClientsList() {
+        return template.query("SELECT * FROM client", new RowMapper<Client>() {
             @Override
-            public Client mapRow(ResultSet rs,int row) throws SQLException{
+            public Client mapRow(ResultSet rs, int row) throws SQLException {
                 Client c = new Client();
                 c.setClientid(rs.getInt("ClientId"));
                 c.setFirstName(rs.getString("FirstName"));

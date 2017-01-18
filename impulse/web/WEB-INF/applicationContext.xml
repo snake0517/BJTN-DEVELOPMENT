@@ -9,10 +9,10 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
   
-  <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
-    <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>  
-    <property name="url" value="jdbc:mysql://localhost:3306/impulse?zeroDateTimeBehavior=convertToNull"></property>  
-    <property name="username" value="root"></property>  
-    <property name="password" value="jordan21"></property>  
-  </bean>  
+    <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>  
+        <property name="url" value="jdbc:mysql://localhost:3306/impulse?zeroDateTimeBehavior=convertToNull"></property>  
+        <property name="username" value="root"></property>  
+        <property name="password" value="jordan21"></property>  
+    </bean>  
 </beans>

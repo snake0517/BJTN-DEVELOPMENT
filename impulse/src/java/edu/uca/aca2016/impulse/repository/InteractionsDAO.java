@@ -42,16 +42,16 @@ public class InteractionsDAO {
         Object[] values = {interactions.getOccuredOn(), interactions.getContactPerson(), interactions.getContactType(), interactions.getNotes(), interactions.getClientId()};
         return template.update(sql, values);
     }
- 
+
     public int delete(int id) {
         String sql = "DELETE FROM interactions WHERE ClientId=" + id + "";
         return template.update(sql);
     }
 
-    public List<Interactions> getInteractionsList(){
-        return template.query("SELECT * FROM interactions",new RowMapper<Interactions>(){
+    public List<Interactions> getInteractionsList() {
+        return template.query("SELECT * FROM interactions", new RowMapper<Interactions>() {
             @Override
-            public Interactions mapRow(ResultSet rs,int row) throws SQLException{
+            public Interactions mapRow(ResultSet rs, int row) throws SQLException {
                 Interactions i = new Interactions();
                 i.setClientid(rs.getInt("ClientId"));
                 i.setContactPerson(rs.getString("ContactPerson"));

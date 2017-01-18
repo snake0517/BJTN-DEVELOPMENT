@@ -42,16 +42,16 @@ public class User_RoleDAO {
         Object[] values = {user_role.getUsername(), user_role.getRole(), user_role.getUser_role_id()};
         return template.update(sql, values);
     }
- 
+
     public int delete(int id) {
         String sql = "DELETE FROM user_roles WHERE user_role_id =" + id + "";
         return template.update(sql);
     }
 
-    public List<User_Role> getUser_RoleList(){
-        return template.query("SELECT * FROM user_roles",new RowMapper<User_Role>(){
+    public List<User_Role> getUser_RoleList() {
+        return template.query("SELECT * FROM user_roles", new RowMapper<User_Role>() {
             @Override
-            public User_Role mapRow(ResultSet rs,int row) throws SQLException{
+            public User_Role mapRow(ResultSet rs, int row) throws SQLException {
                 User_Role u = new User_Role();
                 u.setUser_role_id(rs.getInt("user_role_id"));
                 u.setUsername(rs.getString("username"));

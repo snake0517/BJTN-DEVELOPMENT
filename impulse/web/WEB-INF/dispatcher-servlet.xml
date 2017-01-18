@@ -11,32 +11,32 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
   
-  <context:component-scan base-package="edu.uca.aca2016.impulse.web"></context:component-scan>  
+    <context:component-scan base-package="edu.uca.aca2016.impulse.web"></context:component-scan>  
   
-  <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
-    <property name="prefix" value="/WEB-INF/jsp/"></property>  
-    <property name="suffix" value=".jsp"></property>  
-  </bean>
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+        <property name="prefix" value="/WEB-INF/jsp/"></property>  
+        <property name="suffix" value=".jsp"></property>  
+    </bean>
   
-  <bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">  
-    <property name="dataSource" ref="ds"></property>  
-  </bean>  
+    <bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">  
+        <property name="dataSource" ref="ds"></property>  
+    </bean>  
   
-  <bean id="dao" class="edu.uca.aca2016.impulse.repository.ClientDAO">  
-    <property name="template" ref="jt"></property>  
-  </bean>  
+    <bean id="dao" class="edu.uca.aca2016.impulse.repository.ClientDAO">  
+        <property name="template" ref="jt"></property>  
+    </bean>  
   
-  <bean id="dao2" class="edu.uca.aca2016.impulse.repository.InteractionsDAO">  
-    <property name="template" ref="jt"></property>  
-  </bean>  
+    <bean id="dao2" class="edu.uca.aca2016.impulse.repository.InteractionsDAO">  
+        <property name="template" ref="jt"></property>  
+    </bean>  
   
-  <bean id="dao3" class="edu.uca.aca2016.impulse.repository.User_RoleDAO">  
-    <property name="template" ref="jt"></property>  
-  </bean>  
+    <bean id="dao3" class="edu.uca.aca2016.impulse.repository.User_RoleDAO">  
+        <property name="template" ref="jt"></property>  
+    </bean>  
   
-  <bean id="dao4" class="edu.uca.aca2016.impulse.repository.UsersDAO">  
-    <property name="template" ref="jt"></property>  
-  </bean>  
+    <bean id="dao4" class="edu.uca.aca2016.impulse.repository.UsersDAO">  
+        <property name="template" ref="jt"></property>  
+    </bean>  
   
 </beans>
 
