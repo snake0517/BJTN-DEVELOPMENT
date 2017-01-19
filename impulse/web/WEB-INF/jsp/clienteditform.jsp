@@ -14,8 +14,8 @@
       <h2>Header</h2>
     </div>
 
-    <form:form method="POST" action="/Impulse/client/editsave" cssClass="w3-container">
-      <form:hidden path="id"  />
+    <form:form method="POST" action="/impulse/client/editsave" cssClass="w3-container">
+      <form:hidden path="clientid"  />
       
       <div class="w3-padding-8">
         <label><b>First Name</b></label>

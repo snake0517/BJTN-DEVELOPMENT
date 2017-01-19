@@ -15,7 +15,7 @@
     </div>
 
     <form:form method="POST" action="/Impulse/interactions/editsave" cssClass="w3-container">
-      <form:hidden path="id"  />
+      <form:hidden path="clientid"  />
       
       <div class="w3-padding-8">
         <label><b>Client Id</b></label>

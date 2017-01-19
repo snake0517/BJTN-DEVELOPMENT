@@ -43,9 +43,10 @@ public class UsersDAO {
         return template.update(sql, values);
     }
 
-    public int delete(String username) {
-        String sql = "DELETE FROM users WHERE username ="+username+"";
-        return template.update(sql);
+    public int delete(Users users) {
+        String sql = "DELETE FROM users WHERE username = ?";
+        Object[] values = {users.getUsername()};
+        return template.update(sql, values);
     }
 
     public List<Users> getUsersList() {

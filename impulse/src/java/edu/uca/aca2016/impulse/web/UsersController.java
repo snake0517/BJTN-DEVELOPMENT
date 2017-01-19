@@ -98,8 +98,8 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/users/deleteusers/{username}", method = RequestMethod.GET)
-    public ModelAndView delete(@PathVariable String username, HttpServletRequest request) {
-        int r = dao.delete(username);
+    public ModelAndView delete(@ModelAttribute("users") Users users, HttpServletRequest request) {
+        int r = dao.delete(users);
         
         Message msg = null;
         if (r == 1) {
