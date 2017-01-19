@@ -16,7 +16,7 @@ public class Interactions implements Serializable {
     private int ClientId;
     private int InteractionId;
     private int Clientid;
-    private String OccuredOn;
+    private String OccurredOn;
     private String ContactPerson;
     private String ContactType;
     private String Notes;
@@ -45,12 +45,12 @@ public class Interactions implements Serializable {
         this.Clientid = Clientid;
     }
 
-    public String getOccuredOn() {
-        return OccuredOn;
+    public String getOccurredOn() {
+        return OccurredOn;
     }
 
-    public void setOccuredOn(String OccuredOn) {
-        this.OccuredOn = OccuredOn;
+    public void setOccurredOn(String OccurredOn) {
+        this.OccurredOn = OccurredOn;
     }
 
     public String getContactPerson() {

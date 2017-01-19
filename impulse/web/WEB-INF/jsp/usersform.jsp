@@ -19,6 +19,14 @@
         <label><b>Username</b></label>
         <form:input path="username" cssClass="w3-input w3-border"  />
       </div>
+      <div class="w3-padding-8">
+        <label><b>Password</b></label>
+        <form:input path="password" cssClass="w3-input w3-border"  />
+      </div>
+      <div class="w3-padding-8">
+        <label><b>Active</b></label>
+        <form:input path="enabled" cssClass="w3-input w3-border"  />
+      </div>
       
       <div class="w3-padding-8">
         <button type="submit" class="w3-btn w3-padding w3-blue" style="width:120px">Save</button>

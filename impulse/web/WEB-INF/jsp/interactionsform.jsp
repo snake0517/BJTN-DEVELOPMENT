@@ -11,13 +11,30 @@
 
   <div class="w3-card-4">
     <div class="w3-container w3-blue">
-      <h2>Header</h2>
+      <h2>Impulse</h2>
     </div>
 
     <form:form method="post" action="save" cssClass="w3-container">
+     
+        <div class="w3-padding-8">
+        <label><b>Client Id</b></label>
+        <form:input path="clientid" cssClass="w3-input w3-border"  />
+      </div>
+        <div class="w3-padding-8">
+        <label><b>Contact Date</b></label>
+        <form:input path="occurredOn" cssClass="w3-input w3-border"  />
+      </div>
       <div class="w3-padding-8">
         <label><b>Contact Person</b></label>
         <form:input path="contactPerson" cssClass="w3-input w3-border"  />
+      </div>
+      <div class="w3-padding-8">
+        <label><b>Contact Type</b></label>
+        <form:input path="contactType" cssClass="w3-input w3-border"  />
+      </div>
+      <div class="w3-padding-8">
+        <label><b>Notes</b></label>
+        <form:input path="notes" cssClass="w3-input w3-border"  />
       </div>
       
       <div class="w3-padding-8">

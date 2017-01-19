@@ -32,14 +32,14 @@ public class InteractionsDAO {
 
         String sql = "INSERT INTO interactions (`ClientId`, `OccuredOn`, `ContactPerson`, `ContactType`, `Notes`)"
                 + "	VALUES (?, ?, ?, ?, ?)";
-        Object[] values = {interactions.getClientid(), interactions.getOccuredOn(), interactions.getContactPerson(), interactions.getContactType(), interactions.getNotes()};
+        Object[] values = {interactions.getClientid(), interactions.getOccurredOn(), interactions.getContactPerson(), interactions.getContactType(), interactions.getNotes()};
         return template.update(sql, values);
     }
 
     public int update(Interactions interactions) {
         String sql = "UPDATE interactions SET  `OccuredOn` = ?, `ContactPerson` = ?, `ContactType` = ?, `Notes` = ?"
                 + "	   WHERE ClientId = ?";
-        Object[] values = {interactions.getOccuredOn(), interactions.getContactPerson(), interactions.getContactType(), interactions.getNotes(), interactions.getClientId()};
+        Object[] values = {interactions.getOccurredOn(), interactions.getContactPerson(), interactions.getContactType(), interactions.getNotes(), interactions.getClientId()};
         return template.update(sql, values);
     }
 
@@ -72,7 +72,7 @@ public class InteractionsDAO {
                 Interactions i = new Interactions();
                 i.setInteractionId(rs.getInt(1));
                 i.setClientid(rs.getInt(2));
-                i.setOccuredOn(rs.getString(3));
+                i.setOccurredOn(rs.getString(3));
                 i.setContactPerson(rs.getString(4));
                 i.setContactType(rs.getString(5));
                 i.setNotes(rs.getString(6));

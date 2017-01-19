@@ -11,13 +11,49 @@
 
   <div class="w3-card-4">
     <div class="w3-container w3-blue">
-      <h2>Header</h2>
+      <h2>Impulse</h2>
     </div>
 
     <form:form method="post" action="save" cssClass="w3-container">
       <div class="w3-padding-8">
         <label><b>First Name</b></label>
         <form:input path="firstName" cssClass="w3-input w3-border"  />
+      </div>
+      <div class="w3-padding-8">
+        <label><b>Last Name</b></label>
+        <form:input path="lastName" cssClass="w3-input w3-border"  />
+      </div>
+      <div class="w3-padding-8">
+        <label><b>Address 1</b></label>
+        <form:input path="address1" cssClass="w3-input w3-border"  />
+      </div>
+      <div class="w3-padding-8">
+        <label><b>Address 2</b></label>
+        <form:input path="address2" cssClass="w3-input w3-border"  />
+      </div>
+      <div class="w3-padding-8">
+        <label><b>City</b></label>
+        <form:input path="city" cssClass="w3-input w3-border"  />
+      </div>
+      <div class="w3-padding-8">
+        <label><b>State</b></label>
+        <form:input path="state" cssClass="w3-input w3-border"  />
+      </div>
+      <div class="w3-padding-8">
+        <label><b>Zip</b></label>
+        <form:input path="zip" cssClass="w3-input w3-border"  />
+      </div>
+      <div class="w3-padding-8">
+        <label><b>Email</b></label>
+        <form:input path="email" cssClass="w3-input w3-border"  />
+      </div>
+      <div class="w3-padding-8">
+        <label><b>Phone</b></label>
+        <form:input path="phone" cssClass="w3-input w3-border"  />
+      </div>
+      <div class="w3-padding-8">
+        <label><b>Status</b></label>
+        <form:input path="status" cssClass="w3-input w3-border"  />
       </div>
       
       <div class="w3-padding-8">

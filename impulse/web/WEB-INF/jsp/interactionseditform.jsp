@@ -14,12 +14,24 @@
       <h2>Header</h2>
     </div>
 
-    <form:form method="POST" action="/Impulse/interactions/editsave" cssClass="w3-container">
+    <form:form method="POST" action="/impulse/interactions/editsave" cssClass="w3-container">
       <form:hidden path="clientid"  />
       
       <div class="w3-padding-8">
-        <label><b>Client Id</b></label>
-        <form:input path="clientid" cssClass="w3-input w3-border"  />
+        <label><b>Contact Date</b></label>
+        <form:input path="occurredOn" cssClass="w3-input w3-border"  />
+      </div>
+      <div class="w3-padding-8">
+        <label><b>Contact Person</b></label>
+        <form:input path="contactPerson" cssClass="w3-input w3-border"  />
+      </div>
+      <div class="w3-padding-8">
+        <label><b>Contact Type</b></label>
+        <form:input path="contactType" cssClass="w3-input w3-border"  />
+      </div>
+      <div class="w3-padding-8">
+        <label><b>Notes</b></label>
+        <form:input path="notes" cssClass="w3-input w3-border"  />
       </div>
       
       <div class="w3-padding-8">
