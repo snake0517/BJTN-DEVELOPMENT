@@ -71,7 +71,8 @@ public class UsersDAO {
             public Users mapRow(ResultSet rs,int row) throws SQLException{
                 Users u = new Users();
                 u.setUsername(rs.getString(1));
-               
+               u.setPassword(rs.getString(2));
+               u.setEnabled(rs.getInt(3));
                 return u;
             }
         });

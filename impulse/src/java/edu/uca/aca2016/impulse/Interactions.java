@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class Interactions implements Serializable {
 
     private int ClientId;
-    private int InteracionId;
+    private int InteractionId;
     private int Clientid;
     private String OccuredOn;
     private String ContactPerson;
@@ -29,12 +29,12 @@ public class Interactions implements Serializable {
         this.ClientId = ClientId;
     }
 
-    public int getInteracionId() {
-        return InteracionId;
+    public int getInteractionId() {
+        return InteractionId;
     }
 
-    public void setInteracionId(int InteracionId) {
-        this.InteracionId = InteracionId;
+    public void setInteractionId(int InteractionId) {
+        this.InteractionId = InteractionId;
     }
 
     public int getClientid() {
