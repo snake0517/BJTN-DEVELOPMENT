@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.HashMap;
 
 
+
 @Controller
 public class UsersController {
 
@@ -77,11 +78,12 @@ public class UsersController {
     }
     @RequestMapping(value = "/users/editusers/{username}")
     public ModelAndView edit(@PathVariable String username) {
-        Users users = dao.getUsersbyUsername("username");
+        Users users = dao.getUsersbyUsername(username);
         return new ModelAndView("userseditform", "command", users);
     }
 
     @RequestMapping(value = "/users/editsave", method = RequestMethod.POST)
+    
     public ModelAndView editsave(@ModelAttribute("users") Users users, HttpServletRequest request) {
         int r = dao.update(users);
         

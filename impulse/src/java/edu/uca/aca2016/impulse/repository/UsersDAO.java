@@ -15,15 +15,18 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import edu.uca.aca2016.impulse.Users;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 /**
  *
  * @author brela
  */
 public class UsersDAO {
+    
+private static final Logger logger = Logger.getLogger(UsersDAO.class.getName());
 
     JdbcTemplate template;
-
+ 
     public void setTemplate(JdbcTemplate template) {
         this.template = template;
     }
@@ -37,7 +40,7 @@ public class UsersDAO {
     }
 
     public int update(Users users) {
-        String sql = "UPDATE users SET `username` = ?, `password` = ?, enabled = ?"
+        String sql = "UPDATE users SET `username` = ?, `password` = md5(?), enabled = ?"
                 + "	   WHERE username = ?";
         Object[] values = {users.getUsername(),users.getPassword(), users.getEnabled(), users.getUsername()};
         return template.update(sql, values);
@@ -62,8 +65,10 @@ public class UsersDAO {
     }
 
     public Users getUsersbyUsername(String username) {
-        String sql = "SELECT username AS username, username FROM users WHERE username = ?";
+        logger.info(username);
+        String sql = "SELECT *  FROM users WHERE username = ?";
         return template.queryForObject(sql, new Object[]{username}, new BeanPropertyRowMapper<Users>(Users.class));
+        
     }
     public List<Users> getUsersByPage(int start, int total){
         String sql = "SELECT * FROM users LIMIT " + (start - 1) + "," + total;

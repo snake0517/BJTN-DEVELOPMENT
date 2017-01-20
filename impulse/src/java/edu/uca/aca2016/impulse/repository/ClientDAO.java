@@ -64,7 +64,7 @@ public class ClientDAO {
     }
 
     public Client getClientById(int id) {
-        String sql = "SELECT ClientId AS id, FirstName FROM Client WHERE ClientId = ?";
+        String sql = "SELECT * FROM Client WHERE ClientId = ?";
         return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<Client>(Client.class));
     }
     

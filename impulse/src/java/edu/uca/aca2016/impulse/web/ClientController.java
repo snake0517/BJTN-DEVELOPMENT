@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.HashMap;
+import java.util.logging.Logger;
 
 
 @Controller
 public class ClientController {
-
+private static final Logger logger = Logger.getLogger(ClientController.class.getName());
     @Autowired
     ClientDAO dao;
 
@@ -84,6 +85,7 @@ public class ClientController {
 
     @RequestMapping(value = "/client/editsave", method = RequestMethod.POST)
     public ModelAndView editsave(@ModelAttribute("client") Client client, HttpServletRequest request) {
+        logger.info(""+client.getClientid());
         int r = dao.update(client);
         
         Message msg = null;

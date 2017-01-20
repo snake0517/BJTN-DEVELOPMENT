@@ -18,8 +18,12 @@
       <form:hidden path="username"  />
       
       <div class="w3-padding-8">
-        <label><b>Username</b></label>
-        <form:input path="username" cssClass="w3-input w3-border"  />
+        <label><b>Password</b></label>
+        <form:password path="password" cssClass="w3-input w3-border"  />
+      </div>
+      <div class="w3-padding-8">
+        <label><b>Enabled</b></label>
+        <form:input path="enabled" cssClass="w3-input w3-border"  />
       </div>
       
       <div class="w3-padding-8">
