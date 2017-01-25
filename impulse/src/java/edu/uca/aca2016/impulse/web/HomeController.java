@@ -1,6 +1,6 @@
 package edu.uca.aca2016.impulse.web;
 
-import edu.uca.aca2016.impulse.Client;
+import edu.uca.aca2016.impulse.objects.Client;
 
 import java.util.List;
 import org.springframework.stereotype.Controller;

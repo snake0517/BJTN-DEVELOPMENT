@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.uca.aca2016.impulse;
+package edu.uca.aca2016.impulse.objects;
 
 import java.io.Serializable;
 

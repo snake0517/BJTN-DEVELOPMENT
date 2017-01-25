@@ -1,9 +1,11 @@
 package edu.uca.aca2016.impulse.web;
 
+import edu.uca.aca2016.impulse.objects.Client;
 import org.springframework.web.servlet.ModelAndView;
-import edu.uca.aca2016.impulse.Interactions;
+import edu.uca.aca2016.impulse.objects.Interactions;
 import edu.uca.aca2016.impulse.repository.InteractionsDAO;
-import edu.uca.aca2016.impulse.Message;
+import edu.uca.aca2016.impulse.objects.Message;
+import edu.uca.aca2016.impulse.repository.ClientDAO;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +22,28 @@ public class InteractionsController {
 
     @Autowired
     InteractionsDAO dao;
+    
+    @Autowired
+    ClientDAO cdao;
 
     @RequestMapping("/interactions/interactionsform")
     public ModelAndView showform() {
+        Interactions interactions = new Interactions();
+        interactions.setClients(dao.getClientsMap());
+        
         return new ModelAndView("interactionsform", "command", new Interactions());
+    }
+    @RequestMapping("/interactions/interactionsform/{id}")
+    public ModelAndView showformWithClient(@PathVariable int id){
+        Client client = cdao.getClientById(id);
+        
+        Interactions interactions = new Interactions();
+        interactions.setClientid(id);
+        interactions.setClient(client);
+        
+        interactions.setClients(dao.getClientsMap());
+        
+        return new ModelAndView("albumform","command",interactions);
     }
 
     @RequestMapping(value = "/interactions/save", method = RequestMethod.POST)

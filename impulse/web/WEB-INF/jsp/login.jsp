@@ -19,7 +19,7 @@
 
           <div class="w3-center"><br>
             <span onclick="document.getElementById('id01').style.display = 'none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">&times;</span>
-            <img src="<c:url value="/media/img/avatar.png" />" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+            <img src="<c:url value="/media/img/brepic.jpg" />" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
           </div>
 
           <form id="loginForm" class="w3-container" action="<c:url value='/j_spring_security_login' />" method='POST'>

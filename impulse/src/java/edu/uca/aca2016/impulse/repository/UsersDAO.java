@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import edu.uca.aca2016.impulse.Users;
+import edu.uca.aca2016.impulse.objects.Users;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -33,16 +33,16 @@ private static final Logger logger = Logger.getLogger(UsersDAO.class.getName());
 
     public int save(Users users) {
 
-        String sql = "INSERT INTO users (`username`, `password`, `enabled`)"
-                + "	VALUES (?, md5(?), ?)";
-        Object[] values = {users.getUsername(), users.getPassword(), users.getEnabled()};
+        String sql = "INSERT INTO users (`username`, `password`, `enabled`, `name`)"
+                + "	VALUES (?, md5(?), ?, ?)";
+        Object[] values = {users.getUsername(), users.getPassword(), users.getEnabled(), users.getName()};
         return template.update(sql, values);
     }
 
     public int update(Users users) {
-        String sql = "UPDATE users SET `username` = ?, `password` = md5(?), enabled = ?"
+        String sql = "UPDATE users SET `username` = ?, `password` = md5(?), enabled = ?, name = ?"
                 + "	   WHERE username = ?";
-        Object[] values = {users.getUsername(),users.getPassword(), users.getEnabled(), users.getUsername()};
+        Object[] values = {users.getUsername(),users.getPassword(), users.getEnabled(), users.getUsername(), users.getName()};
         return template.update(sql, values);
     }
 
@@ -78,6 +78,7 @@ private static final Logger logger = Logger.getLogger(UsersDAO.class.getName());
                 u.setUsername(rs.getString(1));
                u.setPassword(rs.getString(2));
                u.setEnabled(rs.getInt(3));
+               u.setName(rs.getString(4));
                 return u;
             }
         });

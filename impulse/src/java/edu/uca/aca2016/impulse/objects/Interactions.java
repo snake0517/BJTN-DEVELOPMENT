@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.uca.aca2016.impulse;
+package edu.uca.aca2016.impulse.objects;
 
 import java.io.Serializable;
+import java.util.Map;
 
 /**
  *
@@ -20,6 +21,26 @@ public class Interactions implements Serializable {
     private String ContactPerson;
     private String ContactType;
     private String Notes;
+     private Client client;
+    private Map<Integer, String> clients;
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Map<Integer, String> getClients() {
+        return clients;
+    }
+
+    public void setClients(Map<Integer, String> clients) {
+        this.clients = clients;
+    }
+    
+   
 
     public int getClientId() {
         return ClientId;

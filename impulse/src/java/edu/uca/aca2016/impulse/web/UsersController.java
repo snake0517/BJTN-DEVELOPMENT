@@ -2,8 +2,8 @@ package edu.uca.aca2016.impulse.web;
 
 import edu.uca.aca2016.impulse.repository.UsersDAO;
 import org.springframework.web.servlet.ModelAndView;
-import edu.uca.aca2016.impulse.Users;
-import edu.uca.aca2016.impulse.Message;
+import edu.uca.aca2016.impulse.objects.Users;
+import edu.uca.aca2016.impulse.objects.Message;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

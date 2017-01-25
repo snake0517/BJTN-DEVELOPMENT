@@ -20,6 +20,10 @@
         <form:input path="username" cssClass="w3-input w3-border"  />
       </div>
       <div class="w3-padding-8">
+        <label><b>Name</b></label>
+        <form:input path="name" cssClass="w3-input w3-border"  />
+      </div>
+      <div class="w3-padding-8">
         <label><b>Password</b></label>
         <form:password path="password" cssClass="w3-input w3-border"  />
       </div>

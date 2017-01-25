@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import edu.uca.aca2016.impulse.Client;
+import edu.uca.aca2016.impulse.objects.Client;
 import java.sql.SQLException;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 

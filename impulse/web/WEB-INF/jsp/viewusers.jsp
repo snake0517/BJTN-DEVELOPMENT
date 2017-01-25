@@ -24,12 +24,14 @@
   <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">  
     <tr>
       <th>Username</th>
+      <th>Name</th>
       <th>Action</th>
     </tr>  
 
     <c:forEach var="users" items="${list}">   
       <tr>  
         <td>${users.username}</td>  
+        <td>${users.name}</td>
         <td>
           <a href="<c:url value="/users/editusers/${users.username}" />"><button class="w3-btn w3-round w3-blue">Edit</button></a>
           <a href="<c:url value="/users/deleteusers/${users.username}" />"><button class="w3-btn w3-round w3-red">Delete</button></a>
