@@ -11,45 +11,46 @@ import java.io.Serializable;
  *
  * @author cfiles
  */
-public class Message implements Serializable{
+public class Message implements Serializable {
+
     private Level type;
     private String message;
-    
+
     public enum Level {
         ERROR, INFO;
-        
+
         public String getString() {
             return this.name();
         }
     }
 
-    public Message(){
-        
+    public Message() {
+
     }
-    
-    public Message(Level type,String message){
+
+    public Message(Level type, String message) {
         this.type = type;
         this.message = message;
     }
 
-    public Level getType(){
+    public Level getType() {
         return type;
     }
 
-    public void setType(Level type){
+    public void setType(Level type) {
         this.type = type;
     }
 
-    public String getMessage(){
+    public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message){
+    public void setMessage(String message) {
         this.message = message;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Message{" + "type=" + type + ", message=" + message + '}';
     }
 }

@@ -21,7 +21,7 @@ public class Interactions implements Serializable {
     private String ContactPerson;
     private String ContactType;
     private String Notes;
-     private Client client;
+    private Client client;
     private Map<Integer, String> clients;
 
     public Client getClient() {
@@ -39,8 +39,6 @@ public class Interactions implements Serializable {
     public void setClients(Map<Integer, String> clients) {
         this.clients = clients;
     }
-    
-   
 
     public int getClientId() {
         return ClientId;

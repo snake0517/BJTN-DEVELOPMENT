@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
-
 @Controller
 public class ClientController {
-private static final Logger logger = Logger.getLogger(ClientController.class.getName());
+
+    private static final Logger logger = Logger.getLogger(ClientController.class.getName());
     @Autowired
     ClientDAO dao;
 
@@ -28,52 +28,52 @@ private static final Logger logger = Logger.getLogger(ClientController.class.get
     }
 
     @RequestMapping(value = "/client/save", method = RequestMethod.POST)
-    public ModelAndView save(@ModelAttribute("client") Client client, HttpServletRequest request ) {
-       int r = dao.save(client);
-        
+    public ModelAndView save(@ModelAttribute("client") Client client, HttpServletRequest request) {
+        int r = dao.save(client);
+
         Message msg = null;
         if (r == 1) {
             msg = new Message(Message.Level.INFO, "Client has been successfully created");
-        }
-        else {
+        } else {
             msg = new Message(Message.Level.ERROR, "New client creation failed");
         }
-        
+
         request.getSession().setAttribute("message", msg);
         return new ModelAndView("redirect:/client/viewclient");
     }
 
     @RequestMapping("/client/viewclient")
     public ModelAndView viewclient(HttpServletRequest request) {
-        
+
         return this.viewclient(1, request);
     }
+
     @RequestMapping("/client/viewclient/{pageid}")
-    public ModelAndView viewclient(@PathVariable int pageid, HttpServletRequest request){
+    public ModelAndView viewclient(@PathVariable int pageid, HttpServletRequest request) {
         int total = 25;
         int start = 1;
-        
-        if(pageid != 1) {
-            start = (pageid-1) * total + 1;  
-        }  
-        
+
+        if (pageid != 1) {
+            start = (pageid - 1) * total + 1;
+        }
+
         List<Client> list = dao.getClientsByPage(start, total);
-        
+
         HashMap<String, Object> context = new HashMap<String, Object>();
         context.put("list", list);
-        
+
         int count = dao.getClientCount();
-        context.put("pages", Math.ceil((float)count/(float)total));
-        
+        context.put("pages", Math.ceil((float) count / (float) total));
+
         context.put("page", pageid);
-        
-        Message msg = (Message)request.getSession().getAttribute("message");
+
+        Message msg = (Message) request.getSession().getAttribute("message");
 
         if (msg != null) {
             context.put("message", msg);
             request.getSession().removeAttribute("message");
         }
-       
+
         return new ModelAndView("viewclient", context);
     }
 
@@ -85,17 +85,16 @@ private static final Logger logger = Logger.getLogger(ClientController.class.get
 
     @RequestMapping(value = "/client/editsave", method = RequestMethod.POST)
     public ModelAndView editsave(@ModelAttribute("client") Client client, HttpServletRequest request) {
-        logger.info(""+client.getClientid());
+        logger.info("" + client.getClientid());
         int r = dao.update(client);
-        
+
         Message msg = null;
         if (r == 1) {
             msg = new Message(Message.Level.INFO, "Client has been successfully saved");
-        }
-        else {
+        } else {
             msg = new Message(Message.Level.ERROR, "Edit client failed");
         }
-        
+
         request.getSession().setAttribute("message", msg);
         return new ModelAndView("redirect:/client/viewclient");
     }
@@ -103,15 +102,14 @@ private static final Logger logger = Logger.getLogger(ClientController.class.get
     @RequestMapping(value = "/client/deleteclient/{id}", method = RequestMethod.GET)
     public ModelAndView delete(@PathVariable int id, HttpServletRequest request) {
         int r = dao.delete(id);
-        
+
         Message msg = null;
         if (r == 1) {
             msg = new Message(Message.Level.INFO, "Client has been successfully deleted");
-        }
-        else {
+        } else {
             msg = new Message(Message.Level.ERROR, "Delete client failed");
         }
-        
+
         request.getSession().setAttribute("message", msg);
         return new ModelAndView("redirect:/client/viewclient");
     }

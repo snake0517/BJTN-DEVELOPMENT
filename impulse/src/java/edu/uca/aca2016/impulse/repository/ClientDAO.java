@@ -57,7 +57,7 @@ public class ClientDAO {
                 c.setClientid(rs.getInt("ClientId"));
                 c.setFirstName(rs.getString("FirstName"));
                 c.setLastName(rs.getString("LastName"));
-                
+
                 return c;
             }
         });
@@ -67,11 +67,11 @@ public class ClientDAO {
         String sql = "SELECT * FROM Client WHERE ClientId = ?";
         return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<Client>(Client.class));
     }
-    
-    public List<Client> getClientsByPage(int start, int total){
+
+    public List<Client> getClientsByPage(int start, int total) {
         String sql = "SELECT * FROM client LIMIT " + (start - 1) + "," + total;
-        return template.query(sql,new RowMapper<Client>(){
-            public Client mapRow(ResultSet rs,int row) throws SQLException{
+        return template.query(sql, new RowMapper<Client>() {
+            public Client mapRow(ResultSet rs, int row) throws SQLException {
                 Client c = new Client();
                 c.setClientid(rs.getInt(1));
                 c.setFirstName(rs.getString(2));
@@ -88,15 +88,15 @@ public class ClientDAO {
             }
         });
     }
-    
+
     public int getClientCount() {
         String sql = "SELECT COUNT(ClientID) AS rowcount FROM client";
         SqlRowSet rs = template.queryForRowSet(sql);
-        
+
         if (rs.next()) {
             return rs.getInt("rowcount");
         }
-        
+
         return 1;
     }
 }
