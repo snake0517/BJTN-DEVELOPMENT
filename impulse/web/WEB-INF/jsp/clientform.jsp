@@ -14,7 +14,7 @@
             <h2>Impulse</h2>
         </div>
 
-        <form:form method="post" action="save" cssClass="w3-container">
+        <form:form method="post" action="save" cssClass="w3-container" commandName="client">
             <div class="w3-padding-8">
                 <label><b>First Name</b></label>
                 <form:input path="firstName" cssClass="w3-input w3-border"  />

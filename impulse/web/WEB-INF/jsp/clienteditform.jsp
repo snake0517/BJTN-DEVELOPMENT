@@ -14,7 +14,7 @@
             <h2>Impulse</h2>
         </div>
 
-        <form:form method="POST" action="/impulse/client/editsave" cssClass="w3-container">
+        <form:form method="POST" action="/impulse/client/editsave" cssClass="w3-container" commandName="client">
             <form:hidden path="clientid"  />
 
             <div class="w3-padding-8">

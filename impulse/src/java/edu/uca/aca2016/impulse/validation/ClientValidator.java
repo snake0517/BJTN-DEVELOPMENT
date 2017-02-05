@@ -22,15 +22,15 @@ public class ClientValidator implements Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "client.name.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "client.firstName.required");
         
         Client client = (Client)target;
 		if(client.getFirstName().length() > 120) {
-			errors.rejectValue("name","client.name.length");
+			errors.rejectValue("firstName","client.firstName.length");
 		}
         
         if (!client.getFirstName().matches("^[A-Za-z0-9]*$")) {
-            errors.rejectValue("name","client.name.pattern");
+            errors.rejectValue("firstName","client.firstName.pattern");
         }
 	}
 }
