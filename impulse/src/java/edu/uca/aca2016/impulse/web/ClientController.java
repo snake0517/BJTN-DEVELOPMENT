@@ -14,6 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.HashMap;
 import java.util.logging.Logger;
+import javax.validation.Valid;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import edu.uca.aca2016.impulse.validation.ClientValidator;
+
 
 @Controller
 public class ClientController {
@@ -21,14 +27,19 @@ public class ClientController {
     private static final Logger logger = Logger.getLogger(ClientController.class.getName());
     @Autowired
     ClientDAO dao;
+@Autowired
+    private ClientValidator clientValidator;
 
     @RequestMapping("/client/clientform")
     public ModelAndView showform() {
-        return new ModelAndView("clientform", "command", new Client());
+        return new ModelAndView("clientform", "client", new Client());
     }
 
     @RequestMapping(value = "/client/save", method = RequestMethod.POST)
-    public ModelAndView save(@ModelAttribute("client") Client client, HttpServletRequest request) {
+    public ModelAndView save(@ModelAttribute("client") @Valid Client client, BindingResult result, HttpServletRequest request){
+        if(result.hasErrors()){
+            return new ModelAndView("clientform", "client", client);
+        }
         int r = dao.save(client);
 
         Message msg = null;
@@ -80,7 +91,7 @@ public class ClientController {
     @RequestMapping(value = "/client/editclient/{id}")
     public ModelAndView edit(@PathVariable int id) {
         Client client = dao.getClientById(id);
-        return new ModelAndView("clienteditform", "command", client);
+        return new ModelAndView("clienteditform", "client", client);
     }
 
     @RequestMapping(value = "/client/editsave", method = RequestMethod.POST)
@@ -112,5 +123,17 @@ public class ClientController {
 
         request.getSession().setAttribute("message", msg);
         return new ModelAndView("redirect:/client/viewclient");
+    }
+    @InitBinder("client")
+    public void initBinder(WebDataBinder webDataBinder){
+        webDataBinder.setValidator(clientValidator);
+    }
+    
+    public ClientValidator getClientValidator() {
+        return clientValidator;
+    }
+ 
+    public void setClientValidator(ClientValidator clientValidator) {
+        this.clientValidator = clientValidator;
     }
 }

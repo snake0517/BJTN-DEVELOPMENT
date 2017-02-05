@@ -43,7 +43,7 @@ public class InteractionsController {
 
         interactions.setClients(dao.getClientsMap());
 
-        return new ModelAndView("albumform", "command", interactions);
+        return new ModelAndView("interactionsform", "command", interactions);
     }
 
     @RequestMapping(value = "/interactions/save", method = RequestMethod.POST)
