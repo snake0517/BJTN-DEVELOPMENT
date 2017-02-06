@@ -95,8 +95,10 @@ public class ClientController {
     }
 
     @RequestMapping(value = "/client/editsave", method = RequestMethod.POST)
-    public ModelAndView editsave(@ModelAttribute("client") Client client, HttpServletRequest request) {
-        logger.info("" + client.getClientid());
+   public ModelAndView editsave(@ModelAttribute("client") @Valid Client client, BindingResult result, HttpServletRequest request){
+        if(result.hasErrors()){
+            return new ModelAndView("clienteditform", "client", client);
+        }
         int r = dao.update(client);
 
         Message msg = null;
