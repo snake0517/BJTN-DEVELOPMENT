@@ -20,6 +20,7 @@
             <div class="w3-padding-8">
                 <label><b>First Name</b></label>
                 <form:input path="firstName" cssClass="w3-input w3-border"  />
+                <form:errors path="firstName" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
             </div>
             <div class="w3-padding-8">
                 <label><b>Last Name</b></label>

@@ -41,13 +41,13 @@ public class InteractionsDAO {
 
     public int update(Interactions interactions) {
         String sql = "UPDATE interactions SET  `OccuredOn` = ?, `ContactPerson` = ?, `ContactType` = ?, `Notes` = ?"
-                + "	   WHERE ClientId = ?";
-        Object[] values = {interactions.getOccurredOn(), interactions.getContactPerson(), interactions.getContactType(), interactions.getNotes(), interactions.getClientId()};
+                + "	   WHERE InteractionId = ?";
+        Object[] values = {interactions.getOccurredOn(), interactions.getContactPerson(), interactions.getContactType(), interactions.getNotes(), interactions.getInteractionId()};
         return template.update(sql, values);
     }
 
     public int delete(int id) {
-        String sql = "DELETE FROM interactions WHERE ClientId=" + id + "";
+        String sql = "DELETE FROM interactions WHERE InteractionId=" + id + "";
         return template.update(sql);
     }
 
@@ -65,7 +65,7 @@ public class InteractionsDAO {
     }
 
     public Interactions getInteractionsById(int id) {
-        String sql = "SELECT * FROM Interactions WHERE ClientId = ?";
+        String sql = "SELECT * FROM Interactions WHERE InteractionId = ?";
         return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<Interactions>(Interactions.class));
     }
 
