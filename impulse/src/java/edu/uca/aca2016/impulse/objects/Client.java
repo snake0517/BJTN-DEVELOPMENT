@@ -6,6 +6,8 @@
 package edu.uca.aca2016.impulse.objects;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  *
@@ -24,6 +26,15 @@ public class Client implements Serializable {
     private String Email;
     private String Phone;
     private String Status;
+    private Map<String, String> stat;
+
+    public Map<String, String> getStat() {
+         stat= new LinkedHashMap<>();
+        stat.put("POTENTIAL", "POTENTIAL");
+        stat.put("CURRENT", "CURRENT");
+        stat.put("FORMER", "FORMER");
+        return stat;
+    }
 
     public int getClientid() {
         return clientid;
