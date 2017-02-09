@@ -23,14 +23,46 @@ public class ClientValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "client.firstName.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "client.lastName.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "address1", "client.address1.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "city", "client.city.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "state", "client.state.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "zip", "client.zip.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "client.email.required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "phone", "client.phone.required");
         
         Client client = (Client)target;
-		if(client.getFirstName().length() > 120) {
+		if(client.getFirstName().length() > 45) {
 			errors.rejectValue("firstName","client.firstName.length");
 		}
-        
+        if(client.getFirstName().length() > 45) {
+			errors.rejectValue("lastName","client.lastName.length");
+		}
+        if(client.getFirstName().length() > 128) {
+			errors.rejectValue("address1","client.address1.length");
+		}
+        if(client.getFirstName().length() > 128) {
+			errors.rejectValue("address2","client.address1.length");
+		}
+        if(client.getFirstName().length() > 45) {
+			errors.rejectValue("city","client.city.length");
+		}
+        if(client.getFirstName().length() > 45) {
+			errors.rejectValue("state","client.state.length");
+		}
+        if(client.getFirstName().length() > 45) {
+			errors.rejectValue("zip","client.zip.length");
+		}
+        if(client.getFirstName().length() > 45) {
+			errors.rejectValue("email","client.email.length");
+		}
+        if(client.getFirstName().length() > 30) {
+			errors.rejectValue("phone","client.phone.length");
+		}
         if (!client.getFirstName().matches("^[A-Za-z0-9]*$")) {
             errors.rejectValue("firstName","client.firstName.pattern");
         }
+        
 	}
+        
 }
