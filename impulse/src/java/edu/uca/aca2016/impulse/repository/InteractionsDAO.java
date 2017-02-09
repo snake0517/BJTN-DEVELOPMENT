@@ -87,6 +87,7 @@ public class InteractionsDAO {
 
                 Client client = new Client();
                 client.setClientid(rs.getInt(1));
+                client.setFirstName(rs.getString(2));
 
                 i.setClient(client);
 

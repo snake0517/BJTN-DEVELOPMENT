@@ -30,7 +30,7 @@ public class InteractionsController {
         Interactions interactions = new Interactions();
         interactions.setClients(dao.getClientsMap());
 
-        return new ModelAndView("interactionsform", "command", new Interactions());
+        return new ModelAndView("interactionsform", "command", interactions);
     }
 
     @RequestMapping("/interactions/interactionsform/{id}")
