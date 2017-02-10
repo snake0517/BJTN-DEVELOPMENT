@@ -43,7 +43,7 @@ public class UsersDAO {
     public int update(Users users) {
         String sql = "UPDATE users SET  `password` = md5(?), enabled = ?, name = ?"
                 + "	   WHERE username = ?";
-        Object[] values = { users.getPassword(), users.getEnabled(), users.getName(), users.getUsername()};
+        Object[] values = {users.getPassword(), users.getEnabled(), users.getName(), users.getUsername()};
         return template.update(sql, values);
     }
 

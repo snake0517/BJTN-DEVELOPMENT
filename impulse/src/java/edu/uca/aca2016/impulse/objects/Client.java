@@ -29,7 +29,7 @@ public class Client implements Serializable {
     private Map<String, String> stat;
 
     public Map<String, String> getStat() {
-         stat= new LinkedHashMap<>();
+        stat = new LinkedHashMap<>();
         stat.put("POTENTIAL", "POTENTIAL");
         stat.put("CURRENT", "CURRENT");
         stat.put("FORMER", "FORMER");

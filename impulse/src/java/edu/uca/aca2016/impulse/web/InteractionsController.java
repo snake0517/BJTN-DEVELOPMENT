@@ -29,10 +29,9 @@ public class InteractionsController {
 
     @Autowired
     ClientDAO cdao;
-    
+
     @Autowired
     private InteractionsValidator interactionsValidator;
-
 
     @RequestMapping("/interactions/interactionsform")
     public ModelAndView showform() {
@@ -113,7 +112,7 @@ public class InteractionsController {
 
     @RequestMapping(value = "/interactions/editsave", method = RequestMethod.POST)
     public ModelAndView editsave(@ModelAttribute("interactions") @Valid Interactions interactions, BindingResult result, HttpServletRequest request) {
-         if(result.hasErrors()){
+        if (result.hasErrors()) {
             return new ModelAndView("interactionseditform", "interactions", interactions);
         }
         int r = dao.update(interactions);
@@ -143,15 +142,16 @@ public class InteractionsController {
         request.getSession().setAttribute("message", msg);
         return new ModelAndView("redirect:/interactions/viewinteractions");
     }
-     @InitBinder("interactions")
-    public void initBinder(WebDataBinder webDataBinder){
+
+    @InitBinder("interactions")
+    public void initBinder(WebDataBinder webDataBinder) {
         webDataBinder.setValidator(interactionsValidator);
     }
-    
+
     public InteractionsValidator getInteractionsValidator() {
         return interactionsValidator;
     }
- 
+
     public void setInteractionsValidator(InteractionsValidator interactionsValidator) {
         this.interactionsValidator = interactionsValidator;
     }

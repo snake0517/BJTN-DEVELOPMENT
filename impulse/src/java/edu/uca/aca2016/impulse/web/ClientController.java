@@ -20,14 +20,13 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import edu.uca.aca2016.impulse.validation.ClientValidator;
 
-
 @Controller
 public class ClientController {
 
     private static final Logger logger = Logger.getLogger(ClientController.class.getName());
     @Autowired
     ClientDAO dao;
-@Autowired
+    @Autowired
     private ClientValidator clientValidator;
 
     @RequestMapping("/client/clientform")
@@ -36,8 +35,8 @@ public class ClientController {
     }
 
     @RequestMapping(value = "/client/save", method = RequestMethod.POST)
-    public ModelAndView save(@ModelAttribute("client") @Valid Client client, BindingResult result, HttpServletRequest request){
-        if(result.hasErrors()){
+    public ModelAndView save(@ModelAttribute("client") @Valid Client client, BindingResult result, HttpServletRequest request) {
+        if (result.hasErrors()) {
             return new ModelAndView("clientform", "client", client);
         }
         int r = dao.save(client);
@@ -95,8 +94,8 @@ public class ClientController {
     }
 
     @RequestMapping(value = "/client/editsave", method = RequestMethod.POST)
-   public ModelAndView editsave(@ModelAttribute("client") @Valid Client client, BindingResult result, HttpServletRequest request){
-        if(result.hasErrors()){
+    public ModelAndView editsave(@ModelAttribute("client") @Valid Client client, BindingResult result, HttpServletRequest request) {
+        if (result.hasErrors()) {
             return new ModelAndView("clienteditform", "client", client);
         }
         int r = dao.update(client);
@@ -126,15 +125,16 @@ public class ClientController {
         request.getSession().setAttribute("message", msg);
         return new ModelAndView("redirect:/client/viewclient");
     }
+
     @InitBinder("client")
-    public void initBinder(WebDataBinder webDataBinder){
+    public void initBinder(WebDataBinder webDataBinder) {
         webDataBinder.setValidator(clientValidator);
     }
-    
+
     public ClientValidator getClientValidator() {
         return clientValidator;
     }
- 
+
     public void setClientValidator(ClientValidator clientValidator) {
         this.clientValidator = clientValidator;
     }

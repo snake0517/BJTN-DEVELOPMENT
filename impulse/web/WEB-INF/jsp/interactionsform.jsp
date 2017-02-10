@@ -17,26 +17,26 @@
         <form:form method="post" action="save" cssClass="w3-container" commandName="interactions">
 
             <c:choose>
-      <c:when test="${not empty interactions.client}">
-        <form:hidden path="clientid" />
-        <div class="w3-padding-8">
-          <label><b>Client</b></label>
-          <div class="w3-panel w3-border">
-            <p><b>${interactions.client.firstName}</b></p>
-          </div>
-         </div>
-      </c:when>
-      
-      <c:otherwise>
-        <div class="w3-padding-8">
-          <label><b>Client</b></label>
-          <form:select path="clientid" cssClass="w3-select w3-border">
-              <form:option value="-1">Select Client</form:option>
-              <form:options items="${interactions.clients}"  />
-          </form:select>
-        </div>
-      </c:otherwise>
-      </c:choose> 
+                <c:when test="${not empty interactions.client}">
+                    <form:hidden path="clientid" />
+                    <div class="w3-padding-8">
+                        <label><b>Client</b></label>
+                        <div class="w3-panel w3-border">
+                            <p><b>${interactions.client.firstName}</b></p>
+                        </div>
+                    </div>
+                </c:when>
+
+                <c:otherwise>
+                    <div class="w3-padding-8">
+                        <label><b>Client</b></label>
+                        <form:select path="clientid" cssClass="w3-select w3-border">
+                            <form:option value="-1">Select Client</form:option>
+                            <form:options items="${interactions.clients}"  />
+                        </form:select>
+                    </div>
+                </c:otherwise>
+            </c:choose> 
             <div class="w3-padding-8">
                 <label><b>Contact Date</b></label>
                 <form:input path="occurredOn" cssClass="w3-input w3-border"  />
