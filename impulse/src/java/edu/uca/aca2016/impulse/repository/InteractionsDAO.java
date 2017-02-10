@@ -114,7 +114,7 @@ public class InteractionsDAO {
         SqlRowSet rs = template.queryForRowSet(sql);
 
         while (rs.next()) {
-            clients.put(rs.getInt(1), rs.getString(2) + rs.getString(3));
+            clients.put(rs.getInt(1), rs.getString(2) + " " + rs.getString(3));
         }
 
         return clients;

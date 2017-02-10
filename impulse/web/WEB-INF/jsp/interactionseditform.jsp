@@ -14,24 +14,28 @@
             <h2>Header</h2>
         </div>
 
-        <form:form method="POST" action="/impulse/interactions/editsave" cssClass="w3-container">
+        <form:form method="POST" action="/impulse/interactions/editsave" cssClass="w3-container" commandName="interactions">
             <form:hidden path="interactionId"  />
 
             <div class="w3-padding-8">
                 <label><b>Contact Date</b></label>
                 <form:input path="occurredOn" cssClass="w3-input w3-border"  />
+                <form:errors path="occurredOn" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
             </div>
             <div class="w3-padding-8">
                 <label><b>Contact Person</b></label>
                 <form:input path="contactPerson" cssClass="w3-input w3-border"  />
+                <form:errors path="contactPerson" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
             </div>
             <div class="w3-padding-8">
                 <label><b>Contact Type</b></label>
                 <form:input path="contactType" cssClass="w3-input w3-border"  />
+                <form:errors path="contactType" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
             </div>
             <div class="w3-padding-8">
                 <label><b>Notes</b></label>
                 <form:input path="notes" cssClass="w3-input w3-border"  />
+                <form:errors path="notes" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
             </div>
 
             <div class="w3-padding-8">

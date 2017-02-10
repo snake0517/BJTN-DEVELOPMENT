@@ -14,15 +14,15 @@
             <h2>Impulse</h2>
         </div>
 
-        <form:form method="post" action="save" cssClass="w3-container">
+        <form:form method="post" action="save" cssClass="w3-container" commandName="interactions">
 
             <c:choose>
-      <c:when test="${not empty command.client}">
+      <c:when test="${not empty interactions.client}">
         <form:hidden path="clientid" />
         <div class="w3-padding-8">
           <label><b>Client</b></label>
           <div class="w3-panel w3-border">
-            <p><b>${command.client.firstName}</b></p>
+            <p><b>${interactions.client.firstName}</b></p>
           </div>
          </div>
       </c:when>
@@ -32,7 +32,7 @@
           <label><b>Client</b></label>
           <form:select path="clientid" cssClass="w3-select w3-border">
               <form:option value="-1">Select Client</form:option>
-              <form:options items="${command.clients}"  />
+              <form:options items="${interactions.clients}"  />
           </form:select>
         </div>
       </c:otherwise>
@@ -40,18 +40,22 @@
             <div class="w3-padding-8">
                 <label><b>Contact Date</b></label>
                 <form:input path="occurredOn" cssClass="w3-input w3-border"  />
+                <form:errors path="occurredOn" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
             </div>
             <div class="w3-padding-8">
                 <label><b>Contact Person</b></label>
                 <form:input path="contactPerson" cssClass="w3-input w3-border"  />
+                <form:errors path="contactPerson" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
             </div>
             <div class="w3-padding-8">
                 <label><b>Contact Type</b></label>
                 <form:input path="contactType" cssClass="w3-input w3-border"  />
+                <form:errors path="contactType" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
             </div>
             <div class="w3-padding-8">
                 <label><b>Notes</b></label>
                 <form:input path="notes" cssClass="w3-input w3-border"  />
+                <form:errors path="notes" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
             </div>
 
             <div class="w3-padding-8">

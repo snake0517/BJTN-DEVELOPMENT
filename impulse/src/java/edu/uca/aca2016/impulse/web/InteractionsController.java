@@ -6,6 +6,7 @@ import edu.uca.aca2016.impulse.objects.Interactions;
 import edu.uca.aca2016.impulse.repository.InteractionsDAO;
 import edu.uca.aca2016.impulse.objects.Message;
 import edu.uca.aca2016.impulse.repository.ClientDAO;
+import edu.uca.aca2016.impulse.validation.InteractionsValidator;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.HashMap;
+import javax.validation.Valid;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 
 @Controller
 public class InteractionsController {
@@ -24,13 +29,17 @@ public class InteractionsController {
 
     @Autowired
     ClientDAO cdao;
+    
+    @Autowired
+    private InteractionsValidator interactionsValidator;
+
 
     @RequestMapping("/interactions/interactionsform")
     public ModelAndView showform() {
         Interactions interactions = new Interactions();
         interactions.setClients(dao.getClientsMap());
 
-        return new ModelAndView("interactionsform", "command", interactions);
+        return new ModelAndView("interactionsform", "interactions", interactions);
     }
 
     @RequestMapping("/interactions/interactionsform/{id}")
@@ -43,11 +52,11 @@ public class InteractionsController {
 
         interactions.setClients(dao.getClientsMap());
 
-        return new ModelAndView("interactionsform", "command", interactions);
+        return new ModelAndView("interactionsform", "interactions", interactions);
     }
 
     @RequestMapping(value = "/interactions/save", method = RequestMethod.POST)
-    public ModelAndView save(@ModelAttribute("interactions") Interactions interactions, HttpServletRequest request) {
+    public ModelAndView save(@ModelAttribute("interactions") @Valid Interactions interactions, BindingResult result, HttpServletRequest request) {
         int r = dao.save(interactions);
 
         Message msg = null;
@@ -99,11 +108,14 @@ public class InteractionsController {
     @RequestMapping(value = "/interactions/editinteractions/{id}")
     public ModelAndView edit(@PathVariable int id) {
         Interactions interactions = dao.getInteractionsById(id);
-        return new ModelAndView("interactionseditform", "command", interactions);
+        return new ModelAndView("interactionseditform", "interactions", interactions);
     }
 
     @RequestMapping(value = "/interactions/editsave", method = RequestMethod.POST)
-    public ModelAndView editsave(@ModelAttribute("interactions") Interactions interactions, HttpServletRequest request) {
+    public ModelAndView editsave(@ModelAttribute("interactions") @Valid Interactions interactions, BindingResult result, HttpServletRequest request) {
+         if(result.hasErrors()){
+            return new ModelAndView("interactionseditform", "interactions", interactions);
+        }
         int r = dao.update(interactions);
 
         Message msg = null;
@@ -130,5 +142,17 @@ public class InteractionsController {
 
         request.getSession().setAttribute("message", msg);
         return new ModelAndView("redirect:/interactions/viewinteractions");
+    }
+     @InitBinder("interactions")
+    public void initBinder(WebDataBinder webDataBinder){
+        webDataBinder.setValidator(interactionsValidator);
+    }
+    
+    public InteractionsValidator getInteractionsValidator() {
+        return interactionsValidator;
+    }
+ 
+    public void setInteractionsValidator(InteractionsValidator interactionsValidator) {
+        this.interactionsValidator = interactionsValidator;
     }
 }
