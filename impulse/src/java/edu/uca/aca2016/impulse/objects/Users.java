@@ -21,6 +21,15 @@ public class Users implements Serializable {
     private String Name;
     private String Role;
     private Map<String, String> roles;
+    private Map<Integer, Integer> enable;
+
+    public Map<Integer, Integer> getEnable() {
+        enable = new LinkedHashMap<>();
+        enable.put(0, 0);
+        enable.put(1, 1);
+        
+        return enable;
+    }
 
     public Map<String, String> getRoles() {
         roles = new LinkedHashMap<>();
