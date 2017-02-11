@@ -41,11 +41,12 @@
                 <label><b>City</b></label>
                 <form:input path="city" cssClass="w3-input w3-border"  />
                 <form:errors path="city" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
-            </div>
             <div class="w3-padding-8">
                 <label><b>State</b></label>
-                <form:input path="state" cssClass="w3-input w3-border"  />
-                <form:errors path="state" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
+                <form:select path="state" cssClass="w3-select w3-border">
+                    <form:option value="">State</form:option>
+                    <form:options items="${client.states}"  />
+                </form:select>
             </div>
             <div class="w3-padding-8">
                 <label><b>Zip</b></label>
