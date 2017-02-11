@@ -6,6 +6,8 @@
 package edu.uca.aca2016.impulse.objects;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  *
@@ -17,6 +19,25 @@ public class Users implements Serializable {
     private String password;
     private int enabled;
     private String Name;
+    private String Role;
+    private Map<String, String> roles;
+
+    public Map<String, String> getRoles() {
+        roles = new LinkedHashMap<>();
+        roles.put("User", "User");
+        roles.put("Admin", "Admin");
+        
+        return roles;
+    }
+
+    public String getRole() {
+        return Role;
+    }
+
+    public void setRole(String Role) {
+        this.Role = Role;
+    }
+    
 
     public String getName() {
         return Name;

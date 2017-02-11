@@ -28,6 +28,13 @@
                 <form:password path="password" cssClass="w3-input w3-border"  />
             </div>
             <div class="w3-padding-8">
+                <label><b>Roles</b></label>
+                <form:select path="role" cssClass="w3-select w3-border">
+                    <form:option value="">Roles</form:option>
+                    <form:options items="${users.roles}"  />
+                </form:select>
+            </div>
+            <div class="w3-padding-8">
                 <label><b>Active</b></label>
                 <form:input path="enabled" cssClass="w3-input w3-border"  />
             </div>

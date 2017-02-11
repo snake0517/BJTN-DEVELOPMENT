@@ -6,6 +6,7 @@
 package edu.uca.aca2016.impulse.objects;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -23,6 +24,17 @@ public class Interactions implements Serializable {
     private String Notes;
     private Client client;
     private Map<Integer, String> clients;
+    private Map<String, String> contact;
+
+    public Map<String, String> getContact() {
+        contact = new LinkedHashMap<>();
+        contact.put("Direct", "Direct");
+        contact.put("Phone", "Phone");
+        contact.put("Email", "Email");
+        contact.put("Message", "Message");
+        
+        return contact;
+    }
 
     public Client getClient() {
         return client;
