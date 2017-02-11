@@ -37,7 +37,7 @@ public class InteractionsValidator implements Validator {
             errors.rejectValue("contactType", "interactions.contactType.length");
         }
 
-        if (!interactions.getOccurredOn().matches("(/^(0[1-9]|1[0-2])\\/(0[1-9]|1\\d|2\\d|3[01])\\/(19|20)\\d{2}$/")) {
+        if (!interactions.getOccurredOn().matches("^([0]\\d|[1][0-2])\\/([0-2]\\d|[3][0-1])\\/([2][01]|[1][6-9])\\d{2}(\\s([0-1]\\d|[2][0-3])(\\:[0-5]\\d){1,2})?$")) {
             errors.rejectValue("occurredOn", "interactions.occuredOn.pattern");
         }
     }

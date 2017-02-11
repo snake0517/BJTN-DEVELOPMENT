@@ -26,8 +26,7 @@ public class Users implements Serializable {
     public Map<String, String> getEnable() {
         enable = new LinkedHashMap<>();
         enable.put("0", "0");
-         enable.put("1", "1");
-        
+        enable.put("1", "1");
 
         return enable;
     }
