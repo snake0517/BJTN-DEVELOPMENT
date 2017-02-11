@@ -34,28 +34,28 @@ public class ClientValidator implements Validator {
         if (client.getFirstName().length() > 45) {
             errors.rejectValue("firstName", "client.firstName.length");
         }
-        if (client.getFirstName().length() > 45) {
+        if (client.getLastName().length() > 45) {
             errors.rejectValue("lastName", "client.lastName.length");
         }
-        if (client.getFirstName().length() > 128) {
+        if (client.getAddress1().length() > 128) {
             errors.rejectValue("address1", "client.address1.length");
         }
-        if (client.getFirstName().length() > 128) {
+        if (client.getAddress2().length() > 128) {
             errors.rejectValue("address2", "client.address1.length");
         }
-        if (client.getFirstName().length() > 45) {
+        if (client.getCity().length() > 45) {
             errors.rejectValue("city", "client.city.length");
         }
-        if (client.getFirstName().length() > 45) {
+        if (client.getState().length() > 45) {
             errors.rejectValue("state", "client.state.length");
         }
-        if (client.getFirstName().length() > 45) {
+        if (client.getZip().length() > 45) {
             errors.rejectValue("zip", "client.zip.length");
         }
-        if (client.getFirstName().length() > 45) {
+        if (client.getEmail().length() > 45) {
             errors.rejectValue("email", "client.email.length");
         }
-        if (client.getFirstName().length() > 30) {
+        if (client.getPhone().length() > 30) {
             errors.rejectValue("phone", "client.phone.length");
         }
         if (!client.getFirstName().matches("^[A-Za-z0-9]*$")) {

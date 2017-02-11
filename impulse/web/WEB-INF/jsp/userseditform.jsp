@@ -35,8 +35,8 @@
             </div>
             <div class="w3-padding-8">
                 <label><b>Enabled</b></label>
-                <form:select path="enabled" cssClass="w3-select w3-border">
-                    <form:option value="">Enabled</form:option>
+                <form:select path="enable" cssClass="w3-select w3-border">
+                    
                     <form:options items="${users.enable}"  />
                 </form:select>
             </div>
