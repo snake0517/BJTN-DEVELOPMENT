@@ -32,7 +32,7 @@ public class Interactions implements Serializable {
         contact.put("Phone", "Phone");
         contact.put("Email", "Email");
         contact.put("Message", "Message");
-        
+
         return contact;
     }
 

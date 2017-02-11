@@ -82,7 +82,7 @@ public class Client implements Serializable {
         states.put("West Virginia", "West Virginia");
         states.put("Wisconson", "Wisconson");
         states.put("Wyoming", "Wyoming");
-        
+
         return states;
     }
 

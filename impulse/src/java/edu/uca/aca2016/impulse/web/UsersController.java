@@ -26,7 +26,7 @@ public class UsersController {
 
     @Autowired
     UsersDAO dao;
-    
+
     @Autowired
     private UsersValidator usersValidator;
 
@@ -37,9 +37,9 @@ public class UsersController {
 
     @RequestMapping(value = "/users/save", method = RequestMethod.POST)
     public ModelAndView save(@ModelAttribute("users") @Valid Users users, BindingResult result, HttpServletRequest request) {
-         if (result.hasErrors()) {
+        if (result.hasErrors()) {
             return new ModelAndView("usersform", "users", users);
-         }
+        }
         int r = dao.save(users);
 
         Message msg = null;
@@ -97,7 +97,7 @@ public class UsersController {
     @RequestMapping(value = "/users/editsave", method = RequestMethod.POST)
 
     public ModelAndView editsave(@ModelAttribute("users") @Valid Users users, BindingResult result, HttpServletRequest request) {
-         if (result.hasErrors()) {
+        if (result.hasErrors()) {
             return new ModelAndView("userseditform", "users", users);
         }
         int r = dao.update(users);
@@ -127,6 +127,7 @@ public class UsersController {
         request.getSession().setAttribute("message", msg);
         return new ModelAndView("redirect:/users/viewusers");
     }
+
     @InitBinder("users")
     public void initBinder(WebDataBinder webDataBinder) {
         webDataBinder.setValidator(usersValidator);
@@ -139,6 +140,5 @@ public class UsersController {
     public void setUsersValidator(UsersValidator usersValidator) {
         this.usersValidator = usersValidator;
     }
-
 
 }

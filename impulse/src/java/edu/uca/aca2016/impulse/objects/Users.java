@@ -27,7 +27,7 @@ public class Users implements Serializable {
         enable = new LinkedHashMap<>();
         enable.put(0, 0);
         enable.put(1, 1);
-        
+
         return enable;
     }
 
@@ -35,7 +35,7 @@ public class Users implements Serializable {
         roles = new LinkedHashMap<>();
         roles.put("User", "User");
         roles.put("Admin", "Admin");
-        
+
         return roles;
     }
 
@@ -46,7 +46,6 @@ public class Users implements Serializable {
     public void setRole(String Role) {
         this.Role = Role;
     }
-    
 
     public String getName() {
         return Name;

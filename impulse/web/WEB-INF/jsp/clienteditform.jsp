@@ -41,42 +41,42 @@
                 <label><b>City</b></label>
                 <form:input path="city" cssClass="w3-input w3-border"  />
                 <form:errors path="city" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
-            <div class="w3-padding-8">
-                <label><b>State</b></label>
-                <form:select path="state" cssClass="w3-select w3-border">
-                    <form:option value="">State</form:option>
-                    <form:options items="${client.states}"  />
-                </form:select>
-            </div>
-            <div class="w3-padding-8">
-                <label><b>Zip</b></label>
-                <form:input path="zip" cssClass="w3-input w3-border"  />
-                <form:errors path="zip" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
-            </div>
-            <div class="w3-padding-8">
-                <label><b>Email</b></label>
-                <form:input path="email" cssClass="w3-input w3-border"  />
-                <form:errors path="email" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
-            </div>
-            <div class="w3-padding-8">
-                <label><b>Phone</b></label>
-                <form:input path="phone" cssClass="w3-input w3-border"  />
-                <form:errors path="phone" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
-            </div>
-            <div class="w3-padding-8">
-                <label><b>Status</b></label>
-                <form:select path="status" cssClass="w3-select w3-border">
-                    <form:option value="">Status</form:option>
-                    <form:options items="${client.stat}"  />
-                </form:select>
-            </div>
+                <div class="w3-padding-8">
+                    <label><b>State</b></label>
+                    <form:select path="state" cssClass="w3-select w3-border">
+                        <form:option value="">State</form:option>
+                        <form:options items="${client.states}"  />
+                    </form:select>
+                </div>
+                <div class="w3-padding-8">
+                    <label><b>Zip</b></label>
+                    <form:input path="zip" cssClass="w3-input w3-border"  />
+                    <form:errors path="zip" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
+                </div>
+                <div class="w3-padding-8">
+                    <label><b>Email</b></label>
+                    <form:input path="email" cssClass="w3-input w3-border"  />
+                    <form:errors path="email" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
+                </div>
+                <div class="w3-padding-8">
+                    <label><b>Phone</b></label>
+                    <form:input path="phone" cssClass="w3-input w3-border"  />
+                    <form:errors path="phone" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
+                </div>
+                <div class="w3-padding-8">
+                    <label><b>Status</b></label>
+                    <form:select path="status" cssClass="w3-select w3-border">
+                        <form:option value="">Status</form:option>
+                        <form:options items="${client.stat}"  />
+                    </form:select>
+                </div>
 
-            <div class="w3-padding-8">
-                <button type="submit" class="w3-btn w3-padding w3-blue" style="width:120px">Save</button>
-            </div>
-        </form:form>
+                <div class="w3-padding-8">
+                    <button type="submit" class="w3-btn w3-padding w3-blue" style="width:120px">Save</button>
+                </div>
+            </form:form>
 
+        </div>
     </div>
-</div>
 
-<%@ include file="theme/footer.jsp" %>
+    <%@ include file="theme/footer.jsp" %>
