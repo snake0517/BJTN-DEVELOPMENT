@@ -25,7 +25,9 @@
         <tr>
             <th>Interaction Id</th>
             <th>Client Id</th>
+            <th>Contact Date</th>
             <th>Contact Person</th>
+            <th>Contact Type</th>
             <th>Action</th>
         </tr>  
 
@@ -33,7 +35,9 @@
             <tr> 
                 <td>${interactions.interactionId}</td>
                 <td>${interactions.clientid}</td>
-                <td>${interactions.contactPerson}</td>  
+                <td>${interactions.occurredOn}</td>
+                <td>${interactions.contactPerson}</td>
+                <td>${interactions.contactType}</td>
                 <td>
                     <a href="<c:url value="/interactions/editinteractions/${interactions.interactionId}" />"><button class="w3-btn w3-round w3-blue">Edit</button></a>
                     <a href="<c:url value="/interactions/deleteinteractions/${interactions.interactionId}" />"><button class="w3-btn w3-round w3-red">Delete</button></a>
