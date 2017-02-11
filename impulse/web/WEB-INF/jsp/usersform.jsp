@@ -14,7 +14,7 @@
             <h2>Header</h2>
         </div>
 
-        <form:form method="post" action="save" cssClass="w3-container">
+        <form:form method="post" action="save" cssClass="w3-container" commandName="users">
             <div class="w3-padding-8">
                 <label><b>Username</b></label>
                 <form:input path="username" cssClass="w3-input w3-border"  />
@@ -22,6 +22,7 @@
             <div class="w3-padding-8">
                 <label><b>Name</b></label>
                 <form:input path="name" cssClass="w3-input w3-border"  />
+                <form:errors path="name" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
             </div>
             <div class="w3-padding-8">
                 <label><b>Password</b></label>
@@ -35,8 +36,11 @@
                 </form:select>
             </div>
             <div class="w3-padding-8">
-                <label><b>Active</b></label>
-                <form:input path="enabled" cssClass="w3-input w3-border"  />
+                <label><b>Enabled</b></label>
+                <form:select path="enabled" cssClass="w3-select w3-border">
+                    <form:option value="">Enabled</form:option>
+                    <form:options items="${users.enable}"  />
+                </form:select>
             </div>
 
             <div class="w3-padding-8">

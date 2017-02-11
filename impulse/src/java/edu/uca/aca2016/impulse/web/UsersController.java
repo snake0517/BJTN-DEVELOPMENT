@@ -4,6 +4,7 @@ import edu.uca.aca2016.impulse.repository.UsersDAO;
 import org.springframework.web.servlet.ModelAndView;
 import edu.uca.aca2016.impulse.objects.Users;
 import edu.uca.aca2016.impulse.objects.Message;
+import edu.uca.aca2016.impulse.validation.UsersValidator;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,20 +14,32 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.HashMap;
+import javax.validation.Valid;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 
 @Controller
 public class UsersController {
 
     @Autowired
     UsersDAO dao;
+    
+    @Autowired
+    private UsersValidator usersValidator;
 
     @RequestMapping("/users/usersform")
     public ModelAndView showform() {
-        return new ModelAndView("usersform", "command", new Users());
+        return new ModelAndView("usersform", "users", new Users());
     }
 
     @RequestMapping(value = "/users/save", method = RequestMethod.POST)
-    public ModelAndView save(@ModelAttribute("users") Users users, HttpServletRequest request) {
+    public ModelAndView save(@ModelAttribute("users") @Valid Users users, BindingResult result, HttpServletRequest request) {
+         if (result.hasErrors()) {
+            return new ModelAndView("usersform", "users", users);
+         }
         int r = dao.save(users);
 
         Message msg = null;
@@ -78,12 +91,15 @@ public class UsersController {
     @RequestMapping(value = "/users/editusers/{username}")
     public ModelAndView edit(@PathVariable String username) {
         Users users = dao.getUsersbyUsername(username);
-        return new ModelAndView("userseditform", "command", users);
+        return new ModelAndView("userseditform", "users", users);
     }
 
     @RequestMapping(value = "/users/editsave", method = RequestMethod.POST)
 
-    public ModelAndView editsave(@ModelAttribute("users") Users users, HttpServletRequest request) {
+    public ModelAndView editsave(@ModelAttribute("users") @Valid Users users, BindingResult result, HttpServletRequest request) {
+         if (result.hasErrors()) {
+            return new ModelAndView("userseditform", "users", users);
+        }
         int r = dao.update(users);
 
         Message msg = null;
@@ -111,4 +127,18 @@ public class UsersController {
         request.getSession().setAttribute("message", msg);
         return new ModelAndView("redirect:/users/viewusers");
     }
+    @InitBinder("users")
+    public void initBinder(WebDataBinder webDataBinder) {
+        webDataBinder.setValidator(usersValidator);
+    }
+
+    public UsersValidator getUsersValidator() {
+        return usersValidator;
+    }
+
+    public void setUsersValidator(UsersValidator usersValidator) {
+        this.usersValidator = usersValidator;
+    }
+
+
 }
