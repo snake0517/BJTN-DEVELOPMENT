@@ -33,7 +33,7 @@
             <div class="w3-padding-8">
                 <label><b>Roles</b></label>
                 <form:select multiple="true" path="rolelist" cssClass="w3-select w3-border">
-                    
+
                     <form:options items="${users.roles}"  />
                 </form:select>
                 Ctrl + click to select multiple items.
@@ -41,7 +41,7 @@
             <div class="w3-padding-8">
                 <label><b>Enabled</b></label>
                 <form:select path="enabled" cssClass="w3-select w3-border">
- 
+
                     <form:options items="${users.enableMap}"  />
                 </form:select>
             </div>
