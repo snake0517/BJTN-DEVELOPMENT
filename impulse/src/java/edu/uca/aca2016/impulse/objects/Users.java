@@ -7,6 +7,7 @@ package edu.uca.aca2016.impulse.objects;
 
 import java.io.Serializable;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,21 +21,38 @@ public class Users implements Serializable {
     private int enabled;
     private String Name;
     private String Role;
+     private List<String> rolelist;
     private Map<String, String> roles;
     private Map<String, String> enable;
 
+    public List<String> getRolelist() {
+        return rolelist;
+    }
+
+    public void setRolelist(List<String> rolelist) {
+        this.rolelist = rolelist;
+    }
+
     public Map<String, String> getEnable() {
+        return enable;
+    }
+
+    public void setEnable(Map<String, String> enable) {
+        this.enable = enable;
+    }
+
+    public Map<String, String> getEnableMap() {
         enable = new LinkedHashMap<>();
-        enable.put("0", "0");
-        enable.put("1", "1");
+        enable.put("0", "no");
+        enable.put("1", "yes");
 
         return enable;
     }
 
     public Map<String, String> getRoles() {
         roles = new LinkedHashMap<>();
-        roles.put("User", "User");
-        roles.put("Admin", "Admin");
+        roles.put("ROLE_USER", "User");
+        roles.put("ROLE_ADMIN", "Admin");
 
         return roles;
     }

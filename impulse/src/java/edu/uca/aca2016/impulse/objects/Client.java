@@ -47,7 +47,7 @@ public class Client implements Serializable {
         states.put("Indiana", "Indiana");
         states.put("Iowa", "Iowa");
         states.put("Kansas", "Kansas");
-        states.put("Kentucky", "Kentcky");
+        states.put("Kentucky", "Kentucky");
         states.put("Louisiana", "Louisiana");
         states.put("Maine", "Maine");
         states.put("Maryland", "Maryland");
@@ -82,6 +82,7 @@ public class Client implements Serializable {
         states.put("West Virginia", "West Virginia");
         states.put("Wisconson", "Wisconson");
         states.put("Wyoming", "Wyoming");
+        
 
         return states;
     }

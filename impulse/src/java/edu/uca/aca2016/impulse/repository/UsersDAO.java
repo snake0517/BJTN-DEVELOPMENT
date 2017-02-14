@@ -37,7 +37,19 @@ public class UsersDAO {
         String sql = "INSERT INTO users (`username`, `password`, `enabled`, `name`)"
                 + "	VALUES (?, md5(?), ?, ?)";
         Object[] values = {users.getUsername(), users.getPassword(), users.getEnabled(), users.getName()};
-        return template.update(sql, values);
+        int r = template.update(sql, values);
+        
+        sql = "INSERT INTO user_roles (username, role) VALUES (?, ?)";
+        
+        for (String rolelist: users.getRolelist()) {
+            Object[] role_values = {users.getUsername(), rolelist};
+            
+            logger.info("User DAO add role: " + values);
+            
+            template.update(sql, role_values);
+        
+    }
+        return r;
     }
 
     public int update(Users users) {
