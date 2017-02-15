@@ -95,7 +95,7 @@ public class ClientController {
     @RequestMapping(value = "/client/summaryclient/{id}")
     public ModelAndView summary (@PathVariable int id) {
         Client client = dao.getClientById(id);
-        return new ModelAndView("clientsummaryform", "client", client);
+        return new ModelAndView("summaryclient", "client", client);
     }
 
     @RequestMapping(value = "/client/editsave", method = RequestMethod.POST)
