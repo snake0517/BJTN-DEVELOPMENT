@@ -4,7 +4,7 @@
 <%@ include file="theme/header.jsp" %>
 
 <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> View Client</b></h5>
+    <h5><b><i class="fa fa-dashboard"></i> View Interactions</b></h5>
 </header>
 
 <div class="w3-row-padding w3-margin-bottom">
@@ -79,7 +79,7 @@
                     <a href="<c:url value="/interactions/viewinteractions" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>  Interactions  <i class="fa fa-caret-down"></i></a>
 
                     <div class="w3-dropdown-content w3-white w3-card-4">
-                        <a class="w3-padding w3-dark-grey" href="<c:url value="/client/summaryinteractions" />"><i class="fa fa-neuter fa-fw"></i>  View Interactions</a>
+                        <a class="w3-padding w3-dark-grey" href="<c:url value="/client/clientform" />"><i class="fa fa-plus-square fa-fw"></i>  Add Client</a>
                         <a class="w3-padding w3-dark-grey" href="<c:url value="/interactions/interactionsform" />"><i class="fa fa-plus-square fa-fw"></i>  Add Interaction</a>
 
                     </div>

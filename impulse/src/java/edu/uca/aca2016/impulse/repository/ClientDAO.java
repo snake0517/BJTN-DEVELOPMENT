@@ -57,7 +57,14 @@ public class ClientDAO {
                 c.setClientid(rs.getInt("ClientId"));
                 c.setFirstName(rs.getString("FirstName"));
                 c.setLastName(rs.getString("LastName"));
-
+                c.setAddress1(rs.getString("Address1"));
+                c.setAddress2(rs.getString("Address2"));
+                c.setCity(rs.getString("City"));
+                c.setState(rs.getString("State"));
+                c.setZip(rs.getString("Zip"));
+                c.setEmail(rs.getString("Email"));
+                c.setPhone(rs.getString("Phone"));
+                c.setStatus(rs.getString("Status"));
                 return c;
             }
         });
