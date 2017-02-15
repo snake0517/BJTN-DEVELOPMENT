@@ -39,7 +39,7 @@
                 <td>${client.status}</td>
                 <td>
                     <a href="<c:url value="/client/editclient/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">Edit</button></a>
-                    <a href="<c:url value="/client/deleteclient/${client.clientid}" />"><button class="w3-btn w3-round w3-red">Delete</button></a>
+                    <a href="<c:url value="/client/summaryclient/${client.clientid}" />"><button class="w3-btn w3-round w3-red">View</button></a>
                 </td>  
             </tr>  
         </c:forEach>  

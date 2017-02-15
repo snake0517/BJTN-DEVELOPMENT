@@ -65,7 +65,7 @@
             <div class="w3-padding-8">
                 <label><b>Status</b></label>
                 <form:select path="status" cssClass="w3-select w3-border">
-                    <form:option value="">Status</form:option>
+                    
                     <form:options items="${client.stat}"  />
                 </form:select>
             </div>

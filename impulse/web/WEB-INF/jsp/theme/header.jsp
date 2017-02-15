@@ -28,11 +28,7 @@
                         <c:if test="${pageContext.request.userPrincipal.name != null}">
                             <span>Welcome, <strong>${pageContext.request.userPrincipal.name}</strong></span><br>
                         </c:if>
-                        <!--
-                        <a href="#" class="w3-hover-none w3-hover-text-red w3-show-inline-block"><i class="fa fa-envelope"></i></a>
-                        <a href="#" class="w3-hover-none w3-hover-text-green w3-show-inline-block"><i class="fa fa-user"></i></a>
-                        <a href="#" class="w3-hover-none w3-hover-text-blue w3-show-inline-block"><i class="fa fa-cog"></i></a>
-                        -->
+                        
                     </sec:authorize>
                 </div>
             </div>
@@ -44,7 +40,7 @@
             <sec:authorize access="hasRole('ROLE_ADMIN')">
                 <div class="w3-dropdown-hover">
 
-                    <a href="<c:url value="/users/viewusers" />" class="w3-padding w3-blue"><i class="fa fa-music fa-fw"></i>  Users  <i class="fa fa-caret-down"></i></a>
+                    <a href="<c:url value="/users/viewusers" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>  Users  <i class="fa fa-caret-down"></i></a>
                     <div class="w3-dropdown-content w3-white w3-card-4">
 
                         <a class="w3-padding w3-dark-grey" href="<c:url value="/users/usersform" />"><i class="fa fa-plus-square fa-fw"></i>  Add User</a>
@@ -53,7 +49,7 @@
             </sec:authorize>
             <sec:authorize access="hasRole('ROLE_USER')">
                 <div class="w3-dropdown-hover">
-                    <a href="<c:url value="/client/viewclient" />" class="w3-padding w3-blue"><i class="fa fa-music fa-fw"></i>  Clients  <i class="fa fa-caret-down"></i></a>
+                    <a href="<c:url value="/client/viewclient" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>  Clients  <i class="fa fa-caret-down"></i></a>
                     <a href="<c:url value="/interactions/viewinteractions" />" class="w3-padding w3-blue"><i class="fa fa-music fa-fw"></i>  Interactions  <i class="fa fa-caret-down"></i></a>
 
                     <div class="w3-dropdown-content w3-white w3-card-4">
@@ -63,15 +59,7 @@
                     </div>
                 </div>
             </sec:authorize>
-            <!--
-            <a href="#" class="w3-padding"><i class="fa fa-eye fa-fw"></i>  Views</a>
-            <a href="#" class="w3-padding"><i class="fa fa-users fa-fw"></i>  Traffic</a>
-            <a href="#" class="w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Geo</a>
-            <a href="#" class="w3-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
-            <a href="#" class="w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
-            <a href="#" class="w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a>
-            <a href="#" class="w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
-            -->
+           
             <a href="#" onclick="logoutFormSubmit();" class="w3-padding"><i class="fa fa-sign-out fa-fw"></i>  Logout</a><br><br>
 
             <form action="<c:url value="/j_spring_security_logout" />" method="post" id="logoutForm">

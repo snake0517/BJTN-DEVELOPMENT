@@ -92,6 +92,11 @@ public class ClientController {
         Client client = dao.getClientById(id);
         return new ModelAndView("clienteditform", "client", client);
     }
+    @RequestMapping(value = "/client/summaryclient/{id}")
+    public ModelAndView summary (@PathVariable int id) {
+        Client client = dao.getClientById(id);
+        return new ModelAndView("clientsummaryform", "client", client);
+    }
 
     @RequestMapping(value = "/client/editsave", method = RequestMethod.POST)
     public ModelAndView editsave(@ModelAttribute("client") @Valid Client client, BindingResult result, HttpServletRequest request) {
