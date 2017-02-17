@@ -23,7 +23,7 @@
 
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">  
 
-        <c:forEach var="client" items="${list}"> 
+        
             <tr>
                 <th>Id</th>
                 <td>${client.clientid}</td>
@@ -69,19 +69,20 @@
                 <td>${client.status}</td>
             </tr> 
             <tr>
-                <th>Action</th>
-                <td><a href="<c:url value="/client/editclient/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">Edit</button></a></td>
+                <th>Client</th>
+                <td><a href="<c:url value="/client/editclient/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">Edit</button></a>
+                <a href="<c:url value="/client/viewclient" />" ><button class="w3-btn w3-round w3-blue">Clients</button></a>
+                <a href="<c:url value="/interactions/summaryinteractions/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">Contacts</button></a>
+                </tr>
+                <tr>
+                <th>Interaction</th>
+                
+                <td> <a href="<c:url value="/interactions/viewinteractions" />"><button class="w3-btn w3-round w3-blue">Interactions</button></a>
+                <a href="<c:url value="/interactions/interactionform/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">New Interaction</button></a>
+                </td>
             </tr> 
-        </c:forEach>
+        
     </table>
-                <div class="w3-dropdown-hover">
-                    <a href="<c:url value="/client/viewclient" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>  Clients  <i class="fa fa-caret-down"></i></a>
-                    <a href="<c:url value="/interactions/viewinteractions" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>  Interactions  <i class="fa fa-caret-down"></i></a>
-
-                    <div class="w3-dropdown-content w3-white w3-card-4">
-                        <a class="w3-padding w3-dark-grey" href="<c:url value="/client/summaryinteractions" />"><i class="fa fa-neuter fa-fw"></i>  View Interactions</a>
-                        <a class="w3-padding w3-dark-grey" href="<c:url value="/interactions/interactionsform" />"><i class="fa fa-plus-square fa-fw"></i>  Add Interaction</a>
-
-                    </div>
+                
 </div>
 <%@ include file="theme/footer.jsp" %>

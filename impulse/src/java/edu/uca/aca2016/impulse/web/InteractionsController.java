@@ -60,15 +60,30 @@ public class InteractionsController {
 
         Message msg = null;
         if (r == 1) {
-            msg = new Message(Message.Level.INFO, "Client has been successfully created");
+            msg = new Message(Message.Level.INFO, "Interaction has been successfully created");
         } else {
-            msg = new Message(Message.Level.ERROR, "New client creation failed");
+            msg = new Message(Message.Level.ERROR, "New interaction creation failed");
         }
 
         request.getSession().setAttribute("message", msg);
         return new ModelAndView("redirect:/interactions/viewinteractions");
     }
 
+    @RequestMapping(value = "/interactions/interactionform/save", method = RequestMethod.POST)
+    public ModelAndView inewsave(@ModelAttribute("interactions") @Valid Interactions interactions, BindingResult result, HttpServletRequest request) {
+        int r = dao.save(interactions);
+
+        Message msg = null;
+        if (r == 1) {
+            msg = new Message(Message.Level.INFO, "Interaction has been successfully created");
+        } else {
+            msg = new Message(Message.Level.ERROR, "New interaction creation failed");
+        }
+
+        request.getSession().setAttribute("message", msg);
+        return new ModelAndView("redirect:/interactions/viewinteractions");
+    }
+    
     @RequestMapping("/interactions/viewinteractions")
     public ModelAndView viewinteractions(HttpServletRequest request) {
 
@@ -109,7 +124,24 @@ public class InteractionsController {
         Interactions interactions = dao.getInteractionsById(id);
         return new ModelAndView("interactionseditform", "interactions", interactions);
     }
+    
+    @RequestMapping(value = "/interactions/interactionform/{id}")
+    public ModelAndView inew(@PathVariable int id) {
+        Client client = cdao.getClientById(id);
 
+        Interactions interactions = new Interactions();
+        interactions.setClientid(id);
+        interactions.setClient(client);
+
+        interactions.setClients(dao.getClientsMap());
+        
+        return new ModelAndView("inew", "interactions",  interactions);
+    }
+@RequestMapping(value = "/interactions/summaryinteractions/{id}")
+    public ModelAndView summaryinteractions (@PathVariable int id) {
+        Interactions interactions = dao.getVInteractionsById(id);
+        return new ModelAndView("summaryinteractions", "interactions", interactions);
+    }
     @RequestMapping(value = "/interactions/editsave", method = RequestMethod.POST)
     public ModelAndView editsave(@ModelAttribute("interactions") @Valid Interactions interactions, BindingResult result, HttpServletRequest request) {
         if (result.hasErrors()) {

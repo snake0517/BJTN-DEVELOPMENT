@@ -69,6 +69,10 @@ public class InteractionsDAO {
         return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<Interactions>(Interactions.class));
     }
 
+    public Interactions getVInteractionsById(int id) {
+        String sql = "SELECT * FROM Interactions WHERE ClientId = ?";
+        return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<Interactions>(Interactions.class));
+    }
     public List<Interactions> getInteractionssByPage(int start, int total) {
         String sql = "SELECT interactions.InteractionId, interactions.ClientId, interactions.OccuredOn, interactions.ContactPerson, interactions.ContactType, interactions.Notes, client.ClientId "
                 + "FROM Interactions AS interactions "

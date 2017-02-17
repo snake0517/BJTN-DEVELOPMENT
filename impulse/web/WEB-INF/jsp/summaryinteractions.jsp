@@ -22,66 +22,38 @@
     </c:if>
 
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">  
+        <tr>
+            <th>Interaction Id</th>
+            <th>Client Id</th>
+            <th>Contact Date</th>
+            <th>Contact Person</th>
+            <th>Contact Type</th>
+            <th>Action</th>
+        </tr>  
 
-        <c:forEach var="client" items="${list}"> 
-            <tr>
-                <th>Id</th>
-                <td>${client.clientid}</td>
-            </tr> 
-            <tr>
-                <th>First Name</th>
-                <td>${client.firstName}</td>
-            </tr> 
-            <tr>
-                <th>Last Name</th>
-                <td>${client.lastName}</td>
-            </tr> 
-            <tr>
-                <th>Address1</th>
-                <td>${client.address1}</td>
-            </tr> 
-            <tr>
-                <th>Address2</th>
-                <td>${client.address2}</td>
-            </tr> 
-            <tr>
-                <th>City</th>
-                <td>${client.city}</td>
-            </tr> 
-            <tr>
-                <th>State</th>
-                <td>${client.state}</td>
-            </tr> 
-            <tr>
-                <th>Zip</th>
-                <td>${client.zip}</td>
-            </tr> 
-            <tr>
-                <th>Email</th>
-                <td>${client.email}</td>
-            </tr> 
-            <tr>
-                <th>Phone</th>
-                <td>${client.phone}</td>
-            </tr> 
-            <tr>
-                <th>Status</th>
-                <td>${client.status}</td>
-            </tr> 
-            <tr>
-                <th>Action</th>
-                <td><a href="<c:url value="/client/editclient/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">Edit</button></a></td>
-            </tr> 
-        </c:forEach>
-    </table>
-                <div class="w3-dropdown-hover">
-                    <a href="<c:url value="/client/viewclient" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>  Clients  <i class="fa fa-caret-down"></i></a>
-                    <a href="<c:url value="/interactions/viewinteractions" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>  Interactions  <i class="fa fa-caret-down"></i></a>
+        <c:forEach var="interactions" items="${list}">   
+            <tr> 
+                <td>${interactions.interactionId}</td>
+                <td>${interactions.clientid}</td>
+                <td>${interactions.occurredOn}</td>
+                <td>${interactions.contactPerson}</td>
+                <td>${interactions.contactType}</td>
+                <td>
+                    <a href="<c:url value="/interactions/editinteractions/${interactions.interactionId}" />"><button class="w3-btn w3-round w3-blue">Edit</button></a>
+                    <a href="<c:url value="/interactions/deleteinteractions/${interactions.interactionId}" />"><button class="w3-btn w3-round w3-red">Delete</button></a>
+                </td>  
+            </tr>  
+        </c:forEach>  
+    </table> 
 
-                    <div class="w3-dropdown-content w3-white w3-card-4">
-                        <a class="w3-padding w3-dark-grey" href="<c:url value="/client/clientform" />"><i class="fa fa-plus-square fa-fw"></i>  Add Client</a>
-                        <a class="w3-padding w3-dark-grey" href="<c:url value="/interactions/interactionsform" />"><i class="fa fa-plus-square fa-fw"></i>  Add Interaction</a>
+    <div class="w3-padding-8">
+        <ul class="w3-pagination">
+            <c:forEach begin="1" end="${pages}" varStatus="p">  
+                <li><a class="<c:if test="${p.index eq page}">w3-green</c:if>" href="<c:url value="/interactions/viewinteractions/${p.index}" />">${p.index}</a></li>
+                </c:forEach>
+        </ul>
+    </div>
 
-                    </div>
 </div>
+   
 <%@ include file="theme/footer.jsp" %>
