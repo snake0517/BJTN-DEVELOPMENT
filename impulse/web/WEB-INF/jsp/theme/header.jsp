@@ -41,22 +41,15 @@
                 <div class="w3-dropdown-hover">
 
                     <a href="<c:url value="/users/viewusers" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>  Users  <i class="fa fa-caret-down"></i></a>
-                    <div class="w3-dropdown-content w3-white w3-card-4">
-
-                        <a class="w3-padding w3-dark-grey" href="<c:url value="/users/usersform" />"><i class="fa fa-plus-square fa-fw"></i>  Add User</a>
-                    </div>
+                    <a href="<c:url value="/users/usersform" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>  Add User  <i class="fa fa-caret-down"></i></a>
                 </div>
             </sec:authorize>
             <sec:authorize access="hasRole('ROLE_USER')">
                 <div class="w3-dropdown-hover">
                     <a href="<c:url value="/client/viewclient" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>  Clients  <i class="fa fa-caret-down"></i></a>
-                    <a href="<c:url value="/interactions/viewinteractions" />" class="w3-padding w3-blue"><i class="fa fa-music fa-fw"></i>  Interactions  <i class="fa fa-caret-down"></i></a>
-
-                    <div class="w3-dropdown-content w3-white w3-card-4">
-                        <a class="w3-padding w3-dark-grey" href="<c:url value="/client/clientform" />"><i class="fa fa-plus-square fa-fw"></i>  Add Client</a>
-                        <a class="w3-padding w3-dark-grey" href="<c:url value="/interactions/interactionsform" />"><i class="fa fa-plus-square fa-fw"></i>  Add Interaction</a>
-
-                    </div>
+                    <a href="<c:url value="/client/clientform" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>  Add Client  <i class="fa fa-caret-down"></i></a>
+                    <a href="<c:url value="/interactions/viewinteractions" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>  Interactions  <i class="fa fa-caret-down"></i></a>
+ <a href="<c:url value="/interactions/interactionsform" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>   Add Interaction  <i class="fa fa-caret-down"></i></a>
                 </div>
             </sec:authorize>
            

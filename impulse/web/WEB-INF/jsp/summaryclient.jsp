@@ -69,18 +69,13 @@
                 <td>${client.status}</td>
             </tr> 
             <tr>
-                <th>Client</th>
+                <th>Action</th>
                 <td><a href="<c:url value="/client/editclient/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">Edit</button></a>
-                <a href="<c:url value="/client/viewclient" />" ><button class="w3-btn w3-round w3-blue">Clients</button></a>
+               
                 <a href="<c:url value="/interactions/summaryinteractions/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">Contacts</button></a>
-                </tr>
-                <tr>
-                <th>Interaction</th>
-                
-                <td> <a href="<c:url value="/interactions/viewinteractions" />"><button class="w3-btn w3-round w3-blue">Interactions</button></a>
                 <a href="<c:url value="/interactions/interactionform/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">New Interaction</button></a>
-                </td>
-            </tr> 
+                </tr>
+                
         
     </table>
                 
