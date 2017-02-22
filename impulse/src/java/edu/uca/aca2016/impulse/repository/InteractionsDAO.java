@@ -70,7 +70,7 @@ public class InteractionsDAO {
     }
 
     public Interactions getVInteractionsById(int id) {
-        String sql = "SELECT * FROM Interactions WHERE ClientId = ?";
+        String sql = "SELECT * FROM Client WHERE ClientId = ?";
         return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<Interactions>(Interactions.class));
     }
     public List<Interactions> getInteractionssByPage(int start, int total) {

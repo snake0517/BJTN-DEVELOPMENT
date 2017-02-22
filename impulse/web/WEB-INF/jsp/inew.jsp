@@ -22,7 +22,8 @@
         <div class="w3-padding-8">
           
           
-            <p><b>${interactions.client.firstName}</b></p>
+            <p><b>${interactions.client.firstName}</b></p
+            <p><b>${interactions.client.lastName}</b></p>
           
          </div>
       
