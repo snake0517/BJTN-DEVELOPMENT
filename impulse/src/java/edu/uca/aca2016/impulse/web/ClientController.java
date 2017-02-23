@@ -3,8 +3,10 @@ package edu.uca.aca2016.impulse.web;
 import edu.uca.aca2016.impulse.repository.ClientDAO;
 import org.springframework.web.servlet.ModelAndView;
 import edu.uca.aca2016.impulse.objects.Client;
+import edu.uca.aca2016.impulse.objects.Interactions;
 
 import edu.uca.aca2016.impulse.objects.Message;
+import edu.uca.aca2016.impulse.repository.InteractionsDAO;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -29,7 +31,8 @@ public class ClientController {
     @Autowired
     ClientDAO dao;
     
-    
+    @Autowired
+    InteractionsDAO idao;
     
     @Autowired
     private ClientValidator clientValidator;
@@ -95,11 +98,16 @@ public class ClientController {
     @RequestMapping(value = "/client/editclient/{id}")
     public ModelAndView edit(@PathVariable int id) {
         Client client = dao.getClientById(id);
+        
         return new ModelAndView("clienteditform", "client", client);
     }
     @RequestMapping(value = "/client/summaryclient/{id}")
     public ModelAndView summaryclient (@PathVariable int id) {
         Client client = dao.getClientById(id);
+        List<Interactions> list = idao.getInteractionsList();
+
+        HashMap<String, Object> context = new HashMap<String, Object>();
+        context.put("list", list);
         return new ModelAndView("summaryclient", "client", client);
     }
 

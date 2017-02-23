@@ -46,7 +46,7 @@
             </div>
             <div class="w3-padding-8">
                 <label><b>Notes</b></label>
-                <form:input path="notes" cssClass="w3-input w3-border"  />
+                <form:input path="notes" cssClass="w3-input w3-border" cssStyle="height: 100px" />
                 <form:errors path="notes" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
             </div>
 

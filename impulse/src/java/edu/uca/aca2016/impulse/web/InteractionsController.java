@@ -137,11 +137,7 @@ public class InteractionsController {
         
         return new ModelAndView("inew", "interactions",  interactions);
     }
-@RequestMapping(value = "/interactions/summaryinteractions/{id}")
-    public ModelAndView summaryinteractions (@PathVariable int id) {
-        Interactions interactions = dao.getVInteractionsById(id);
-        return new ModelAndView("summaryinteractions", "interactions", interactions);
-    }
+
     @RequestMapping(value = "/interactions/editsave", method = RequestMethod.POST)
     public ModelAndView editsave(@ModelAttribute("interactions") @Valid Interactions interactions, BindingResult result, HttpServletRequest request) {
         if (result.hasErrors()) {

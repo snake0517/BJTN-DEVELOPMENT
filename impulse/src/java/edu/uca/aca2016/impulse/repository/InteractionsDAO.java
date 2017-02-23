@@ -56,9 +56,11 @@ public class InteractionsDAO {
             @Override
             public Interactions mapRow(ResultSet rs, int row) throws SQLException {
                 Interactions i = new Interactions();
-                i.setClientid(rs.getInt("ClientId"));
-                i.setContactPerson(rs.getString("ContactPerson"));
-                i.setContactType(rs.getString("ContactType"));
+                i.setClientid(rs.getInt(2));
+                i.setOccurredOn(rs.getNString(3));
+                i.setContactPerson(rs.getString(4));
+                i.setContactType(rs.getString(5));
+                i.setNotes(rs.getString(6));
                 return i;
             }
         });
@@ -70,7 +72,7 @@ public class InteractionsDAO {
     }
 
     public Interactions getVInteractionsById(int id) {
-        String sql = "SELECT * FROM Client WHERE ClientId = ?";
+        String sql = "SELECT * FROM Interactions WHERE ClientId = ?";
         return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<Interactions>(Interactions.class));
     }
     public List<Interactions> getInteractionssByPage(int start, int total) {

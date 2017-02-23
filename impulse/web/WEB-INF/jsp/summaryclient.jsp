@@ -73,11 +73,34 @@
                 <td><a href="<c:url value="/client/editclient/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">Edit</button></a>
                
                 
-                <a href="<c:url value="/interactions/interactionform/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">New Interaction</button></a>
+                
                 </tr>
                 
         
     </table>
+              <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">  
+        <tr>
+            <th>Interaction Id</th>
+            <th>Client Id</th>
+            <th>Contact Date</th>
+            <th>Contact Person</th>
+            <th>Contact Type</th>
+            <th>Action</th>
+        </tr>  
+
+           
+            <tr> 
+                <td>${interactions.interactionId}</td>
+                <td>${interactions.clientid}</td>
+                <td>${interactions.occurredOn}</td>
+                <td>${interactions.contactPerson}</td>
+                <td>${interactions.contactType}</td>
+                <td>
+                   <a href="<c:url value="/interactions/interactionform/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">New Interaction</button></a>
+                </td>  
+            </tr>  
+        
+    </table> 
                 
 </div>
 <%@ include file="theme/footer.jsp" %>
