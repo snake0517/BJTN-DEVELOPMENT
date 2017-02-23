@@ -65,6 +65,21 @@ public class InteractionsDAO {
                 return i;
             }
         });
+        
+    } public List<Interactions> getAPIInteractionsList() {
+        return template.query( "SELECT * FROM Interactions " , new RowMapper<Interactions>() {
+            @Override
+            public Interactions mapRow(ResultSet rs, int row) throws SQLException {
+                Interactions i = new Interactions();
+                i.setInteractionId(rs.getInt(1));
+                i.setClientid(rs.getInt(2));
+                i.setOccurredOn(rs.getNString(3));
+                i.setContactPerson(rs.getString(4));
+                i.setContactType(rs.getString(5));
+                i.setNotes(rs.getString(6));
+                return i;
+            }
+        });
     }
 
     public Interactions getInteractionsById(int id) {
