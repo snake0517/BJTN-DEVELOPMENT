@@ -72,7 +72,7 @@
                 <th>Action</th>
                 <td><a href="<c:url value="/client/editclient/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">Edit</button></a>
                
-                <a href="<c:url value="/interactions/summaryinteractions/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">Contacts</button></a>
+                
                 <a href="<c:url value="/interactions/interactionform/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">New Interaction</button></a>
                 </tr>
                 
