@@ -104,11 +104,12 @@ public class ClientController {
     @RequestMapping(value = "/client/summaryclient/{id}")
     public ModelAndView summaryclient (@PathVariable int id) {
         Client client = dao.getClientById(id);
-        List<Interactions> list = idao.getInteractionsList();
+        List<Interactions> list = idao.getInteractionsList(id);
 
         HashMap<String, Object> context = new HashMap<String, Object>();
         context.put("list", list);
-        return new ModelAndView("summaryclient", "client", client);
+        context.put("client", client);
+        return new ModelAndView("summaryclient",  context);
     }
 
     @RequestMapping(value = "/client/editsave", method = RequestMethod.POST)

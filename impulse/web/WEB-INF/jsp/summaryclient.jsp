@@ -88,7 +88,7 @@
             <th>Action</th>
         </tr>  
 
-           
+        <c:forEach var="interactions" items="${list}"> 
             <tr> 
                 <td>${interactions.interactionId}</td>
                 <td>${interactions.clientid}</td>
@@ -99,7 +99,7 @@
                    <a href="<c:url value="/interactions/interactionform/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">New Interaction</button></a>
                 </td>  
             </tr>  
-        
+        </c:forEach>
     </table> 
                 
 </div>

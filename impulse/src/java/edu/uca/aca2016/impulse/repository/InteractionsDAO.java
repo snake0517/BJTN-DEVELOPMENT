@@ -51,11 +51,12 @@ public class InteractionsDAO {
         return template.update(sql);
     }
 
-    public List<Interactions> getInteractionsList() {
-        return template.query("SELECT * FROM interactions", new RowMapper<Interactions>() {
+    public List<Interactions> getInteractionsList(int id) {
+        return template.query( "SELECT * FROM Interactions WHERE ClientId = " + id, new RowMapper<Interactions>() {
             @Override
             public Interactions mapRow(ResultSet rs, int row) throws SQLException {
                 Interactions i = new Interactions();
+                i.setInteractionId(rs.getInt(1));
                 i.setClientid(rs.getInt(2));
                 i.setOccurredOn(rs.getNString(3));
                 i.setContactPerson(rs.getString(4));
