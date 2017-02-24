@@ -71,7 +71,7 @@
             <tr>
                 <th>Action</th>
                 <td><a href="<c:url value="/client/editclient/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">Edit</button></a>
-               
+               <a href="<c:url value="/interactions/interactionform/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">New Interaction</button></a>
                 
                 
                 </tr>
@@ -96,7 +96,17 @@
                 <td>${interactions.contactPerson}</td>
                 <td>${interactions.contactType}</td>
                 <td>
-                   <a href="<c:url value="/interactions/interactionform/${client.clientid}" />"><button class="w3-btn w3-round w3-blue">New Interaction</button></a>
+                  <button onclick="document.getElementById('id01').style.display='block'" class="w3-btn w3-round w3-blue">Notes</button>
+
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn">&times;</span>
+        <p>${interactions.notes}</p>
+        
+      </div>
+    </div>
+  </div>
                 </td>  
             </tr>  
         </c:forEach>

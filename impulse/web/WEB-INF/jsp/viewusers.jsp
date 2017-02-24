@@ -44,7 +44,7 @@
 </c:choose></td>
                 <td>
                     <a href="<c:url value="/users/editusers/${users.username}" />"><button class="w3-btn w3-round w3-blue">Edit</button></a>
-                    <a href="<c:url value="/users/deleteusers/${users.username}" />"><button class="w3-btn w3-round w3-red">Delete</button></a>
+                    
                 </td>  
             </tr>  
         </c:forEach>  
