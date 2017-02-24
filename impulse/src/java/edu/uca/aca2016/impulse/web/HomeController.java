@@ -12,6 +12,6 @@ public class HomeController {
 
     @RequestMapping("/")
     public ModelAndView viewclient() {
-        return new ModelAndView("index");
+        return new ModelAndView("viewclient");
     }
 }
