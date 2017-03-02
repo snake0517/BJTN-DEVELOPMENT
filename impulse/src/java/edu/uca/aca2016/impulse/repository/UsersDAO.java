@@ -53,11 +53,32 @@ public class UsersDAO {
     }
 
     public int update(Users users) {
-        String sql = "UPDATE users SET  `password` = md5(?), enabled = ?, name = ?"
+       
+      String  sql = "DELETE From user_roles WHERE username = ?";
+        Object[] delete = {users.getUsername()};
+        template.update(sql, delete);
+        
+        sql = "INSERT INTO user_roles (username, role) VALUES (?, ?)";
+        
+        for (String rolelist: users.getRolelist()) {
+            Object[] role_values = {users.getUsername(), rolelist};
+            
+           
+            
+            template.update(sql, role_values);
+        
+    }
+        
+        
+         sql = "UPDATE users SET  `password` = md5(?), enabled = ?, name = ?"
                 + "	   WHERE username = ?";
         Object[] values = {users.getPassword(), users.getEnabled(), users.getName(), users.getUsername()};
-        return template.update(sql, values);
+        int r = template.update(sql, values);
+        
+        
+     return r;   
     }
+    
 
     public int delete(Users users) {
         String sql = "DELETE FROM users WHERE username = ?";

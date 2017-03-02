@@ -22,14 +22,13 @@
         <div class="w3-padding-8">
           
           
-            <p><b>${interactions.client.firstName}</b></p
-            <p><b>${interactions.client.lastName}</b></p>
+            <p><b>${interactions.client.firstName} ${interactions.client.lastName}</b></p
+            
           
          </div>
       
             <div class="w3-padding-8">
-                <label><b>Contact Date</b></label>
-                <div class="w3-padding-8">
+               
                 <label><b>Contact Date</b></label>
                 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
                 <link rel="stylesheet" href="/resources/demos/style.css">
