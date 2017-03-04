@@ -30,10 +30,13 @@
     <li>Interactions  -   ${irow}</li>
     
   </ul>
+    
+     
+     
 </div>
     
 
-    </div>
+    
 
     <%@ include file="theme/footer.jsp" %>
 </sec:authorize>

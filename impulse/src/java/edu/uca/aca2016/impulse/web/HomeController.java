@@ -1,6 +1,7 @@
 package edu.uca.aca2016.impulse.web;
 
 import edu.uca.aca2016.impulse.objects.Client;
+import edu.uca.aca2016.impulse.objects.Interactions;
 import edu.uca.aca2016.impulse.objects.Message;
 import edu.uca.aca2016.impulse.repository.ClientDAO;
 import edu.uca.aca2016.impulse.repository.InteractionsDAO;
@@ -24,12 +25,13 @@ public class HomeController {
 
     @RequestMapping("/")
     public ModelAndView viewclient( HttpServletRequest request) {
-        
+        List<Interactions> ilist = idao.getAPIInteractionsList();
 
-        List<Client> list = dao.getClientsList();
+        List<Client> clist = dao.getClientsList();
 
         HashMap<String, Object> context = new HashMap<>();
-        context.put("list", list);
+        context.put("clist", clist);
+        context.put("ilst", ilist);
         
  int crow = dao.getClientCount();
  context.put("crow", crow);

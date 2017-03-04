@@ -130,7 +130,7 @@ public class InteractionsDAO {
     }
 
     public Map<Integer, String> getClientsMap() {
-        Map<Integer, String> clients = new LinkedHashMap<Integer, String>();
+        Map<Integer, String> clients = new LinkedHashMap<>();
         String sql = "SELECT ClientID, FirstName, LastName FROM Client ORDER BY FirstName";
 
         SqlRowSet rs = template.queryForRowSet(sql);
@@ -142,7 +142,7 @@ public class InteractionsDAO {
         return clients;
     }
     public Interactions getLastInteractions() {
-        String sql = "";
+        String sql = "SELECT * From interactions Order by interactionid Desc Limit 5";
          return template.queryForObject(sql, new Object[]{}, new BeanPropertyRowMapper<Interactions>(Interactions.class));
     }
 }

@@ -107,7 +107,7 @@ public class ClientDAO {
         return 1;
     }
     public Client getLastClient() {
-        String sql = "";
+        String sql = "SELECT * From client Order by clientid Desc Limit 5";
          return template.queryForObject(sql, new Object[]{}, new BeanPropertyRowMapper<Client>(Client.class));
     }
 }
