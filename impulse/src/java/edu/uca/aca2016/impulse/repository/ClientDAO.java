@@ -106,4 +106,8 @@ public class ClientDAO {
 
         return 1;
     }
+    public Client getLastClient() {
+        String sql = "";
+         return template.queryForObject(sql, new Object[]{}, new BeanPropertyRowMapper<Client>(Client.class));
+    }
 }

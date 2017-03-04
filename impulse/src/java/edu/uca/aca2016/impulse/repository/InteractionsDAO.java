@@ -141,4 +141,8 @@ public class InteractionsDAO {
 
         return clients;
     }
+    public Interactions getLastInteractions() {
+        String sql = "";
+         return template.queryForObject(sql, new Object[]{}, new BeanPropertyRowMapper<Interactions>(Interactions.class));
+    }
 }
