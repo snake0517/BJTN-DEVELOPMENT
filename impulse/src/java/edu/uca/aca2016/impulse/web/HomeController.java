@@ -3,6 +3,7 @@ package edu.uca.aca2016.impulse.web;
 import edu.uca.aca2016.impulse.objects.Client;
 import edu.uca.aca2016.impulse.objects.Message;
 import edu.uca.aca2016.impulse.repository.ClientDAO;
+import edu.uca.aca2016.impulse.repository.InteractionsDAO;
 import java.util.HashMap;
 
 import java.util.List;
@@ -17,6 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
      @Autowired
     ClientDAO dao;
+     
+     @Autowired
+    InteractionsDAO idao;
 
     @RequestMapping("/")
     public ModelAndView viewclient( HttpServletRequest request) {
@@ -24,9 +28,14 @@ public class HomeController {
 
         List<Client> list = dao.getClientsList();
 
-        HashMap<String, Object> context = new HashMap<String, Object>();
+        HashMap<String, Object> context = new HashMap<>();
         context.put("list", list);
-
+        
+ int crow = dao.getClientCount();
+ context.put("crow", crow);
+ 
+ int irow = idao.getInteractionCount();
+ context.put("irow", irow);
         
 
         Message msg = (Message) request.getSession().getAttribute("message");

@@ -25,30 +25,12 @@
 
     </c:if>
 
-    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">  
-        <tr>
-            <th>Id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Status</th>
-
-            <th>Action</th>
-        </tr>  
-
-        <c:forEach var="client" items="${list}">   
-            <tr>  
-                <td>${client.clientid}</td>
-                <td>${client.firstName}</td>  
-                <td>${client.lastName}</td>
-                <td>${client.status}</td>
-                <td>
-                   
-                    <a href="<c:url value="/client/summaryclient/${client.clientid}" />"><button class="w3-btn w3-round w3-red">View</button></a>
-                </td>  
-            </tr>  
-        </c:forEach>  
-    </table> 
-
+   <ul class="w3-ul w3-card-16" style="width:50%">
+    <li> Clients -  ${crow}</li>
+    <li>Interactions  -   ${irow}</li>
+    
+  </ul>
+</div>
     
 
     </div>
