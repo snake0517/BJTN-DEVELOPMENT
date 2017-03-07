@@ -141,8 +141,17 @@ public class InteractionsDAO {
 
         return clients;
     }
-    public Interactions getLastInteractions() {
+    public List<Interactions> getLastInteractions() {
         String sql = "SELECT * From interactions Order by interactionid Desc Limit 5";
-         return template.queryForObject(sql, new Object[]{}, new BeanPropertyRowMapper<Interactions>(Interactions.class));
+        return template.query(sql , (ResultSet rs, int row) -> {
+            Interactions i = new Interactions();
+            i.setInteractionId(rs.getInt(1));
+            i.setClientid(rs.getInt(2));
+            i.setOccurredOn(rs.getNString(3));
+            i.setContactPerson(rs.getString(4));
+            i.setContactType(rs.getString(5));
+            i.setNotes(rs.getString(6));
+            return i;
+        });
     }
 }

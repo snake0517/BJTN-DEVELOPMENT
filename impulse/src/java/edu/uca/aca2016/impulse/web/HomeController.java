@@ -25,9 +25,9 @@ public class HomeController {
 
     @RequestMapping("/")
     public ModelAndView viewclient( HttpServletRequest request) {
-        List<Interactions> ilist = idao.getAPIInteractionsList();
+        List<Interactions> ilist = idao.getLastInteractions();
 
-        List<Client> clist = dao.getClientsList();
+        List<Client> clist = dao.getLastClient();
 
         HashMap<String, Object> context = new HashMap<>();
         context.put("clist", clist);

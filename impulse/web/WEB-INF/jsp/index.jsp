@@ -25,13 +25,18 @@
 
     </c:if>
 
-   <ul class="w3-ul w3-card-16" style="width:50%">
+   <ul class="w3-ul w3-card-16 w3-cell" style="width:50%">
     <li> Clients -  ${crow}</li>
     <li>Interactions  -   ${irow}</li>
     
   </ul>
+     <ul class="w3-ul w3-card-16 w3-cell" style="width:50%">
+         <c:forEach var="client" items="${clist}"> 
+    <li> New Clients -  ${client.firstName}</li>
     
-     
+   </c:forEach> 
+  </ul>
+        
      
 </div>
     
