@@ -136,7 +136,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *Getter Method 
+     *Getter Method for Last Name
      * @return
      */
     public String getLastName() {
@@ -144,7 +144,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Setter Method Last Name
      * @param LastName
      */
     public void setLastName(String LastName) {
@@ -152,7 +152,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Getter Method for Address1
      * @return
      */
     public String getAddress1() {
@@ -160,7 +160,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Setter method for Address1
      * @param Address1
      */
     public void setAddress1(String Address1) {
@@ -168,7 +168,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Getter method for Address2
      * @return
      */
     public String getAddress2() {
@@ -176,7 +176,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Setter Method foe Address2
      * @param Address2
      */
     public void setAddress2(String Address2) {
@@ -184,7 +184,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Getter method for City
      * @return
      */
     public String getCity() {
@@ -192,7 +192,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Setter method for City
      * @param City
      */
     public void setCity(String City) {
@@ -200,7 +200,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Getter method for State
      * @return
      */
     public String getState() {
@@ -208,7 +208,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Setter method for State
      * @param State
      */
     public void setState(String State) {
@@ -216,7 +216,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Getter method for Zip
      * @return
      */
     public String getZip() {
@@ -224,7 +224,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Setter method for Zip
      * @param Zip
      */
     public void setZip(String Zip) {
@@ -232,7 +232,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Getter method for Email
      * @return
      */
     public String getEmail() {
@@ -240,7 +240,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Setter method for Email
      * @param Email
      */
     public void setEmail(String Email) {
@@ -248,7 +248,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Getter method for Phone
      * @return
      */
     public String getPhone() {
@@ -256,7 +256,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Setter method for Phone
      * @param Phone
      */
     public void setPhone(String Phone) {
@@ -264,7 +264,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Getter method for Status
      * @return
      */
     public String getStatus() {
@@ -272,7 +272,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Setter method for Status
      * @param Status
      */
     public void setStatus(String Status) {

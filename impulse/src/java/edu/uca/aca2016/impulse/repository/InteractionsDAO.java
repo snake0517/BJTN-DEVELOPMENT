@@ -28,7 +28,7 @@ public class InteractionsDAO {
     JdbcTemplate template;
 
     /**
-     *
+     *JDBC Template Setter
      * @param template
      */
     public void setTemplate(JdbcTemplate template) {
@@ -36,7 +36,7 @@ public class InteractionsDAO {
     }
 
     /**
-     *
+     * Save Interactions method and SQL Query
      * @param interactions
      * @return
      */
@@ -49,7 +49,7 @@ public class InteractionsDAO {
     }
 
     /**
-     *
+     *Update interactions method and SQL Query
      * @param interactions
      * @return
      */
@@ -61,7 +61,7 @@ public class InteractionsDAO {
     }
 
     /**
-     *
+     *Delete interactions method and SQL Query
      * @param id
      * @return
      */
@@ -71,7 +71,7 @@ public class InteractionsDAO {
     }
 
     /**
-     *
+     *List<Interactions> getInteractionsList method and SQL Query
      * @param id
      * @return
      */
@@ -93,7 +93,7 @@ public class InteractionsDAO {
     }
 
     /**
-     *
+     * List<Interactions> getAPIInteractionsList method and SQL Query
      * @return
      */
     public List<Interactions> getAPIInteractionsList() {
@@ -113,7 +113,7 @@ public class InteractionsDAO {
     }
 
     /**
-     *
+     * getInteractionsByID method and SQL Query
      * @param id
      * @return
      */
@@ -123,7 +123,7 @@ public class InteractionsDAO {
     }
 
     /**
-     *
+     *getVInteractionsById method and SQL Query
      * @param id
      * @return
      */
@@ -133,7 +133,7 @@ public class InteractionsDAO {
     }
 
     /**
-     *
+     * List<Interactions> getInteractionsByPage method and SQL Query
      * @param start
      * @param total
      * @return
@@ -166,7 +166,7 @@ public class InteractionsDAO {
     }
 
     /**
-     *
+     *getInteractionsCount method and SQL Query
      * @return
      */
     public int getInteractionCount() {
@@ -181,7 +181,7 @@ public class InteractionsDAO {
     }
 
     /**
-     *
+     *getClientsMap method and SQL Query
      * @return
      */
     public Map<Integer, String> getClientsMap() {
@@ -198,7 +198,7 @@ public class InteractionsDAO {
     }
 
     /**
-     *
+     *List<Interactions> getLastInteractions and SQL Query
      * @return
      */
     public List<Interactions> getLastInteractions() {

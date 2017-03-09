@@ -26,7 +26,7 @@ public class ClientDAO {
     JdbcTemplate template;
 
     /**
-     *
+     *Setting JDBC Template
      * @param template
      */
     public void setTemplate(JdbcTemplate template) {
@@ -34,7 +34,7 @@ public class ClientDAO {
     }
 
     /**
-     *
+     *Client save method and SQL Query
      * @param client
      * @return
      */
@@ -47,7 +47,7 @@ public class ClientDAO {
     }
 
     /**
-     *
+     *Client update method and SQL Query
      * @param client
      * @return
      */
@@ -59,7 +59,7 @@ public class ClientDAO {
     }
 
     /**
-     *
+     *Client delete method and SQL Query
      * @param id
      * @return
      */
@@ -69,7 +69,7 @@ public class ClientDAO {
     }
 
     /**
-     *
+     *getClientsList method and SQL query
      * @return
      */
     public List<Client> getClientsList() {
@@ -94,7 +94,7 @@ public class ClientDAO {
     }
 
     /**
-     *
+     *getClientById method and SQL Query
      * @param id
      * @return
      */
@@ -104,7 +104,7 @@ public class ClientDAO {
     }
 
     /**
-     *
+     *getClientsByPage method and SQL Query
      * @param start
      * @param total
      * @return
@@ -131,7 +131,7 @@ public class ClientDAO {
     }
 
     /**
-     *
+     *getClientCount method and SQL Query
      * @return
      */
     public int getClientCount() {
@@ -146,7 +146,7 @@ public class ClientDAO {
     }
 
     /**
-     *
+     *List<Client> getLastClient method and SQL Query
      * @return
      */
     public List<Client> getLastClient() {

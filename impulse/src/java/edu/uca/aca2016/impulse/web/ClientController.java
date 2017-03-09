@@ -42,7 +42,7 @@ public class ClientController {
     private ClientValidator clientValidator;
 
     /**
-     *
+     *New Client form mapping
      * @return
      */
     @RequestMapping("/client/clientform")
@@ -51,7 +51,7 @@ public class ClientController {
     }
 
     /**
-     *
+     *Save client form and mapping
      * @param client
      * @param result
      * @param request
@@ -76,7 +76,7 @@ public class ClientController {
     }
 
     /**
-     *
+     *View client form and mapping
      * @param request
      * @return
      */

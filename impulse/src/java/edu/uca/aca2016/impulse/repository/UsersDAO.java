@@ -29,7 +29,7 @@ public class UsersDAO {
     JdbcTemplate template;
 
     /**
-     *
+     *JDBC Template Setter
      * @param template
      */
     public void setTemplate(JdbcTemplate template) {
@@ -37,7 +37,7 @@ public class UsersDAO {
     }
 
     /**
-     *
+     *Save Users
      * @param users
      * @return
      */
@@ -62,7 +62,7 @@ public class UsersDAO {
     }
 
     /**
-     *
+     *Update Users method and SQL Query
      * @param users
      * @return
      */
@@ -94,7 +94,7 @@ public class UsersDAO {
     }
     
     /**
-     *
+     *Delete User method and SQL Query
      * @param users
      * @return
      */
@@ -105,7 +105,7 @@ public class UsersDAO {
     }
 
     /**
-     *
+     *List<Users> getUsersList method and SQL Query
      * @return
      */
     public List<Users> getUsersList() {
@@ -121,7 +121,7 @@ public class UsersDAO {
     }
 
     /**
-     *
+     *getUsersByUsername method and SQL Query
      * @param username
      * @return
      */
@@ -133,7 +133,7 @@ public class UsersDAO {
     }
 
     /**
-     *
+     *List<Users> getUsersByPage method and SQL Query
      * @param start
      * @param total
      * @return
@@ -153,7 +153,7 @@ public class UsersDAO {
     }
 
     /**
-     *
+     *getUsersCount method and SQL Query
      * @return
      */
     public int getUsersCount() {
