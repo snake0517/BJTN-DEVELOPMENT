@@ -30,7 +30,7 @@ public class Client implements Serializable {
     private Map<String, String> states;
 
     /**
-     *
+     *Create map of states to be listed on JSP page
      * @return
      */
     public Map<String, String> getStates() {
@@ -92,7 +92,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Creates list of statuses
      * @return
      */
     public Map<String, String> getStat() {
@@ -104,7 +104,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Getter method for Client Id
      * @return
      */
     public int getClientid() {
@@ -112,7 +112,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Setter method for Client Id
      * @param clientid
      */
     public void setClientid(int clientid) {
@@ -120,7 +120,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Getter method for First Name
      * @return
      */
     public String getFirstName() {
@@ -128,7 +128,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Setter method for First Name
      * @param FirstName
      */
     public void setFirstName(String FirstName) {
@@ -136,7 +136,7 @@ public class Client implements Serializable {
     }
 
     /**
-     *
+     *Getter Method 
      * @return
      */
     public String getLastName() {
