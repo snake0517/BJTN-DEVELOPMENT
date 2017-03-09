@@ -20,12 +20,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+/**
+ *
+ * @author brela
+ */
 @RestController
 public class InteractionsRESTController{
 
     @Autowired
     InteractionsDAO dao;
 
+    /**
+     *
+     * @return
+     */
     @RequestMapping(value = "/api/interactions/",method = RequestMethod.GET)
     public ResponseEntity<List<Interactions>> listAllInteractions(){
         List<Interactions> interactionss = dao.getAPIInteractionsList();
@@ -36,6 +44,11 @@ public class InteractionsRESTController{
         return new ResponseEntity<>(interactionss,HttpStatus.OK);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @RequestMapping(value = "/api/interactions/{id}",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Interactions> getInteraction(@PathVariable("id") int id){
         Interactions interactions = null;
@@ -50,6 +63,12 @@ public class InteractionsRESTController{
         return new ResponseEntity<>(interactions,HttpStatus.OK);
     }
 
+    /**
+     *
+     * @param interactions
+     * @param ucBuilder
+     * @return
+     */
     @RequestMapping(value = "/api/interactions/",method = RequestMethod.POST)
     public ResponseEntity<Void> createInteractions(@RequestBody Interactions interactions,UriComponentsBuilder ucBuilder){
         dao.save(interactions);
@@ -60,6 +79,12 @@ public class InteractionsRESTController{
         return new ResponseEntity<>(headers,HttpStatus.CREATED);
     }
 
+    /**
+     *
+     * @param id
+     * @param interactions
+     * @return
+     */
     @RequestMapping(value = "/api/interactions/{id}",method = RequestMethod.PUT)
     public ResponseEntity<Interactions> updateInteractions(@PathVariable("id") int id,@RequestBody Interactions interactions){
         Interactions currentInteractions = null;
@@ -80,6 +105,11 @@ public class InteractionsRESTController{
         return new ResponseEntity<>(currentInteractions,HttpStatus.OK);
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     @RequestMapping(value = "/api/interactions/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Interactions> deleteInteractions(@PathVariable("id") int id) {
         Interactions interactions = null;

@@ -25,10 +25,19 @@ public class ClientDAO {
 
     JdbcTemplate template;
 
+    /**
+     *
+     * @param template
+     */
     public void setTemplate(JdbcTemplate template) {
         this.template = template;
     }
 
+    /**
+     *
+     * @param client
+     * @return
+     */
     public int save(Client client) {
 
         String sql = "INSERT INTO client (`FirstName`, `LastName`, `Address1`, `Address2`, `City`, `State`, `Zip`, `Email`, `Phone`, `Status`)"
@@ -37,6 +46,11 @@ public class ClientDAO {
         return template.update(sql, values);
     }
 
+    /**
+     *
+     * @param client
+     * @return
+     */
     public int update(Client client) {
         String sql = "UPDATE client SET `FirstName`= ?, `LastName` = ?, `Address1` = ?, `Address2` = ?, `City` = ?, `State` = ? , `Zip` = ?, `Email` = ?, `Phone` = ?, `Status` = ?"
                 + "	   WHERE ClientId = ?";
@@ -44,11 +58,20 @@ public class ClientDAO {
         return template.update(sql, values);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public int delete(int id) {
         String sql = "DELETE FROM client WHERE ClientId=" + id + "";
         return template.update(sql);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Client> getClientsList() {
         return template.query("SELECT * FROM client", new RowMapper<Client>() {
             @Override
@@ -70,11 +93,22 @@ public class ClientDAO {
         });
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Client getClientById(int id) {
         String sql = "SELECT * FROM Client WHERE ClientId = ?";
         return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<Client>(Client.class));
     }
 
+    /**
+     *
+     * @param start
+     * @param total
+     * @return
+     */
     public List<Client> getClientsByPage(int start, int total) {
         String sql = "SELECT * FROM client LIMIT " + (start - 1) + "," + total;
         return template.query(sql, new RowMapper<Client>() {
@@ -96,6 +130,10 @@ public class ClientDAO {
         });
     }
 
+    /**
+     *
+     * @return
+     */
     public int getClientCount() {
         String sql = "SELECT COUNT(ClientID) AS rowcount FROM client";
         SqlRowSet rs = template.queryForRowSet(sql);
@@ -106,6 +144,11 @@ public class ClientDAO {
 
         return 1;
     }
+
+    /**
+     *
+     * @return
+     */
     public List<Client> getLastClient() {
         String sql = "SELECT * From client Order by clientid Desc Limit 5";
          return template.query(sql, (ResultSet rs, int row) -> {

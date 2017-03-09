@@ -28,10 +28,19 @@ public class UsersDAO {
 
     JdbcTemplate template;
 
+    /**
+     *
+     * @param template
+     */
     public void setTemplate(JdbcTemplate template) {
         this.template = template;
     }
 
+    /**
+     *
+     * @param users
+     * @return
+     */
     public int save(Users users) {
 
         String sql = "INSERT INTO users (`username`, `password`, `enabled`, `name`)"
@@ -52,6 +61,11 @@ public class UsersDAO {
         return r;
     }
 
+    /**
+     *
+     * @param users
+     * @return
+     */
     public int update(Users users) {
        
       String  sql = "DELETE From user_roles WHERE username = ?";
@@ -79,13 +93,21 @@ public class UsersDAO {
      return r;   
     }
     
-
+    /**
+     *
+     * @param users
+     * @return
+     */
     public int delete(Users users) {
         String sql = "DELETE FROM users WHERE username = ?";
         Object[] values = {users.getUsername()};
         return template.update(sql, values);
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Users> getUsersList() {
         return template.query("SELECT * FROM users", new RowMapper<Users>() {
             @Override
@@ -98,6 +120,11 @@ public class UsersDAO {
         });
     }
 
+    /**
+     *
+     * @param username
+     * @return
+     */
     public Users getUsersbyUsername(String username) {
         logger.info(username);
         String sql = "SELECT *  FROM users WHERE username = ?";
@@ -105,6 +132,12 @@ public class UsersDAO {
 
     }
 
+    /**
+     *
+     * @param start
+     * @param total
+     * @return
+     */
     public List<Users> getUsersByPage(int start, int total) {
         String sql = "SELECT * FROM users LIMIT " + (start - 1) + "," + total;
         return template.query(sql, new RowMapper<Users>() {
@@ -119,6 +152,10 @@ public class UsersDAO {
         });
     }
 
+    /**
+     *
+     * @return
+     */
     public int getUsersCount() {
         String sql = "SELECT COUNT(username) AS rowcount FROM users";
         SqlRowSet rs = template.queryForRowSet(sql);

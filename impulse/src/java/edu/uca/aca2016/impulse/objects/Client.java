@@ -29,6 +29,10 @@ public class Client implements Serializable {
     private Map<String, String> stat;
     private Map<String, String> states;
 
+    /**
+     *
+     * @return
+     */
     public Map<String, String> getStates() {
         states = new LinkedHashMap<>();
         states.put("Alabama", "Alabama");
@@ -87,6 +91,10 @@ public class Client implements Serializable {
         return states;
     }
 
+    /**
+     *
+     * @return
+     */
     public Map<String, String> getStat() {
         stat = new LinkedHashMap<>();
         stat.put("POTENTIAL", "POTENTIAL");
@@ -95,90 +103,178 @@ public class Client implements Serializable {
         return stat;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getClientid() {
         return clientid;
     }
 
+    /**
+     *
+     * @param clientid
+     */
     public void setClientid(int clientid) {
         this.clientid = clientid;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFirstName() {
         return FirstName;
     }
 
+    /**
+     *
+     * @param FirstName
+     */
     public void setFirstName(String FirstName) {
         this.FirstName = FirstName;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLastName() {
         return LastName;
     }
 
+    /**
+     *
+     * @param LastName
+     */
     public void setLastName(String LastName) {
         this.LastName = LastName;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAddress1() {
         return Address1;
     }
 
+    /**
+     *
+     * @param Address1
+     */
     public void setAddress1(String Address1) {
         this.Address1 = Address1;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAddress2() {
         return Address2;
     }
 
+    /**
+     *
+     * @param Address2
+     */
     public void setAddress2(String Address2) {
         this.Address2 = Address2;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCity() {
         return City;
     }
 
+    /**
+     *
+     * @param City
+     */
     public void setCity(String City) {
         this.City = City;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getState() {
         return State;
     }
 
+    /**
+     *
+     * @param State
+     */
     public void setState(String State) {
         this.State = State;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getZip() {
         return Zip;
     }
 
+    /**
+     *
+     * @param Zip
+     */
     public void setZip(String Zip) {
         this.Zip = Zip;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEmail() {
         return Email;
     }
 
+    /**
+     *
+     * @param Email
+     */
     public void setEmail(String Email) {
         this.Email = Email;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPhone() {
         return Phone;
     }
 
+    /**
+     *
+     * @param Phone
+     */
     public void setPhone(String Phone) {
         this.Phone = Phone;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getStatus() {
         return Status;
     }
 
+    /**
+     *
+     * @param Status
+     */
     public void setStatus(String Status) {
         this.Status = Status;
     }

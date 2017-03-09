@@ -9,16 +9,30 @@ import org.springframework.stereotype.Component;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
+/**
+ *
+ * @author brela
+ */
 @Component
 public class UsersValidator implements Validator {
 
     private static final Logger logger = Logger.getLogger(UsersValidator.class.getName());
 
+    /**
+     *
+     * @param clazz
+     * @return
+     */
     @Override
     public boolean supports(Class<?> clazz) {
         return Users.class.isAssignableFrom(clazz);
     }
 
+    /**
+     *
+     * @param target
+     * @param errors
+     */
     @Override
     public void validate(Object target, Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "users.name.required");

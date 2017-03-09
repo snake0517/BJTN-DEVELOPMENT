@@ -27,10 +27,19 @@ public class InteractionsDAO {
 
     JdbcTemplate template;
 
+    /**
+     *
+     * @param template
+     */
     public void setTemplate(JdbcTemplate template) {
         this.template = template;
     }
 
+    /**
+     *
+     * @param interactions
+     * @return
+     */
     public int save(Interactions interactions) {
 
         String sql = "INSERT INTO interactions (`ClientId`, `OccuredOn`, `ContactPerson`, `ContactType`, `Notes`)"
@@ -39,6 +48,11 @@ public class InteractionsDAO {
         return template.update(sql, values);
     }
 
+    /**
+     *
+     * @param interactions
+     * @return
+     */
     public int update(Interactions interactions) {
         String sql = "UPDATE interactions SET  `OccuredOn` = ?, `ContactPerson` = ?, `ContactType` = ?, `Notes` = ?"
                 + "	   WHERE InteractionId = ?";
@@ -46,11 +60,21 @@ public class InteractionsDAO {
         return template.update(sql, values);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public int delete(int id) {
         String sql = "DELETE FROM interactions WHERE InteractionId=" + id + "";
         return template.update(sql);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public List<Interactions> getInteractionsList(int id) {
         return template.query( "SELECT * FROM Interactions WHERE ClientId = " + id, new RowMapper<Interactions>() {
             @Override
@@ -66,7 +90,13 @@ public class InteractionsDAO {
             }
         });
         
-    } public List<Interactions> getAPIInteractionsList() {
+    }
+
+    /**
+     *
+     * @return
+     */
+    public List<Interactions> getAPIInteractionsList() {
         return template.query( "SELECT * FROM Interactions " , new RowMapper<Interactions>() {
             @Override
             public Interactions mapRow(ResultSet rs, int row) throws SQLException {
@@ -82,15 +112,32 @@ public class InteractionsDAO {
         });
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Interactions getInteractionsById(int id) {
         String sql = "SELECT * FROM Interactions WHERE InteractionId = ?";
         return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<Interactions>(Interactions.class));
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Interactions getVInteractionsById(int id) {
         String sql = "SELECT * FROM Interactions WHERE ClientId = ?";
         return template.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<Interactions>(Interactions.class));
     }
+
+    /**
+     *
+     * @param start
+     * @param total
+     * @return
+     */
     public List<Interactions> getInteractionssByPage(int start, int total) {
         String sql = "SELECT interactions.InteractionId, interactions.ClientId, interactions.OccuredOn, interactions.ContactPerson, interactions.ContactType, interactions.Notes, client.ClientId "
                 + "FROM Interactions AS interactions "
@@ -118,6 +165,10 @@ public class InteractionsDAO {
         });
     }
 
+    /**
+     *
+     * @return
+     */
     public int getInteractionCount() {
         String sql = "SELECT COUNT(InteractionID) AS rowcount FROM interactions";
         SqlRowSet rs = template.queryForRowSet(sql);
@@ -129,6 +180,10 @@ public class InteractionsDAO {
         return 1;
     }
 
+    /**
+     *
+     * @return
+     */
     public Map<Integer, String> getClientsMap() {
         Map<Integer, String> clients = new LinkedHashMap<>();
         String sql = "SELECT ClientID, FirstName, LastName FROM Client ORDER BY FirstName";
@@ -141,6 +196,11 @@ public class InteractionsDAO {
 
         return clients;
     }
+
+    /**
+     *
+     * @return
+     */
     public List<Interactions> getLastInteractions() {
         String sql = "SELECT * From interactions Order by interactionid Desc Limit 5";
         return template.query(sql , (ResultSet rs, int row) -> {

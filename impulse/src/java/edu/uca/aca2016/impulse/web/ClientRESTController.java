@@ -19,12 +19,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+/**
+ *
+ * @author brela
+ */
 @RestController
 public class ClientRESTController{
 
     @Autowired
     ClientDAO dao;
 
+    /**
+     *
+     * @return
+     */
     @RequestMapping(value = "/api/client/",method = RequestMethod.GET)
     public ResponseEntity<List<Client>> listAllClients(){
         List<Client> clients = dao.getClientsList();
@@ -35,6 +43,11 @@ public class ClientRESTController{
         return new ResponseEntity<>(clients,HttpStatus.OK);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @RequestMapping(value = "/api/client/{id}",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Client> getClient(@PathVariable("id") int id){
         Client client = null;
@@ -49,6 +62,12 @@ public class ClientRESTController{
         return new ResponseEntity<>(client,HttpStatus.OK);
     }
 
+    /**
+     *
+     * @param client
+     * @param ucBuilder
+     * @return
+     */
     @RequestMapping(value = "/api/client/",method = RequestMethod.POST)
     public ResponseEntity<Void> createClient(@RequestBody Client client,UriComponentsBuilder ucBuilder){
         dao.save(client);
@@ -59,6 +78,12 @@ public class ClientRESTController{
         return new ResponseEntity<>(headers,HttpStatus.CREATED);
     }
 
+    /**
+     *
+     * @param id
+     * @param client
+     * @return
+     */
     @RequestMapping(value = "/api/client/{id}",method = RequestMethod.PUT)
     public ResponseEntity<Client> updateClient(@PathVariable("id") int id,@RequestBody Client client){
         Client currentClient = null;
@@ -85,6 +110,11 @@ public class ClientRESTController{
         return new ResponseEntity<>(currentClient,HttpStatus.OK);
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     @RequestMapping(value = "/api/client/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Client> deleteClient(@PathVariable("id") int id) {
         Client client = null;

@@ -21,6 +21,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
+/**
+ *
+ * @author brela
+ */
 @Controller
 public class UsersController {
 
@@ -30,11 +34,22 @@ public class UsersController {
     @Autowired
     private UsersValidator usersValidator;
 
+    /**
+     *
+     * @return
+     */
     @RequestMapping("/users/usersform")
     public ModelAndView showform() {
         return new ModelAndView("usersform", "users", new Users());
     }
 
+    /**
+     *
+     * @param users
+     * @param result
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/users/save", method = RequestMethod.POST)
     public ModelAndView save(@ModelAttribute("users") @Valid Users users, BindingResult result, HttpServletRequest request) {
         if (result.hasErrors()) {
@@ -53,12 +68,23 @@ public class UsersController {
         return new ModelAndView("redirect:/users/viewusers");
     }
 
+    /**
+     *
+     * @param request
+     * @return
+     */
     @RequestMapping("/users/viewusers")
     public ModelAndView viewuser_role(HttpServletRequest request) {
 
         return this.viewusers(1, request);
     }
 
+    /**
+     *
+     * @param pageid
+     * @param request
+     * @return
+     */
     @RequestMapping("/user/viewuser/{pageid}")
     public ModelAndView viewusers(@PathVariable int pageid, HttpServletRequest request) {
         int total = 25;
@@ -88,12 +114,24 @@ public class UsersController {
         return new ModelAndView("viewusers", context);
     }
 
+    /**
+     *
+     * @param username
+     * @return
+     */
     @RequestMapping(value = "/users/editusers/{username}")
     public ModelAndView edit(@PathVariable String username) {
         Users users = dao.getUsersbyUsername(username);
         return new ModelAndView("userseditform", "users", users);
     }
 
+    /**
+     *
+     * @param users
+     * @param result
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/users/editsave", method = RequestMethod.POST)
 
     public ModelAndView editsave(@ModelAttribute("users") @Valid Users users, BindingResult result, HttpServletRequest request) {
@@ -113,6 +151,12 @@ public class UsersController {
         return new ModelAndView("redirect:/users/viewusers");
     }
 
+    /**
+     *
+     * @param users
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/users/deleteusers/{username}", method = RequestMethod.GET)
     public ModelAndView delete(@ModelAttribute("users") Users users, HttpServletRequest request) {
         int r = dao.delete(users);
@@ -128,15 +172,27 @@ public class UsersController {
         return new ModelAndView("redirect:/users/viewusers");
     }
 
+    /**
+     *
+     * @param webDataBinder
+     */
     @InitBinder("users")
     public void initBinder(WebDataBinder webDataBinder) {
         webDataBinder.setValidator(usersValidator);
     }
 
+    /**
+     *
+     * @return
+     */
     public UsersValidator getUsersValidator() {
         return usersValidator;
     }
 
+    /**
+     *
+     * @param usersValidator
+     */
     public void setUsersValidator(UsersValidator usersValidator) {
         this.usersValidator = usersValidator;
     }

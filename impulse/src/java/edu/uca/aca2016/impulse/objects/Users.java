@@ -25,22 +25,42 @@ public class Users implements Serializable {
     private Map<String, String> roles;
     private Map<String, String> enable;
 
+    /**
+     *
+     * @return
+     */
     public List<String> getRolelist() {
         return rolelist;
     }
 
+    /**
+     *
+     * @param rolelist
+     */
     public void setRolelist(List<String> rolelist) {
         this.rolelist = rolelist;
     }
 
+    /**
+     *
+     * @return
+     */
     public Map<String, String> getEnable() {
         return enable;
     }
 
+    /**
+     *
+     * @param enable
+     */
     public void setEnable(Map<String, String> enable) {
         this.enable = enable;
     }
 
+    /**
+     *
+     * @return
+     */
     public Map<String, String> getEnableMap() {
         enable = new LinkedHashMap<>();
         enable.put("0", "no");
@@ -49,6 +69,10 @@ public class Users implements Serializable {
         return enable;
     }
 
+    /**
+     *
+     * @return
+     */
     public Map<String, String> getRoles() {
         roles = new LinkedHashMap<>();
         roles.put("ROLE_USER", "User");
@@ -57,42 +81,82 @@ public class Users implements Serializable {
         return roles;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRole() {
         return Role;
     }
 
+    /**
+     *
+     * @param Role
+     */
     public void setRole(String Role) {
         this.Role = Role;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return Name;
     }
 
+    /**
+     *
+     * @param Name
+     */
     public void setName(String Name) {
         this.Name = Name;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     *
+     * @param username
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getEnabled() {
         return enabled;
     }
 
+    /**
+     *
+     * @param enabled
+     */
     public void setEnabled(int enabled) {
         this.enabled = enabled;
     }

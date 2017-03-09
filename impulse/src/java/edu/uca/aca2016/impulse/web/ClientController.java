@@ -24,6 +24,10 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import edu.uca.aca2016.impulse.validation.ClientValidator;
 
+/**
+ *
+ * @author brela
+ */
 @Controller
 public class ClientController {
 
@@ -37,11 +41,22 @@ public class ClientController {
     @Autowired
     private ClientValidator clientValidator;
 
+    /**
+     *
+     * @return
+     */
     @RequestMapping("/client/clientform")
     public ModelAndView showform() {
         return new ModelAndView("clientform", "client", new Client());
     }
 
+    /**
+     *
+     * @param client
+     * @param result
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/client/save", method = RequestMethod.POST)
     public ModelAndView save(@ModelAttribute("client") @Valid Client client, BindingResult result, HttpServletRequest request) {
         if (result.hasErrors()) {
@@ -60,12 +75,23 @@ public class ClientController {
         return new ModelAndView("redirect:/client/viewclient");
     }
 
+    /**
+     *
+     * @param request
+     * @return
+     */
     @RequestMapping("/client/viewclient")
     public ModelAndView viewclient(HttpServletRequest request) {
 
         return this.viewclient(1, request);
     }
 
+    /**
+     *
+     * @param pageid
+     * @param request
+     * @return
+     */
     @RequestMapping("/client/viewclient/{pageid}")
     public ModelAndView viewclient(@PathVariable int pageid, HttpServletRequest request) {
         int total = 25;
@@ -95,12 +121,23 @@ public class ClientController {
         return new ModelAndView("viewclient", context);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @RequestMapping(value = "/client/editclient/{id}")
     public ModelAndView edit(@PathVariable int id) {
         Client client = dao.getClientById(id);
         
         return new ModelAndView("clienteditform", "client", client);
     }
+
+    /**
+     *
+     * @param id
+     * @return
+     */
     @RequestMapping(value = "/client/summaryclient/{id}")
     public ModelAndView summaryclient (@PathVariable int id) {
         Client client = dao.getClientById(id);
@@ -112,6 +149,13 @@ public class ClientController {
         return new ModelAndView("summaryclient",  context);
     }
 
+    /**
+     *
+     * @param client
+     * @param result
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/client/editsave", method = RequestMethod.POST)
     public ModelAndView editsave(@ModelAttribute("client") @Valid Client client, BindingResult result, HttpServletRequest request) {
         if (result.hasErrors()) {
@@ -130,6 +174,12 @@ public class ClientController {
         return new ModelAndView("redirect:/client/viewclient");
     }
 
+    /**
+     *
+     * @param id
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/client/deleteclient/{id}", method = RequestMethod.GET)
     public ModelAndView delete(@PathVariable int id, HttpServletRequest request) {
         int r = dao.delete(id);
@@ -145,15 +195,27 @@ public class ClientController {
         return new ModelAndView("redirect:/client/viewclient");
     }
 
+    /**
+     *
+     * @param webDataBinder
+     */
     @InitBinder("client")
     public void initBinder(WebDataBinder webDataBinder) {
         webDataBinder.setValidator(clientValidator);
     }
 
+    /**
+     *
+     * @return
+     */
     public ClientValidator getClientValidator() {
         return clientValidator;
     }
 
+    /**
+     *
+     * @param clientValidator
+     */
     public void setClientValidator(ClientValidator clientValidator) {
         this.clientValidator = clientValidator;
     }
