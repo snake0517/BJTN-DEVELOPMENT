@@ -87,7 +87,7 @@ public class ClientController {
     }
 
     /**
-     *
+     *View client form and mapping
      * @param pageid
      * @param request
      * @return
@@ -122,7 +122,7 @@ public class ClientController {
     }
 
     /**
-     *
+     *Edit client form and mapping
      * @param id
      * @return
      */
@@ -134,7 +134,7 @@ public class ClientController {
     }
 
     /**
-     *
+     *Summary client form and mapping
      * @param id
      * @return
      */
@@ -150,7 +150,7 @@ public class ClientController {
     }
 
     /**
-     *
+     *Save method for client edit
      * @param client
      * @param result
      * @param request
@@ -175,7 +175,7 @@ public class ClientController {
     }
 
     /**
-     *
+     *Client delete form
      * @param id
      * @param request
      * @return
