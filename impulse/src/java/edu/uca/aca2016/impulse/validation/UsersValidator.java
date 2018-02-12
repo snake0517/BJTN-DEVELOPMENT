@@ -46,7 +46,7 @@ public class UsersValidator implements Validator {
         if (users.getUsername().length() > 120) {
             errors.rejectValue("username", "users.username.length");
         }
-        if (users.getName().matches("^[A-Za-z0-9]*$")) {
+        if (!users.getName().matches("^[A-Za-z0-9]*$")) {
             errors.rejectValue("name", "users.name.pattern");
         }
         if (!users.getUsername().matches("^[A-Za-z0-9]*$")) {

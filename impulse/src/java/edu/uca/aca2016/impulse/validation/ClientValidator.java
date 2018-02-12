@@ -78,9 +78,7 @@ public class ClientValidator implements Validator {
         if (!client.getLastName().matches("^[A-Za-z0-9]*$")) {
             errors.rejectValue("lastName", "client.lastName.pattern");
         }
-        if (client.getCity().matches("^[A-Za-z0-9]*$")) {
-            errors.rejectValue("city", "client.city.pattern");
-        }
+       
         if (!client.getEmail().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
             errors.rejectValue("email", "client.email.pattern");
         }
