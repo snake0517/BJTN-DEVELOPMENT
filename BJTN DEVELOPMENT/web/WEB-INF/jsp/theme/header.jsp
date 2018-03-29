@@ -2,7 +2,7 @@
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
-    <title>Impulse Manager</title>
+    <title>BJTN DEVELOPMENT</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
@@ -14,7 +14,7 @@
         <!-- Top container -->
         <div class="w3-container w3-top w3-black w3-large w3-padding" style="z-index:4">
             <button class="w3-btn w3-hide-large w3-padding-0 w3-hover-text-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-            <span class="w3-right">Impulse</span>
+            <span class="w3-right">BJTN DEVELOPMENT</span>
         </div>
 
         <!-- Sidenav/menu -->
