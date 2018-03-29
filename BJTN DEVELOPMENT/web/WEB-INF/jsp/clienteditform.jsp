@@ -11,7 +11,7 @@
 
     <div class="w3-card-4">
         <div class="w3-container w3-blue">
-            <h2>Impulse</h2>
+            <h2>BJTN DEVELOPMENT</h2>
         </div>
 
         <form:form method="POST" action="/impulse/client/editsave" cssClass="w3-container" commandName="client">
