@@ -21,7 +21,7 @@
         <nav class="w3-sidenav w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidenav"><br>
             <div class="w3-container w3-row">
                 <div class="w3-col s4">
-                    <img src="<c:url value="/media/img/Breland-1.jpg" />" class="w3-circle w3-margin-right" style="width:46px">
+                    <img src="<c:url value="/media/as/brepic.jpg" />" class="w3-circle w3-margin-right" style="width:46px">
                 </div>
                 <div class="w3-col s8">
                     <sec:authorize access="hasRole('ROLE_USER')">
