@@ -143,7 +143,7 @@ public class InteractionsController {
         context.put("list", list);
 
         int count = dao.getInteractionCount();
-        context.put("pages", Math.ceil((float) count / (float) total));
+        context.put("pages", Math.ceil(count / (float) total));
 
         context.put("page", pageid);
 

@@ -100,7 +100,7 @@ public class UsersController {
         context.put("list", list);
 
         int count = dao.getUsersCount();
-        context.put("pages", Math.ceil((float) count / (float) total));
+        context.put("pages", Math.ceil(count / (float) total));
 
         context.put("page", pageid);
 
