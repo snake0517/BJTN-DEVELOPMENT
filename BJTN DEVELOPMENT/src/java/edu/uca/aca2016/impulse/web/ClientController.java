@@ -34,15 +34,16 @@ public class ClientController {
     private static final Logger logger = Logger.getLogger(ClientController.class.getName());
     @Autowired
     ClientDAO dao;
-    
+
     @Autowired
     InteractionsDAO idao;
-    
+
     @Autowired
     private ClientValidator clientValidator;
 
     /**
-     *New Client form mapping
+     * New Client form mapping
+     *
      * @return
      */
     @RequestMapping("/client/clientform")
@@ -51,7 +52,8 @@ public class ClientController {
     }
 
     /**
-     *Save client form and mapping
+     * Save client form and mapping
+     *
      * @param client
      * @param result
      * @param request
@@ -76,7 +78,8 @@ public class ClientController {
     }
 
     /**
-     *View client form and mapping
+     * View client form and mapping
+     *
      * @param request
      * @return
      */
@@ -87,7 +90,8 @@ public class ClientController {
     }
 
     /**
-     *View client form and mapping
+     * View client form and mapping
+     *
      * @param pageid
      * @param request
      * @return
@@ -122,35 +126,38 @@ public class ClientController {
     }
 
     /**
-     *Edit client form and mapping
+     * Edit client form and mapping
+     *
      * @param id
      * @return
      */
     @RequestMapping(value = "/client/editclient/{id}")
     public ModelAndView edit(@PathVariable int id) {
         Client client = dao.getClientById(id);
-        
+
         return new ModelAndView("clienteditform", "client", client);
     }
 
     /**
-     *Summary client form and mapping
+     * Summary client form and mapping
+     *
      * @param id
      * @return
      */
     @RequestMapping(value = "/client/summaryclient/{id}")
-    public ModelAndView summaryclient (@PathVariable int id) {
+    public ModelAndView summaryclient(@PathVariable int id) {
         Client client = dao.getClientById(id);
         List<Interactions> list = idao.getInteractionsList(id);
 
         HashMap<String, Object> context = new HashMap<String, Object>();
         context.put("list", list);
         context.put("client", client);
-        return new ModelAndView("summaryclient",  context);
+        return new ModelAndView("summaryclient", context);
     }
 
     /**
-     *Save method for client edit
+     * Save method for client edit
+     *
      * @param client
      * @param result
      * @param request
@@ -175,7 +182,8 @@ public class ClientController {
     }
 
     /**
-     *Client delete form
+     * Client delete form
+     *
      * @param id
      * @param request
      * @return

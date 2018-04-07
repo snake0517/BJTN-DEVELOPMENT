@@ -21,10 +21,11 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class HomeController {
-     @Autowired
+
+    @Autowired
     ClientDAO dao;
-     
-     @Autowired
+
+    @Autowired
     InteractionsDAO idao;
 
     /**
@@ -33,7 +34,7 @@ public class HomeController {
      * @return
      */
     @RequestMapping("/")
-    public ModelAndView viewclient( HttpServletRequest request) {
+    public ModelAndView viewclient(HttpServletRequest request) {
         List<Interactions> ilist = idao.getLastInteractions();
 
         List<Client> clist = dao.getLastClient();
@@ -41,13 +42,12 @@ public class HomeController {
         HashMap<String, Object> context = new HashMap<>();
         context.put("clist", clist);
         context.put("ilst", ilist);
-        
- int crow = dao.getClientCount();
- context.put("crow", crow);
- 
- int irow = idao.getInteractionCount();
- context.put("irow", irow);
-        
+
+        int crow = dao.getClientCount();
+        context.put("crow", crow);
+
+        int irow = idao.getInteractionCount();
+        context.put("irow", irow);
 
         Message msg = (Message) request.getSession().getAttribute("message");
 
@@ -57,5 +57,5 @@ public class HomeController {
         }
         return new ModelAndView("index", context);
     }
-    
+
 }

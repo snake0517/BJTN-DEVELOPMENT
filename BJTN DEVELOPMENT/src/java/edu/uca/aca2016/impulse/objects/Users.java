@@ -21,12 +21,13 @@ public class Users implements Serializable {
     private int enabled;
     private String Name;
     private String Role;
-     private List<String> rolelist;
+    private List<String> rolelist;
     private Map<String, String> roles;
     private Map<String, String> enable;
 
     /**
-     *RolesList Getter
+     * RolesList Getter
+     *
      * @return
      */
     public List<String> getRolelist() {
@@ -34,7 +35,8 @@ public class Users implements Serializable {
     }
 
     /**
-     *RolesList Setter
+     * RolesList Setter
+     *
      * @param rolelist
      */
     public void setRolelist(List<String> rolelist) {
@@ -42,7 +44,8 @@ public class Users implements Serializable {
     }
 
     /**
-     *Enable Getter
+     * Enable Getter
+     *
      * @return
      */
     public Map<String, String> getEnable() {
@@ -50,7 +53,8 @@ public class Users implements Serializable {
     }
 
     /**
-     *Enable Setter
+     * Enable Setter
+     *
      * @param enable
      */
     public void setEnable(Map<String, String> enable) {
@@ -58,7 +62,8 @@ public class Users implements Serializable {
     }
 
     /**
-     *EnableMap Getter
+     * EnableMap Getter
+     *
      * @return
      */
     public Map<String, String> getEnableMap() {
@@ -70,7 +75,8 @@ public class Users implements Serializable {
     }
 
     /**
-     *Roles Getter
+     * Roles Getter
+     *
      * @return
      */
     public Map<String, String> getRoles() {
@@ -82,7 +88,8 @@ public class Users implements Serializable {
     }
 
     /**
-     *Role Getter
+     * Role Getter
+     *
      * @return
      */
     public String getRole() {
@@ -90,7 +97,8 @@ public class Users implements Serializable {
     }
 
     /**
-     *Role Setter
+     * Role Setter
+     *
      * @param Role
      */
     public void setRole(String Role) {
@@ -98,7 +106,8 @@ public class Users implements Serializable {
     }
 
     /**
-     *Name Getter
+     * Name Getter
+     *
      * @return
      */
     public String getName() {
@@ -106,7 +115,8 @@ public class Users implements Serializable {
     }
 
     /**
-     *Name Setter
+     * Name Setter
+     *
      * @param Name
      */
     public void setName(String Name) {
@@ -114,7 +124,8 @@ public class Users implements Serializable {
     }
 
     /**
-     *Username Getter
+     * Username Getter
+     *
      * @return
      */
     public String getUsername() {
@@ -122,7 +133,8 @@ public class Users implements Serializable {
     }
 
     /**
-     *Username Setter
+     * Username Setter
+     *
      * @param username
      */
     public void setUsername(String username) {
@@ -130,7 +142,8 @@ public class Users implements Serializable {
     }
 
     /**
-     *Password Getter
+     * Password Getter
+     *
      * @return
      */
     public String getPassword() {
@@ -138,7 +151,8 @@ public class Users implements Serializable {
     }
 
     /**
-     *Password Setter
+     * Password Setter
+     *
      * @param password
      */
     public void setPassword(String password) {
@@ -146,7 +160,8 @@ public class Users implements Serializable {
     }
 
     /**
-     *Enabled Getter
+     * Enabled Getter
+     *
      * @return
      */
     public int getEnabled() {
@@ -154,7 +169,8 @@ public class Users implements Serializable {
     }
 
     /**
-     *Enabled Setter
+     * Enabled Setter
+     *
      * @param enabled
      */
     public void setEnabled(int enabled) {

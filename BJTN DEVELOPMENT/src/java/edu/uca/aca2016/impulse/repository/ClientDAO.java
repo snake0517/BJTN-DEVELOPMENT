@@ -26,7 +26,8 @@ public class ClientDAO {
     JdbcTemplate template;
 
     /**
-     *Setting JDBC Template
+     * Setting JDBC Template
+     *
      * @param template
      */
     public void setTemplate(JdbcTemplate template) {
@@ -34,7 +35,8 @@ public class ClientDAO {
     }
 
     /**
-     *Client save method and SQL Query
+     * Client save method and SQL Query
+     *
      * @param client
      * @return
      */
@@ -47,7 +49,8 @@ public class ClientDAO {
     }
 
     /**
-     *Client update method and SQL Query
+     * Client update method and SQL Query
+     *
      * @param client
      * @return
      */
@@ -59,7 +62,8 @@ public class ClientDAO {
     }
 
     /**
-     *Client delete method and SQL Query
+     * Client delete method and SQL Query
+     *
      * @param id
      * @return
      */
@@ -69,7 +73,8 @@ public class ClientDAO {
     }
 
     /**
-     *getClientsList method and SQL query
+     * getClientsList method and SQL query
+     *
      * @return
      */
     public List<Client> getClientsList() {
@@ -94,7 +99,8 @@ public class ClientDAO {
     }
 
     /**
-     *getClientById method and SQL Query
+     * getClientById method and SQL Query
+     *
      * @param id
      * @return
      */
@@ -104,7 +110,8 @@ public class ClientDAO {
     }
 
     /**
-     *getClientsByPage method and SQL Query
+     * getClientsByPage method and SQL Query
+     *
      * @param start
      * @param total
      * @return
@@ -131,7 +138,8 @@ public class ClientDAO {
     }
 
     /**
-     *getClientCount method and SQL Query
+     * getClientCount method and SQL Query
+     *
      * @return
      */
     public int getClientCount() {
@@ -146,25 +154,26 @@ public class ClientDAO {
     }
 
     /**
-     *List<Client> getLastClient method and SQL Query
+     * List<Client> getLastClient method and SQL Query
+     *
      * @return
      */
     public List<Client> getLastClient() {
         String sql = "SELECT * From client Order by clientid Desc Limit 5";
-         return template.query(sql, (ResultSet rs, int row) -> {
-             Client c = new Client();
-             c.setClientid(rs.getInt(1));
-             c.setFirstName(rs.getString(2));
-             c.setLastName(rs.getString(3));
-             c.setAddress1(rs.getString(4));
-             c.setAddress2(rs.getString(5));
-             c.setCity(rs.getString(6));
-             c.setState(rs.getString(7));
-             c.setZip(rs.getString(8));
-             c.setEmail(rs.getString(9));
-             c.setPhone(rs.getString(10));
-             c.setStatus(rs.getString(11));
-             return c;
+        return template.query(sql, (ResultSet rs, int row) -> {
+            Client c = new Client();
+            c.setClientid(rs.getInt(1));
+            c.setFirstName(rs.getString(2));
+            c.setLastName(rs.getString(3));
+            c.setAddress1(rs.getString(4));
+            c.setAddress2(rs.getString(5));
+            c.setCity(rs.getString(6));
+            c.setState(rs.getString(7));
+            c.setZip(rs.getString(8));
+            c.setEmail(rs.getString(9));
+            c.setPhone(rs.getString(10));
+            c.setStatus(rs.getString(11));
+            return c;
         });
     }
 }

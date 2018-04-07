@@ -28,7 +28,8 @@ public class InteractionsDAO {
     JdbcTemplate template;
 
     /**
-     *JDBC Template Setter
+     * JDBC Template Setter
+     *
      * @param template
      */
     public void setTemplate(JdbcTemplate template) {
@@ -37,6 +38,7 @@ public class InteractionsDAO {
 
     /**
      * Save Interactions method and SQL Query
+     *
      * @param interactions
      * @return
      */
@@ -49,7 +51,8 @@ public class InteractionsDAO {
     }
 
     /**
-     *Update interactions method and SQL Query
+     * Update interactions method and SQL Query
+     *
      * @param interactions
      * @return
      */
@@ -61,7 +64,8 @@ public class InteractionsDAO {
     }
 
     /**
-     *Delete interactions method and SQL Query
+     * Delete interactions method and SQL Query
+     *
      * @param id
      * @return
      */
@@ -71,12 +75,13 @@ public class InteractionsDAO {
     }
 
     /**
-     *List<Interactions> getInteractionsList method and SQL Query
+     * List<Interactions> getInteractionsList method and SQL Query
+     *
      * @param id
      * @return
      */
     public List<Interactions> getInteractionsList(int id) {
-        return template.query( "SELECT * FROM Interactions WHERE ClientId = " + id, new RowMapper<Interactions>() {
+        return template.query("SELECT * FROM Interactions WHERE ClientId = " + id, new RowMapper<Interactions>() {
             @Override
             public Interactions mapRow(ResultSet rs, int row) throws SQLException {
                 Interactions i = new Interactions();
@@ -89,15 +94,16 @@ public class InteractionsDAO {
                 return i;
             }
         });
-        
+
     }
 
     /**
      * List<Interactions> getAPIInteractionsList method and SQL Query
+     *
      * @return
      */
     public List<Interactions> getAPIInteractionsList() {
-        return template.query( "SELECT * FROM Interactions " , new RowMapper<Interactions>() {
+        return template.query("SELECT * FROM Interactions ", new RowMapper<Interactions>() {
             @Override
             public Interactions mapRow(ResultSet rs, int row) throws SQLException {
                 Interactions i = new Interactions();
@@ -114,6 +120,7 @@ public class InteractionsDAO {
 
     /**
      * getInteractionsByID method and SQL Query
+     *
      * @param id
      * @return
      */
@@ -123,7 +130,8 @@ public class InteractionsDAO {
     }
 
     /**
-     *getVInteractionsById method and SQL Query
+     * getVInteractionsById method and SQL Query
+     *
      * @param id
      * @return
      */
@@ -134,6 +142,7 @@ public class InteractionsDAO {
 
     /**
      * List<Interactions> getInteractionsByPage method and SQL Query
+     *
      * @param start
      * @param total
      * @return
@@ -166,7 +175,8 @@ public class InteractionsDAO {
     }
 
     /**
-     *getInteractionsCount method and SQL Query
+     * getInteractionsCount method and SQL Query
+     *
      * @return
      */
     public int getInteractionCount() {
@@ -181,7 +191,8 @@ public class InteractionsDAO {
     }
 
     /**
-     *getClientsMap method and SQL Query
+     * getClientsMap method and SQL Query
+     *
      * @return
      */
     public Map<Integer, String> getClientsMap() {
@@ -198,12 +209,13 @@ public class InteractionsDAO {
     }
 
     /**
-     *List<Interactions> getLastInteractions and SQL Query
+     * List<Interactions> getLastInteractions and SQL Query
+     *
      * @return
      */
     public List<Interactions> getLastInteractions() {
         String sql = "SELECT * From interactions Order by interactionid Desc Limit 5";
-        return template.query(sql , (ResultSet rs, int row) -> {
+        return template.query(sql, (ResultSet rs, int row) -> {
             Interactions i = new Interactions();
             i.setInteractionId(rs.getInt(1));
             i.setClientid(rs.getInt(2));

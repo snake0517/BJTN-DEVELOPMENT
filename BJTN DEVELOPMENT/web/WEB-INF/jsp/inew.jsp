@@ -15,20 +15,20 @@
         </div>
 
         <form:form method="post" action="save" cssClass="w3-container" commandName="interactions">
- <form:hidden path="clientid"  />
-            
- 
-        
-        <div class="w3-padding-8">
-          
-          
-            <p><b>${interactions.client.firstName} ${interactions.client.lastName}</b></p
-            
-          
-         </div>
-      
+            <form:hidden path="clientid"  />
+
+
+
             <div class="w3-padding-8">
-               
+
+
+                <p><b>${interactions.client.firstName} ${interactions.client.lastName}</b></p
+
+
+            </div>
+
+            <div class="w3-padding-8">
+
                 <label><b>Contact Date</b></label>
                 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
                 <link rel="stylesheet" href="/resources/demos/style.css">
@@ -38,7 +38,7 @@
                     $(function () {
                         $("#occurredOn").datepicker();
                     });
-                    </script>
+                </script>
                 <form:input path="occurredOn" cssClass="w3-input w3-border"  />
                 <form:errors path="occurredOn" cssClass="w3-red w3-padding-8 w3-panel" cssStyle="display: block; width: 100%; font-weight:bold;" />
             </div>

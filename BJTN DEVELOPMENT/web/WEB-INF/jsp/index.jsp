@@ -12,36 +12,36 @@
     </header>
 
     <div class="w3-row-padding w3-margin-bottom">
-        
+
         <c:if test="${not empty message}">
-        <c:choose>
-            <c:when test="${message.type eq 'INFO'}">
-                <div class="w3-panel w3-border w3-pale-yellow w3-border-yellow"><p>${message.message}</p></div>
-                    </c:when>
-                    <c:when test="${message.type eq 'ERROR'}">
-                <div class="w3-panel w3-border w3-pale-red w3-border-red"><p>${message.message}</p></div>
-                    </c:when>
-                </c:choose>
+            <c:choose>
+                <c:when test="${message.type eq 'INFO'}">
+                    <div class="w3-panel w3-border w3-pale-yellow w3-border-yellow"><p>${message.message}</p></div>
+                        </c:when>
+                        <c:when test="${message.type eq 'ERROR'}">
+                    <div class="w3-panel w3-border w3-pale-red w3-border-red"><p>${message.message}</p></div>
+                        </c:when>
+                    </c:choose>
 
-    </c:if>
+        </c:if>
 
-   <ul class="w3-ul w3-card-16 w3-cell" style="width:50%">
-    <li> Clients -  ${crow}</li>
-    <li>Interactions  -   ${irow}</li>
-    
-  </ul>
-     <ul class="w3-ul w3-card-16 w3-cell" style="width:50%">
-         <c:forEach var="client" items="${clist}"> 
-    <li> New Clients -  ${client.firstName}</li>
-    
-   </c:forEach> 
-  </ul>
-        
-     
-</div>
-    
+        <ul class="w3-ul w3-card-16 w3-cell" style="width:50%">
+            <li> Clients -  ${crow}</li>
+            <li>Interactions  -   ${irow}</li>
 
-    
+        </ul>
+        <ul class="w3-ul w3-card-16 w3-cell" style="width:50%">
+            <c:forEach var="client" items="${clist}"> 
+                <li> New Clients -  ${client.firstName}</li>
+
+            </c:forEach> 
+        </ul>
+
+
+    </div>
+
+
+
 
     <%@ include file="theme/footer.jsp" %>
 </sec:authorize>

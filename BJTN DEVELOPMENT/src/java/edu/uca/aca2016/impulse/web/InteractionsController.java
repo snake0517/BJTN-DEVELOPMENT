@@ -110,7 +110,7 @@ public class InteractionsController {
         request.getSession().setAttribute("message", msg);
         return new ModelAndView("redirect:/interactions/viewinteractions");
     }
-    
+
     /**
      *
      * @param request
@@ -167,7 +167,7 @@ public class InteractionsController {
         Interactions interactions = dao.getInteractionsById(id);
         return new ModelAndView("interactionseditform", "interactions", interactions);
     }
-    
+
     /**
      *
      * @param id
@@ -182,8 +182,8 @@ public class InteractionsController {
         interactions.setClient(client);
 
         interactions.setClients(dao.getClientsMap());
-        
-        return new ModelAndView("inew", "interactions",  interactions);
+
+        return new ModelAndView("inew", "interactions", interactions);
     }
 
     /**

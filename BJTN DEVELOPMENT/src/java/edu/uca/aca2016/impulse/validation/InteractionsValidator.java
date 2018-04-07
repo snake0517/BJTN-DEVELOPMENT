@@ -29,7 +29,8 @@ public class InteractionsValidator implements Validator {
     }
 
     /**
-     *Interactions validation parameters/RegEx
+     * Interactions validation parameters/RegEx
+     *
      * @param target
      * @param errors
      */

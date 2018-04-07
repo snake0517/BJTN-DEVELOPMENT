@@ -29,7 +29,8 @@ public class UsersValidator implements Validator {
     }
 
     /**
-     *Users Validation parameters/RegEx
+     * Users Validation parameters/RegEx
+     *
      * @param target
      * @param errors
      */

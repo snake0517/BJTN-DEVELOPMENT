@@ -1,7 +1,5 @@
 package edu.uca.aca2016.impulse.web;
 
-
-
 import edu.uca.aca2016.impulse.objects.Client;
 import edu.uca.aca2016.impulse.repository.ClientDAO;
 import java.util.List;
@@ -24,7 +22,7 @@ import org.springframework.web.util.UriComponentsBuilder;
  * @author brela
  */
 @RestController
-public class ClientRESTController{
+public class ClientRESTController {
 
     @Autowired
     ClientDAO dao;
@@ -33,14 +31,14 @@ public class ClientRESTController{
      *
      * @return
      */
-    @RequestMapping(value = "/api/client/",method = RequestMethod.GET)
-    public ResponseEntity<List<Client>> listAllClients(){
+    @RequestMapping(value = "/api/client/", method = RequestMethod.GET)
+    public ResponseEntity<List<Client>> listAllClients() {
         List<Client> clients = dao.getClientsList();
 
-        if(clients.isEmpty()){
+        if (clients.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
         }
-        return new ResponseEntity<>(clients,HttpStatus.OK);
+        return new ResponseEntity<>(clients, HttpStatus.OK);
     }
 
     /**
@@ -48,18 +46,17 @@ public class ClientRESTController{
      * @param id
      * @return
      */
-    @RequestMapping(value = "/api/client/{id}",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Client> getClient(@PathVariable("id") int id){
+    @RequestMapping(value = "/api/client/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Client> getClient(@PathVariable("id") int id) {
         Client client = null;
-        
+
         try {
             client = dao.getClientById(id);
-        }
-        catch (EmptyResultDataAccessException ex) {
+        } catch (EmptyResultDataAccessException ex) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        return new ResponseEntity<>(client,HttpStatus.OK);
+        return new ResponseEntity<>(client, HttpStatus.OK);
     }
 
     /**
@@ -68,14 +65,14 @@ public class ClientRESTController{
      * @param ucBuilder
      * @return
      */
-    @RequestMapping(value = "/api/client/",method = RequestMethod.POST)
-    public ResponseEntity<Void> createClient(@RequestBody Client client,UriComponentsBuilder ucBuilder){
+    @RequestMapping(value = "/api/client/", method = RequestMethod.POST)
+    public ResponseEntity<Void> createClient(@RequestBody Client client, UriComponentsBuilder ucBuilder) {
         dao.save(client);
 
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("/api/client/{id}").buildAndExpand(client.getClientid()).toUri());
-        
-        return new ResponseEntity<>(headers,HttpStatus.CREATED);
+
+        return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
 
     /**
@@ -84,14 +81,13 @@ public class ClientRESTController{
      * @param client
      * @return
      */
-    @RequestMapping(value = "/api/client/{id}",method = RequestMethod.PUT)
-    public ResponseEntity<Client> updateClient(@PathVariable("id") int id,@RequestBody Client client){
+    @RequestMapping(value = "/api/client/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Client> updateClient(@PathVariable("id") int id, @RequestBody Client client) {
         Client currentClient = null;
 
         try {
             currentClient = dao.getClientById(id);
-        }
-        catch (EmptyResultDataAccessException ex) {
+        } catch (EmptyResultDataAccessException ex) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
@@ -107,9 +103,9 @@ public class ClientRESTController{
         currentClient.setStatus(client.getStatus());
 
         dao.update(currentClient);
-        return new ResponseEntity<>(currentClient,HttpStatus.OK);
+        return new ResponseEntity<>(currentClient, HttpStatus.OK);
     }
-    
+
     /**
      *
      * @param id
@@ -118,16 +114,15 @@ public class ClientRESTController{
     @RequestMapping(value = "/api/client/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Client> deleteClient(@PathVariable("id") int id) {
         Client client = null;
-        
+
         try {
             client = dao.getClientById(id);
-        }
-        catch (EmptyResultDataAccessException ex) {
+        } catch (EmptyResultDataAccessException ex) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
- 
+
         dao.delete(id);
-        
+
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

@@ -29,7 +29,8 @@ public class UsersDAO {
     JdbcTemplate template;
 
     /**
-     *JDBC Template Setter
+     * JDBC Template Setter
+     *
      * @param template
      */
     public void setTemplate(JdbcTemplate template) {
@@ -37,7 +38,8 @@ public class UsersDAO {
     }
 
     /**
-     *Save Users
+     * Save Users
+     *
      * @param users
      * @return
      */
@@ -47,54 +49,52 @@ public class UsersDAO {
                 + "	VALUES (?, md5(?), ?, ?)";
         Object[] values = {users.getUsername(), users.getPassword(), users.getEnabled(), users.getName()};
         int r = template.update(sql, values);
-        
+
         sql = "INSERT INTO user_roles (username, role) VALUES (?, ?)";
-        
-        for (String rolelist: users.getRolelist()) {
+
+        for (String rolelist : users.getRolelist()) {
             Object[] role_values = {users.getUsername(), rolelist};
-            
+
             logger.info("User DAO add role: " + values);
-            
+
             template.update(sql, role_values);
-        
-    }
+
+        }
         return r;
     }
 
     /**
-     *Update Users method and SQL Query
+     * Update Users method and SQL Query
+     *
      * @param users
      * @return
      */
     public int update(Users users) {
-       
-      String  sql = "DELETE From user_roles WHERE username = ?";
+
+        String sql = "DELETE From user_roles WHERE username = ?";
         Object[] delete = {users.getUsername()};
         template.update(sql, delete);
-        
+
         sql = "INSERT INTO user_roles (username, role) VALUES (?, ?)";
-        
-        for (String rolelist: users.getRolelist()) {
+
+        for (String rolelist : users.getRolelist()) {
             Object[] role_values = {users.getUsername(), rolelist};
-            
-           
-            
+
             template.update(sql, role_values);
-        
-    }
-        
-        
-         sql = "UPDATE users SET  `password` = md5(?), enabled = ?, name = ?"
+
+        }
+
+        sql = "UPDATE users SET  `password` = md5(?), enabled = ?, name = ?"
                 + "	   WHERE username = ?";
         Object[] values = {users.getPassword(), users.getEnabled(), users.getName(), users.getUsername()};
         int r = template.update(sql, values);
-        
-        
-     return r;   
+
+        return r;
     }
-    
+
     /**
-     *Delete User method and SQL Query
+     * Delete User method and SQL Query
+     *
      * @param users
      * @return
      */
@@ -105,7 +105,8 @@ public class UsersDAO {
     }
 
     /**
-     *List<Users> getUsersList method and SQL Query
+     * List<Users> getUsersList method and SQL Query
+     *
      * @return
      */
     public List<Users> getUsersList() {
@@ -121,7 +122,8 @@ public class UsersDAO {
     }
 
     /**
-     *getUsersByUsername method and SQL Query
+     * getUsersByUsername method and SQL Query
+     *
      * @param username
      * @return
      */
@@ -133,7 +135,8 @@ public class UsersDAO {
     }
 
     /**
-     *List<Users> getUsersByPage method and SQL Query
+     * List<Users> getUsersByPage method and SQL Query
+     *
      * @param start
      * @param total
      * @return
@@ -153,7 +156,8 @@ public class UsersDAO {
     }
 
     /**
-     *getUsersCount method and SQL Query
+     * getUsersCount method and SQL Query
+     *
      * @return
      */
     public int getUsersCount() {

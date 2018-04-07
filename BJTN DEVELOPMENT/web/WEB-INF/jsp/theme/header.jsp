@@ -28,7 +28,7 @@
                         <c:if test="${pageContext.request.userPrincipal.name != null}">
                             <span>Welcome, <strong>${pageContext.request.userPrincipal.name}</strong></span><br>
                         </c:if>
-                        
+
                     </sec:authorize>
                 </div>
             </div>
@@ -49,10 +49,10 @@
                     <a href="<c:url value="/client/viewclient" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>  Clients  <i class="fa fa-caret-down"></i></a>
                     <a href="<c:url value="/client/clientform" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>  Add Client  <i class="fa fa-caret-down"></i></a>
                     <a href="<c:url value="/interactions/viewinteractions" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>  Interactions  <i class="fa fa-caret-down"></i></a>
- <a href="<c:url value="/interactions/interactionsform" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>   Add Interaction  <i class="fa fa-caret-down"></i></a>
+                    <a href="<c:url value="/interactions/interactionsform" />" class="w3-padding w3-blue"><i class="fa fa-neuter fa-fw"></i>   Add Interaction  <i class="fa fa-caret-down"></i></a>
                 </div>
             </sec:authorize>
-           
+
             <a href="#" onclick="logoutFormSubmit();" class="w3-padding"><i class="fa fa-sign-out fa-fw"></i>  Logout</a><br><br>
 
             <form action="<c:url value="/j_spring_security_logout" />" method="post" id="logoutForm">

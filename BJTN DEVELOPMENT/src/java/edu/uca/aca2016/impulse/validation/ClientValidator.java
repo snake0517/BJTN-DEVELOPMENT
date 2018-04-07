@@ -29,7 +29,8 @@ public class ClientValidator implements Validator {
     }
 
     /**
-     *Client Validation parameters/RegEx
+     * Client Validation parameters/RegEx
+     *
      * @param target
      * @param errors
      */
@@ -78,7 +79,7 @@ public class ClientValidator implements Validator {
         if (!client.getLastName().matches("^[A-Za-z0-9]*$")) {
             errors.rejectValue("lastName", "client.lastName.pattern");
         }
-       
+
         if (!client.getEmail().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
             errors.rejectValue("email", "client.email.pattern");
         }

@@ -27,7 +27,8 @@ public class Interactions implements Serializable {
     private Map<String, String> contact;
 
     /**
-     *Contact type map
+     * Contact type map
+     *
      * @return
      */
     public Map<String, String> getContact() {
@@ -41,7 +42,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *Getter for Client
+     * Getter for Client
+     *
      * @return
      */
     public Client getClient() {
@@ -49,7 +51,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *Setter for Client
+     * Setter for Client
+     *
      * @param client
      */
     public void setClient(Client client) {
@@ -57,7 +60,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *Map for Clients(Getter)
+     * Map for Clients(Getter)
+     *
      * @return
      */
     public Map<Integer, String> getClients() {
@@ -65,7 +69,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *Map for Clients(Setter)
+     * Map for Clients(Setter)
+     *
      * @param clients
      */
     public void setClients(Map<Integer, String> clients) {
@@ -73,7 +78,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *Getter method for ClientID
+     * Getter method for ClientID
+     *
      * @return
      */
     public int getClientId() {
@@ -81,7 +87,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *Setter method for ClientID
+     * Setter method for ClientID
+     *
      * @param ClientId
      */
     public void setClientId(int ClientId) {
@@ -89,7 +96,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *Getter method for InteractionID
+     * Getter method for InteractionID
+     *
      * @return
      */
     public int getInteractionId() {
@@ -97,7 +105,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *Setter method for InteractionID
+     * Setter method for InteractionID
+     *
      * @param InteractionId
      */
     public void setInteractionId(int InteractionId) {
@@ -105,7 +114,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *Getter method for ClientID
+     * Getter method for ClientID
+     *
      * @return
      */
     public int getClientid() {
@@ -113,7 +123,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *Setter method for ClientID
+     * Setter method for ClientID
+     *
      * @param Clientid
      */
     public void setClientid(int Clientid) {
@@ -121,7 +132,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *Getter method for OccurredOn
+     * Getter method for OccurredOn
+     *
      * @return
      */
     public String getOccurredOn() {
@@ -129,7 +141,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *Setter method for OccurredOn
+     * Setter method for OccurredOn
+     *
      * @param OccurredOn
      */
     public void setOccurredOn(String OccurredOn) {
@@ -137,7 +150,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *ContactPerson Getter
+     * ContactPerson Getter
+     *
      * @return
      */
     public String getContactPerson() {
@@ -145,7 +159,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *Contact Person Setter
+     * Contact Person Setter
+     *
      * @param ContactPerson
      */
     public void setContactPerson(String ContactPerson) {
@@ -153,7 +168,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *ContactType Getter
+     * ContactType Getter
+     *
      * @return
      */
     public String getContactType() {
@@ -161,7 +177,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *ContactType Setter
+     * ContactType Setter
+     *
      * @param ContactType
      */
     public void setContactType(String ContactType) {
@@ -169,7 +186,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *Notes Getter
+     * Notes Getter
+     *
      * @return
      */
     public String getNotes() {
@@ -177,7 +195,8 @@ public class Interactions implements Serializable {
     }
 
     /**
-     *Notes Setter
+     * Notes Setter
+     *
      * @param Notes
      */
     public void setNotes(String Notes) {
